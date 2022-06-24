@@ -1,9 +1,8 @@
-# .github
+# Chores 
 
 
 
 ## Getting Started
-Make sure to cd into my-app folder
 1. Download dependencies with:
 
    > `npm install`
@@ -11,6 +10,7 @@ Make sure to cd into my-app folder
 3. Run with:
 
    > `npm run start`
+   > 
    > `npm run start-server`
 
 ## Technologies used
@@ -26,6 +26,13 @@ Make sure to cd into my-app folder
 ![MongoDB](https://img.shields.io/badge/mongodb-%23316192.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ### **Testing**
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+
+## Table of Contents
+- [Description](#description)
+- [Installation](#start)
+- [Usage](#usage)
+- [Acknowledgments](#acknowledgments)
+- [Contact](#contact)
 
 ## Contact
 Barry Cheung | | barryleecheung@gmail.com
