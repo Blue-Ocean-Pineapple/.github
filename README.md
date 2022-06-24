@@ -28,14 +28,14 @@ Make sure to cd into my-app folder
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 ## Contact
-Barry Cheung | 
+Barry Cheung | | barryleecheung@gmail.com
 
-Brian Bui |  | 
+Brian Bui |  | brianbui012@gmail.com
 
-Esther Kuang | |
+Esther Kuang | | eghkuang@gmail.com
 
-Jessica Yu | | yulejessica@gmail.com
+Jessica Yu | https://www.linkedin.com/in/jessicaleyu/ | yulejessica@gmail.com
 
-Leia Harlow | |
+Leia Harlow | | leia.harlow@gmail.com
 
-Peggy Tran | |
+Peggy Tran | | peggypotatoes@gmail.com
