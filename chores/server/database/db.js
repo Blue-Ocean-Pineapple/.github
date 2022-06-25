@@ -30,23 +30,21 @@ const TicketSchema = new mongoose.Schema({
       required: true
     }
   },
-  status: {
+  clientStatus: {
     type: String,
     required: true,
-    default: "Unassigned",
+    enum: ['awaiting', 'approved', 'in-progress'],
+    default: "awaiting",
   },
   creatorId: {
     type: String,
     required: true,
   },
   reacts: [String],
-  studentId: {
-    type: String,
-    required: true,
-  },
+  studentId: [String],
   staffId: {
     type: String,
-    required: true
+    default: null
   },
   date: {
     type: Date,
@@ -54,7 +52,11 @@ const TicketSchema = new mongoose.Schema({
   },
   createdAt : {
     type: Date,
+   },
+  complete: {
+    type: Boolean,
     required: true,
+    default: false
   }
 })
 
