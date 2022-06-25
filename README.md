@@ -66,14 +66,19 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![Jest](https://img.shields.io/badge/Jest-FF6C37?style=for-the-badge&logo=jest&logoColor=white)
 
-## Table of Contents
+### **Team Collaboration**
+![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
+![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white)
+
+<!-- ## Table of Contents
 
 - [Description](#description)
 - [Installation](#start)
 - [Usage](#usage)
 - [Acknowledgments](#acknowledgments)
 - [Contact](#contact)
-
+ -->
 ## Contact
 
 Barry Cheung | | barryleecheung@gmail.com
