@@ -12,21 +12,21 @@ router.get('/', (req, res) => (
 ));
 
 //AuthRoute:
-// router.post('/api/auth/register', auth.register);
-// router.post('/api/auth/login', auth.login);
+router.post('/api/auth/register', auth.register);
+router.post('/api/auth/login', auth.login);
 
 // //ClientRoute:
-// router.get('/api/clients/tickets', clients.getAll);
-// router.get('/api/clients/:id', clients.getClient);
-// router.post('/api/clients/create/:id', clients.createOne);
-// router.put('/api/clients/change/:id', clients.update);
-// router.delete('/api/clients/delete/:id', clients.delete);
+router.get('/api/clients/tickets', clients.getAll);
+router.get('/api/clients/:id', clients.getClient);
+router.post('/api/clients/create/:id', clients.createOne);
+router.put('/api/clients/change/:id', clients.update);
+router.delete('/api/clients/delete/:id', clients.delete);
 
 // //StaffRoute:
-// router.get('/api/staff/', staff.getAll);
-// router.post('/api/staff/:id', staff.createOne);
-// router.put('/api/staff/:id', staff.update);
-// router.delete('/api/staff/:id', staff.delete);
+router.get('/api/staff/', staff.getAll);
+router.post('/api/staff/:id', staff.createOne);
+router.put('/api/staff/:id', staff.update);
+router.delete('/api/staff/:id', staff.delete);
 
 //StudentRoutes:
 router.get('/api/student/ticket/open', student.getAllOpen);
@@ -37,9 +37,9 @@ router.put('/api/student/ticket/completed', student.completeTask);
 // router.delete('/api/student/account', student.delete);
 
 //AdminRoute:
-// router.get('/api/admin/', admin.getAll);
-// router.post('/api/admin/:id', admin.createOne);
-// router.put('/api/admin/:id', admin.update);
-// router.delete('/api/admin/:id', admin.delete);
+router.get('/api/admin/', admin.getAll);
+router.post('/api/admin/:id', admin.createOne);
+router.put('/api/admin/:id', admin.update);
+router.delete('/api/admin/:id', admin.delete);
 
 module.exports = router;
