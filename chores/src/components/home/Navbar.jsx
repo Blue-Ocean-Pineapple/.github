@@ -18,7 +18,8 @@ import {
 } from "react-router-dom";
 
 export function Navbar() {
-  const { logout, currentUser } = useAuth()
+  const { logout, currentUser } = useAuth();
+
   return (
     <Box
       borderBottom='2px'
@@ -32,7 +33,7 @@ export function Navbar() {
         mx='auto'
         spacing={4}
       >
-        <Navlink to='/' name='Chores' size='lg' />
+        <Navlink to='/' name='Home' size='lg' />
         <Spacer />
         {!currentUser && <Navlink to='/login' name='Login' />}
         {!currentUser && <Navlink to='/register' name='Register' />}

@@ -19,18 +19,17 @@ import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
 
 
-export default function Login() {
+export default function Register() {
   const navigate = useNavigate();
-  const { signInWithGoogle, login, signInWithFacebook } = useAuth();
+  const { signInWithGoogle, register, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast();
-
   return (
     <Layout>
       <Heading textAlign='center' my={12}>
-        Login
+       Register
       </Heading>
       <Card maxW='md' mx='auto' mt={4}>
         <chakra.form
@@ -46,9 +45,10 @@ export default function Login() {
               return
             }
             setIsSubmitting(true)
-            login(email, password)
+            register(email, password)
               .then(res => {
-                console.log('login res', res)
+                console.log('HIT IT')
+                console.log('register res', res)
                 navigate('/profile')
               })
               .catch(error => {
@@ -96,13 +96,13 @@ export default function Login() {
               fontSize='md'
               isLoading={isSubmitting}
             >
-             Log In
+              Sign Up
             </Button>
           </Stack>
         </chakra.form>
         <HStack justifyContent='space-between' my={4}>
           <Button variant='link' onClick={() => navigate('/register')}>
-           Log In
+            Register
           </Button>
         </HStack>
         <DividerWithText my={6}>OR</DividerWithText>
@@ -119,7 +119,7 @@ export default function Login() {
               .catch(e => console.log(e.message))
           }
         >
-          Sign in with Google
+          Sign Up with Google
         </Button>
 
         <Button
@@ -135,7 +135,7 @@ export default function Login() {
               .catch(e => console.log(e.message))
           }
         >
-          Sign in with Facebook
+          Sign Up with Facebook
         </Button>
       </Card>
     </Layout>

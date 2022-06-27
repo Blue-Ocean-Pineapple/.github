@@ -1,5 +1,5 @@
-import { auth } from '../firebase-config.js';
 import React, { createContext, useContext, useEffect, useState  } from 'react';
+import { auth } from '../firebase-config.js';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -12,7 +12,6 @@ import {
 
 const AuthContext = createContext({
   currentUser: null,
-  signInPasswordless: () => Promise,
   signInWithGoogle: () => Promise,
   signInWithFacebook: () => Promise,
   login: () => Promise,
