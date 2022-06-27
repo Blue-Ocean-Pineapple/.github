@@ -23,11 +23,9 @@ const TicketSchema = new mongoose.Schema({
     type: {
       type: String,
       enum: ['Point'],
-      required: true
     },
     coordinates: {
       type: [Number],
-      required: true
     }
   },
   clientStatus: {
@@ -47,8 +45,7 @@ const TicketSchema = new mongoose.Schema({
     default: null
   },
   date: {
-    type: Date,
-    required: true,
+    type: Date
   },
   createdAt : {
     type: Date,

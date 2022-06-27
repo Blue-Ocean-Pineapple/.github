@@ -16,6 +16,14 @@ module.exports = {
 
   completeTask: (ticketId) => {
     return db.ticket.findOneAndUpdate({ticketId}, {complete: true})
+  },
+
+  createTicket: (info) => {
+    return db.ticket.create(info)
+  },
+
+  deleteTickets: () => {
+    return db.ticket.deleteMany({})
   }
 
 }
