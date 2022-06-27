@@ -10,7 +10,7 @@ module.exports = {
   // get tickets where status = approved AND completed is not true
   getAllOpen: (req, res) => {
     model.getAllOpen()
-    .then((data) => res.send(data.data).status(200))
+    .then((data) => res.send(data).status(200))
     .catch((err) => res.send(err).status(404))
   },
 
@@ -28,6 +28,7 @@ module.exports = {
       studentId: req.body.student_id || req.query.student_id || req.params.student_id,
       ticketId: req.body.ticketId || req.query.ticketId || req.params.ticketId
     };
+    console.log(info)
     model.voteTask(info)
     .then((data) => res.send(data.data).status(200))
     .catch((err) => res.send(err).status(404))
