@@ -15,7 +15,7 @@ router.get('/', (req, res) => (
 router.post('/api/auth/register', auth.register);
 router.post('/api/auth/login', auth.login);
 
-//ClientRoute:
+// //ClientRoute:
 router.get('/api/clients/tickets', clients.getAll);
 router.get('/api/clients/:id', clients.getClient);
 router.post('/api/clients/create/:id', clients.createOne);
@@ -33,11 +33,11 @@ router.put('/api/staff/:id', staff.updateTicket);
 
 //StudentRoutes:
 router.get('/api/student/ticket/open', student.getAllOpen);
-router.get('/api/student/ticket/close', student.getAllClosed);
+router.get('/api/student/ticket/closed', student.getAllClosed);
 router.put('/api/student/ticket/vote', student.voteTask);
-router.put('/api/student/ticket/complete', student.completeTask);
-router.post('/api/student/account', student.createOne);
-router.delete('/api/student/account', student.delete);
+router.put('/api/student/ticket/completed', student.completeTask);
+// router.post('/api/student/account', student.createOne);
+// router.delete('/api/student/account', student.delete);
 
 //AdminRoute:
 router.get('/api/admin/', admin.getAllTickets);

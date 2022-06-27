@@ -1,0 +1,27 @@
+[
+  {
+   "description": "Walk dog around neighborhood",
+    "creatorId": "1",
+    "clientStatus": "approved"
+  },
+  {
+    "description": "Wash dishes",
+     "creatorId": "2",
+     "clientStatus": "approved"
+   },
+  {
+   "description": "Walk dog around neighborhood",
+    "creatorId": "1",
+    "clientStatus": "approved",
+    "complete": true,
+    "studentId": "1"
+  },
+  {
+    "description": "Mow the lawn",
+     "creatorId": "1",
+     "clientStatus": "approved",
+     "complete": true,
+     "studentId": "2"
+   }
+
+]
