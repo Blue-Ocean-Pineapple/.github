@@ -1,63 +1,153 @@
 import {
-  Flex,
-  Box,
+  Button,
+  chakra,
   FormControl,
   FormLabel,
-  Input,
-  Checkbox,
-  Stack,
-  Link,
-  Button,
   Heading,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
+  HStack,
+  Input,
+  Stack,
+  useToast,
+} from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { FaGoogle } from 'react-icons/fa';
+import { FaFacebook } from 'react-icons/fa';
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Card } from '../home/Card'
+import DividerWithText from '../home/DividerWithText.jsx';
+import { Layout } from '../home/Layout'
+import { useAuth } from '../../contexts/AuthContext';
 
-export default function Login() {
+
+export default function Loginpage() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { signInWithGoogle, login, signInWithFacebook } = useAuth();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const toast = useToast();
+
   return (
-    <Flex
-      minH={'100vh'}
-      align={'center'}
-      justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
-        </Stack>
-        <Box
-          rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
-          boxShadow={'lg'}
-          p={8}>
-          <Stack spacing={4}>
-            <FormControl id="email">
+    <Layout>
+      <Heading textAlign='center' my={12}>
+        Login
+      </Heading>
+      <Card maxW='md' mx='auto' mt={4}>
+        <chakra.form
+          onSubmit={async e => {
+            e.preventDefault()
+            if (!email || !password) {
+              toast({
+                description: 'Credentials not valid.',
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
+              return
+            }
+            setIsSubmitting(true)
+            login(email, password)
+              .then(res => {
+                console.log('login res', res)
+                navigate.push('/profile')
+              })
+              .catch(error => {
+                console.log(error.message)
+                toast({
+                  description: error.message,
+                  status: 'error',
+                  duration: 9000,
+                  isClosable: true,
+                })
+              })
+              .finally(() => {
+                // setTimeout(() => {
+                //   mounted.current && setIsSubmitting(false)
+                //   console.log(mounted.current)
+                // }, 1000)
+                 setIsSubmitting(false)
+              })
+          }}
+        >
+          <Stack spacing='6'>
+            <FormControl id='email'>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input
+                name='email'
+                type='email'
+                autoComplete='email'
+                required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
             </FormControl>
-            <FormControl id="password">
+            <FormControl id='password'>
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <Input
+                name='password'
+                type='password'
+                autoComplete='password'
+                value={password}
+                required
+                onChange={e => setPassword(e.target.value)}
+              />
             </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>
-                <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
-              </Stack>
-              <Button
-                bg={'blue.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-                }}>
-                Sign in
-              </Button>
-            </Stack>
+            {/* <PasswordField /> */}
+            <Button
+              type='submit'
+              colorScheme='pink'
+              size='lg'
+              fontSize='md'
+              isLoading={isSubmitting}
+            >
+              Sign in
+            </Button>
           </Stack>
-        </Box>
-      </Stack>
-    </Flex>
-  );
+        </chakra.form>
+        <HStack justifyContent='space-between' my={4}>
+          <Button variant='link'>
+            <Link to='/forgot-password'>Forgot password?</Link>
+          </Button>
+          <Button variant='link' onClick={() => navigate.push('/register')}>
+            Register
+          </Button>
+        </HStack>
+        <DividerWithText my={6}>OR</DividerWithText>
+        <Button
+          variant='outline'
+          isfullwidth="true"
+          colorScheme='red'
+          leftIcon={<FaGoogle />}
+          onClick={() =>
+            signInWithGoogle()
+              .then(user => {
+                // handleRedirectToOrBack()
+                console.log(user)
+              })
+              .catch(e => console.log(e.message))
+          }
+        >
+          Sign in with Google
+        </Button>
+
+        <Button
+          variant='outline'
+          isfullwidth="true"
+          colorScheme='blue'
+          leftIcon={<FaFacebook />}
+          onClick={() =>
+            signInWithFacebook()
+              .then(user => {
+                // handleRedirectToOrBack()
+                console.log(user)
+              })
+              .catch(e => console.log(e.message))
+          }
+        >
+          Sign in with Facebook
+        </Button>
+      </Card>
+    </Layout>
+  )
 }
