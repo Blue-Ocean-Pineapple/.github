@@ -1,18 +1,21 @@
-const { Ticket, User } = require("../database/db.js");
+const { Ticket } = require("../database/db.js");
 
 module.exports = {
   getAllOpen: () => {
-    return Ticket.find({ complete: false, status: "approved" });
+    return Ticket.find({ clientStatus: "approved" });
     // We cant just search up for tickets, we need to search for the tickets
     // approved under a certain organization
   },
 
   getAllAssignedOpen: (studentId) => {
-    return Ticket.find({ studentId, complete: false, status: "approved" });
+    return Ticket.find({
+      studentId,
+      clientStatus: "approved",
+    });
   },
 
   getAllClosed: (studentId) => {
-    return Ticket.find({ studentId, complete: true });
+    return Ticket.find({ studentId, clientStatus: "complete" });
   },
 
   voteTask: ({ ticketId, studentId }) => {
@@ -23,7 +26,14 @@ module.exports = {
   },
 
   completeTask: (ticketId) => {
-    return Ticket.findOneAndUpdate({ ticketId }, { complete: true });
+    return Ticket.findOneAndUpdate({ ticketId }, { clientStatus: "complete" });
+  },
+
+  rejectTask: ({ ticketId, studentId }) => {
+    return Ticket.findOneAndUpdate(
+      { ticketId, studentId },
+      { studentId: null }
+    );
   },
 
   createTicket: (info) => {
