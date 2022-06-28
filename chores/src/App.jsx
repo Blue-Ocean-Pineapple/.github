@@ -18,12 +18,12 @@ import {
 import { useState } from "react";
 import AuthContextProvider from './contexts/AuthContext';
 
-function App() {
+function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
 
   return (
     <AuthContextProvider>
-    <Router>
+     <Router>
       <Routes>
          <Route exact path="/" element={<Home setIsAuth={setIsAuth}/>} />
          <Route path="/login" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}/>

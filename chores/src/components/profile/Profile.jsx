@@ -10,7 +10,8 @@ import {
   Stack,
   Menu,
   MenuButton,
-  MenuList } from '@chakra-ui/react';
+  MenuList,
+  MenuItem } from '@chakra-ui/react';
 import {  useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { Layout } from '../home/Layout';
@@ -28,21 +29,16 @@ export default function Profile() {
   const [state, setState] = useState('');
   const [phone, setPhone] = useState('');
   const roles = ['Student','Client', 'Staff', 'Admin'];
-  const [role, setRole] = useState(roles);
+  // const [role, setRole] = useState(roles);
   const [organization, setOrginization] = useState('');
   const [active, setActive] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
 
-  // const [isOpen, setOpen] = useState(false);
-  // const [role, setRole] = useState(data);
-  // const [selectedItem, setSelectedItem] = useState(null);
+  const [isOpen, setOpen] = useState(false);
+  const [role, setRole] = useState(roles);
 
-  // const toggleDropdown = () => setOpen(!isOpen);
-
-  // const handleItemClick = (id) => {
-  //   selectedItem === id ? setSelectedItem(null) : setSelectedItem(id);
-  // }
+  const toggleDropdown = () => setOpen(!isOpen);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +75,7 @@ export default function Profile() {
         </chakra.pre>
         {
         currentUser && (
-        <chakra.form >
+        <chakra.form  onSubmit={handleSubmit} >
           <Stack spacing='6'>
             <FormControl id='name'>
               <FormLabel>Name</FormLabel>
@@ -153,9 +149,15 @@ export default function Profile() {
               />
             </FormControl> */}
             <Menu>
-              <MenuButton as={Button} colorScheme='pink'>Role</MenuButton>
+              <MenuButton as={Button} colorScheme='pink' onClick={toggleDropdown}>Role</MenuButton>
               <MenuList>
-
+                {
+                  roles.map((role) => {
+                    return (
+                      <MenuItem key={role} value={role} onClick={e => setRole(e.target.value)}>{role}</MenuItem>
+                    )
+                  })
+                }
               </MenuList>
             </Menu>
             <FormControl id='orginization'>
@@ -184,7 +186,6 @@ export default function Profile() {
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
-              onSubmit={handleSubmit}
             >
             Update Account
             </Button>

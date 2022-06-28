@@ -16,7 +16,8 @@ router.get('/', (req, res) => (
 router.post('/api/users/info', users.saveUser);
 // router.put('/api/users/:id', users.update);
 // router.delete('/api/users/:id', users.delete);
-// router.get('/api/users/:id', users.getOne);
+router.get('/api/users/:uid', users.getOne);
+router.get('/api/users', users.getAll);
 
 //ClientRoute:
 router.get('/api/clients/tickets', clients.getAll);

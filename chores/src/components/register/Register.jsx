@@ -12,14 +12,11 @@ import {
 import React, { useState } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Card } from '../home/Card'
 import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout.jsx';
 import { useAuth } from '../../contexts/AuthContext';
-
-// const user = auth.currentUser;
-// axios.post(‘/user/info’, {uid: user.uid, displayName: user.displayName, photoURL: user.photoURL, email: user.email});
 
 export default function Register({setIsAuth}) {
   const navigate = useNavigate();

@@ -12,13 +12,11 @@ import {
 import React, { useState } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { Card } from '../home/Card'
 import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
-import axios from 'axios';
-
 
 export default function Login({setIsAuth}) {
   const navigate = useNavigate();
@@ -50,7 +48,6 @@ export default function Login({setIsAuth}) {
             login(email, password)
               .then(res => {
                 console.log('login res', res)
-                // axios.post('/user/info', {user: currentUser})
                 localStorage.setItem('isAuth', true)
                 setIsAuth(true)
                 navigate('/profile')
@@ -118,9 +115,9 @@ export default function Login({setIsAuth}) {
           onClick={() =>
             signInWithGoogle()
               .then(user => {
-                console.log(user)
+                console.log('google user', user)
                 localStorage.setItem('isAuth', true)
-                setIsAuth(true)
+                navigate('/profile')
               })
               .catch(e => console.log(e.message))
           }
@@ -138,7 +135,7 @@ export default function Login({setIsAuth}) {
               .then(user => {
                 console.log(user)
                 localStorage.setItem('isAuth', true)
-                setIsAuth(true)
+                navigate('/profile')
               })
               .catch(e => console.log(e.message))
           }

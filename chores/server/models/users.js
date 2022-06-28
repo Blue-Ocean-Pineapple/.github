@@ -27,9 +27,13 @@ module.exports = {
       console.log('err while register', err)
     }
   },
-  // get: function () {
-
-  // },
+  getOne: (id ) => {
+    console.log('id in model', id)
+     return User.findOne({id: id});
+  },
+  getAll: () => {
+    return User.find({});
+  },
   // put: function () {
 
   // },
