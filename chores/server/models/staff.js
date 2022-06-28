@@ -24,10 +24,11 @@ module.exports = {
 
   assignStudentAndStaff: function(req, callback) {
     console.log('model req assignStudentAndStaff', req)
-    const staffId = ({ _id: req[0]._id });
-    const studentId = ({ _id: req[1]._id });
-    const status = ({ clientStatus: 'in-progress'})
-    db.User.findOneAndUpdate(req._id, {staffId, studentId, status}, { new: true, upsert: true })
+    const ticketId = { _id: req._id };
+    const staffId = { staffId: req.staffId };
+    const studentId = { studentId: req.studentId };
+    const status = { clientStatus: 'in-progress'}
+    db.User.findOneAndUpdate(ticketId, {staffId, studentId, status}, { new: true, upsert: true })
       .then((results) => {
         console.log('model getalltickets results', results)
         callback(null, results)
