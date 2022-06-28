@@ -27,17 +27,8 @@ const TicketSchema = new mongoose.Schema({
     required: true,
   },
   location: {
-<<<<<<< HEAD
-    address: {
-      type: String
-    },
-    coordinates: {
-      type: [Number],
-    }
-=======
     type: String,
     required: true,
->>>>>>> main
   },
   clientStatus: {
     type: String,
