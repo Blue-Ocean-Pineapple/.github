@@ -113,10 +113,10 @@ const UserSchema = new mongoose.Schema({
 // },
 // { timestamps: true });
 
-const user = mongoose.model('users', UserSchema);
-const ticket = mongoose.model('tickets', TicketSchema);
+const User = mongoose.model('users', UserSchema);
+const Ticket = mongoose.model('tickets', TicketSchema);
 // const category = mongoose.model('categories', CategorySchema);
 
-module.exports.user = user;
-module.exports.ticket = ticket;
+module.exports.user = User;
+module.exports.ticket = Ticket;
 // module.exports.category = category;
