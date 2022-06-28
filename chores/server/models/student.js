@@ -1,4 +1,4 @@
-const { Ticket } = require("../database/db.js");
+const { Ticket, User } = require("../database/db.js");
 
 module.exports = {
   getAllOpen: () => {
@@ -9,12 +9,10 @@ module.exports = {
 
   getAllAssignedOpen: (studentId) => {
     return Ticket.find({ studentId, complete: false, status: "approved" });
-    // Also under an org
   },
 
   getAllClosed: (studentId) => {
     return Ticket.find({ studentId, complete: true });
-    // also under an org
   },
 
   voteTask: ({ ticketId, studentId }) => {
