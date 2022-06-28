@@ -7,7 +7,7 @@ import Admin from './components/admin/admin.jsx'
 // import Admin from './components/admin/admin.jsx';
 // import Customer from './components/customer/customer.jsx';
 // import Map from './components/map/map.jsx';
-// import Staff from './components/staff/staff.jsx';
+import Staff from './components/staff/Staff.jsx';
 // import Student from './components/student/student.jsx';
 // import Navbar from './components/home/Navbar.jsx';
 
