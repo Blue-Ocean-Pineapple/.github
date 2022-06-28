@@ -1,19 +1,31 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 //create connection
-mongoose.connect('mongodb://localhost/chores',
-  { useNewUrlParser: true }, { useUnifiedTopology: true } )
+mongoose
+  .connect(
+    "mongodb://localhost/chores",
+    { useNewUrlParser: true },
+    { useUnifiedTopology: true }
+  )
   .then(() => {
-    console.log('database connected sucessfully!');
-  }).catch(() => {
-    mongoose.set('useCreateIndex', true);
+    console.log("database connected sucessfully!");
+  })
+  .catch(() => {
+    mongoose.set("useCreateIndex", true);
   });
 
-  // ,function(){
+// ,function(){
 //   mongoose.connection.db.dropDatabase();
 // });
 
 const TicketSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  wage: {
+    type: Number,
+  },
   description: {
     type: String,
     trim: true,
@@ -22,16 +34,16 @@ const TicketSchema = new mongoose.Schema({
   location: {
     type: {
       type: String,
-      enum: ['Point'],
+      enum: ["Point"],
     },
     coordinates: {
       type: [Number],
-    }
+    },
   },
   clientStatus: {
     type: String,
     required: true,
-    enum: ['awaiting', 'approved', 'in-progress'],
+    enum: ["awaiting", "approved", "in-progress"],
     default: "awaiting",
   },
   creatorId: {
@@ -39,23 +51,26 @@ const TicketSchema = new mongoose.Schema({
     required: true,
   },
   reacts: [String],
-  studentId: [String],
+  studentId: {
+    type: String,
+    default: null,
+  },
   staffId: {
     type: String,
-    default: null
+    default: null,
   },
   date: {
-    type: Date
-  },
-  createdAt : {
     type: Date,
-   },
+  },
+  createdAt: {
+    type: Date,
+  },
   complete: {
     type: Boolean,
     required: true,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
 const UserSchema = new mongoose.Schema({
   firstName: {
@@ -75,7 +90,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   password: {
-    type: String
+    type: String,
   },
   address: {
     type: String,
@@ -85,35 +100,39 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  photo : {
-    type: String
+  photo: {
+    type: String,
   },
   role: {
     type: String,
-    required: true
+    required: true,
   },
   organization: {
     type: String,
-    required: true
-  }
-});
-
-const CategorySchema = new mongoose.Schema({
-  name: {
-    type: String,
     required: true,
-    unique: true,
   },
-  wage: {
-      type: Number,
-  }
-},
-{ timestamps: true });
+});
+// Need to move organization into Tickets so we can find all tickets that are open
+// Within an organization
 
-const user = mongoose.model('users', UserSchema);
-const ticket = mongoose.model('tickets', TicketSchema);
-const category = mongoose.model('categories', CategorySchema);
+// const CategorySchema = new mongoose.Schema(
+//   {
+//     name: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//     },
+//     wage: {
+//       type: Number,
+//     },
+//   },
+//   { timestamps: true }
+// );
 
-module.exports.user = user;
-module.exports.ticket = ticket;
-module.exports.category = category;
+const User = mongoose.model("Users", UserSchema);
+const Ticket = mongoose.model("Tickets", TicketSchema);
+// const Category = mongoose.model("Categories", CategorySchema);
+
+module.exports.User = User;
+module.exports.Ticket = Ticket;
+// module.exports.Category = Category;

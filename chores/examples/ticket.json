@@ -2,26 +2,30 @@
   {
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
-    "clientStatus": "approved"
+    "clientStatus": "approved",
+    "name": "Dog Walk"
   },
   {
     "description": "Wash dishes",
      "creatorId": "2",
-     "clientStatus": "approved"
+     "clientStatus": "approved",
+     "name": "Washing Dishes"
    },
   {
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved",
     "complete": true,
-    "studentId": "1"
+    "studentId": "1",
+    "name": "Dog Walk"
   },
   {
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
-     "studentId": "2"
+     "studentId": "2",
+     "name": "Lawn mowing"
    }
 
 ]
