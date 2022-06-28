@@ -1,10 +1,13 @@
 import { chakra, Container, Heading } from '@chakra-ui/react'
 import React from 'react'
 import { Layout } from '../home/Layout';
-import { useAuth } from '../../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext';
+import axios from "axios";
 
 export default function Profile() {
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuth();
+  console.log('currentUser in Profile', currentUser);
+
   return (
     <Layout>
       <Heading>Profile page</Heading>
@@ -16,3 +19,4 @@ export default function Profile() {
     </Layout>
   )
 }
+

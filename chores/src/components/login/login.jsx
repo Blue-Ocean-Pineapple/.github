@@ -17,11 +17,12 @@ import { Card } from '../home/Card'
 import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
+import axios from 'axios';
 
 
 export default function Login() {
   const navigate = useNavigate();
-  const { signInWithGoogle, login, signInWithFacebook } = useAuth();
+  const { currentUser, signInWithGoogle, login, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -49,6 +50,7 @@ export default function Login() {
             login(email, password)
               .then(res => {
                 console.log('login res', res)
+                // axios.post('/user/info', {user: currentUser})
                 navigate('/profile')
               })
               .catch(error => {

@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/chores',
     mongoose.set('useCreateIndex', true);
   });
 
-  // ,function(){
+//   function(){
 //   mongoose.connection.db.dropDatabase();
 // });
 
@@ -58,6 +58,10 @@ const TicketSchema = new mongoose.Schema({
 })
 
 const UserSchema = new mongoose.Schema({
+  uid: {
+    type: String,
+    required: true,
+  },
   firstName: {
     type: String,
     required: true,
@@ -85,9 +89,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  photo : {
-    type: String
-  },
   role: {
     type: String,
     required: true
@@ -95,25 +96,30 @@ const UserSchema = new mongoose.Schema({
   organization: {
     type: String,
     required: true
+  },
+  active: {
+    type: Boolean,
+    required: true,
+    defaut: true
   }
 });
 
-const CategorySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  wage: {
-      type: Number,
-  }
-},
-{ timestamps: true });
+// const CategorySchema = new mongoose.Schema({
+//   name: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//   },
+//   wage: {
+//       type: Number,
+//   }
+// },
+// { timestamps: true });
 
 const User = mongoose.model('users', UserSchema);
 const Ticket = mongoose.model('tickets', TicketSchema);
-const Category = mongoose.model('categories', CategorySchema);
+// const Category = mongoose.model('categories', CategorySchema);
 
 module.exports.User = User;
 module.exports.Ticket = Ticket;
-module.exports.Category = Category;
+// module.exports.Category = Category;

@@ -18,6 +18,8 @@ import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
 
+// const user = auth.currentUser;
+// axios.post(‘/user/info’, {uid: user.uid, displayName: user.displayName, photoURL: user.photoURL, email: user.email});
 
 export default function Register() {
   const navigate = useNavigate();
@@ -47,9 +49,9 @@ export default function Register() {
             setIsSubmitting(true)
             register(email, password)
               .then(res => {
-                console.log('HIT IT')
                 console.log('register res', res)
                 navigate('/profile')
+
               })
               .catch(error => {
                 console.log(error.message)
@@ -95,6 +97,15 @@ export default function Register() {
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
+              onClick={() =>
+                toast({
+                  title: 'Account created.',
+                  description: "We've created your account for you.",
+                  status: 'success',
+                  duration: 9000,
+                  isClosable: true,
+                })
+              }
             >
               Sign Up
             </Button>
