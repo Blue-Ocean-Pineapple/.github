@@ -10,12 +10,12 @@ module.exports = {
   },
 
   voteTask: (info) => {
-    return db.Ticket.findOneAndUpdate({ticketId: info.ticketId},
+    return db.Ticket.findOneAndUpdate({TicketId: info.TicketId},
       {$push: {reacts: info.studentId}})
   },
 
-  completeTask: (ticketId) => {
-    return db.Ticket.findOneAndUpdate({ticketId}, {complete: true})
+  completeTask: (TicketId) => {
+    return db.Ticket.findOneAndUpdate({TicketId}, {complete: true})
   },
 
   createTicket: (info) => {
