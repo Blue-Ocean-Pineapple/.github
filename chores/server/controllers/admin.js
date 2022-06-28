@@ -1,69 +1,51 @@
 const model = require("../models/admin.js");
 
 module.exports = {
-  getAllTickets: function (req, res) {
-    model.getAllStudents((err, results) => {
-      console.log("ticket data?", results.data);
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(results.data);
-      }
-    });
+  // getAllTickets: (req, res) => {
+  //     model.getAllStudents()
+  //     .then((data) => res.send(data).status(200))
+  //     .catch((err) => res.send(err).status(500))
+  // },
+
+  // getAllAccounts: (req, res) => {
+  //     model.getAllAccounts()
+  //     .then((data) => res.send(data).status(200))
+  //     .catch((err) => res.send(err).status(500))
+  // },
+
+  deleteAccount: (req, res) => {
+    let account = req.body.email;
+    model
+      .deleteAccount(account)
+      .then((data) => res.send(data).status(200))
+      .catch((err) => res.send(err).status(500));
   },
 
-  getAllAccounts: function (req, res) {
-    model.getAllAccounts((err, results) => {
-      console.log("student data?", results.data);
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(results.data);
-      }
-    });
+  deleteAll: (req, res) => {
+    model
+      .deleteAllUsers(req.body)
+      .then((data) => res.send(data).status(200))
+      .catch((err) => res.send(err).status(500));
   },
 
-  deleteAccount: function (req, res) {
-    model.deleteAccount(req.body, (err, results) => {
-      console.log("deleteAccount data?", results.data);
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(results.data);
-      }
-    });
-  },
+  // updateTicket: (req, res) => {
+  //     let ticket = req.body.ticket_id;
+  //     model.updateTicet(ticket)
+  //     .then((data) => res.send(data).status(200))
+  //     .catch((err) => res.send(err).status(500))
+  // },
 
-  updateTicket: function (req, res) {
-    model.updateTicket(req.body, (err, results) => {
-      console.log("updateTicket data?", results.data);
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(results.data);
-      }
-    });
-  },
+  // addStaff: (req, res) => {
+  //     let staff = req.body.role;
+  //     model.addStaff(staff)
+  //     .then((data) => res.send(data).status(200))
+  //     .catch((err) => res.send(err).status(500))
+  // },
 
-  addStaff: function (req, res) {
-    model.addStaff(req.body, (err, results) => {
-      console.log("addStaff data?", results.data);
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(results.data);
-      }
-    });
-  },
-
-  addStudent: function (req, res) {
-    model.addStudent(req.body, (err, results) => {
-      console.log("addStudent data?", results.data);
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(results.data);
-      }
-    });
-  },
+  // addStudent: (req, res) => {
+  //     let student = req.body.role;
+  //     model.addStudent(student)
+  //     .then((data) => res.send(data).status(200))
+  //     .catch((err) => res.send(err).status(500))
+  // }
 };

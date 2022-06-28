@@ -14,7 +14,11 @@ mongoose
     mongoose.set("useCreateIndex", true);
   });
 
+<<<<<<< HEAD
 // ,function(){
+=======
+//   function(){
+>>>>>>> main
 //   mongoose.connection.db.dropDatabase();
 // });
 
@@ -43,7 +47,7 @@ const TicketSchema = new mongoose.Schema({
   clientStatus: {
     type: String,
     required: true,
-    enum: ["awaiting", "approved", "in-progress"],
+    enum: ['awaiting', 'approved', 'in-progress', 'complete'],
     default: "awaiting",
   },
   creatorId: {
@@ -64,15 +68,15 @@ const TicketSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-  },
-  complete: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
-});
+    default: Date.now,
+   },
+})
 
 const UserSchema = new mongoose.Schema({
+  uid: {
+    type: String,
+    required: true,
+  },
   firstName: {
     type: String,
     required: true,
@@ -88,6 +92,7 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true
   },
   password: {
     type: String,
@@ -100,15 +105,19 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+<<<<<<< HEAD
   photo: {
     type: String,
   },
+=======
+>>>>>>> main
   role: {
     type: String,
     required: true,
   },
   organization: {
     type: String,
+<<<<<<< HEAD
     required: true,
   },
 });
@@ -136,3 +145,34 @@ const Ticket = mongoose.model("Tickets", TicketSchema);
 module.exports.User = User;
 module.exports.Ticket = Ticket;
 // module.exports.Category = Category;
+=======
+    required: true
+  },
+  active: {
+    type: Boolean,
+    required: true,
+    defaut: true
+  }
+});
+
+// const CategorySchema = new mongoose.Schema({
+//   name: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//   },
+//   wage: {
+//       type: Number,
+//   }
+// },
+// { timestamps: true });
+
+const User = mongoose.model('users', UserSchema);
+const Ticket = mongoose.model('tickets', TicketSchema);
+// const Category = mongoose.model('categories', CategorySchema);
+
+module.exports.User = User;
+module.exports.Ticket = Ticket;
+// module.exports.Category = Category;
+
+>>>>>>> main
