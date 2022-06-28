@@ -40,11 +40,11 @@ router.put('/api/student/ticket/completed', student.completeTask);
 // router.delete('/api/student/account', student.delete);
 
 //AdminRoute:
-router.get('/api/admin/', admin.getAllTickets);
-router.get('/api/admin/', admin.getAllAccounts);
-router.put('/api/admin/:id', admin.updateTicket);
-router.delete('/api/admin/:id', admin.deleteAccount);
-router.post('/api/admin/:id', admin.addStaff);
-router.post('/api/admin/:id', admin.addStudent);
+// router.get('/api/admin/tickets', admin.getAllTickets);
+// router.get('/api/admin/accounts', admin.getAllAccounts);
+// router.put('/api/admin/update/:id', admin.updateTicket);
+router.delete('/api/admin/delete/', admin.deleteAccount);
+// router.post('/api/admin/staff/:id', admin.addStaff);
+// router.post('/api/admin/student/:id', admin.addStudent);
 
 module.exports = router;
