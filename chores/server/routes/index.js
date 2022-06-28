@@ -26,13 +26,13 @@ router.put('/api/clients/update', clients.update);
 router.delete('/api/clients/delete', clients.delete);
 
 //StaffRoute:
-router.get('/api/staff/', staff.getAllTickets);
-router.get('/api/staff/', staff.getAllStudents);
-router.post('/api/staff/:id', staff.updateStudent);
-router.delete('/api/staff/:id', staff.deactivateStudent);
-router.post('/api/staff/:id', staff.addStudent);
-router.post('/api/staff/:id', staff.addStaff);
-router.put('/api/staff/:id', staff.updateTicket);
+router.get('/api/staff/allTickets', staff.getAllTickets);
+router.get('/api/staff/allStudents', staff.getAllUsers);
+router.put('/api/staff/assignStudentAndStaff', staff.assignStudentAndStaff);
+router.put('/api/staff/updateTicketStatus', staff.updateTicketStatus);
+router.delete('/api/staff/deactivateStudent', staff.deactivateStudent);
+router.post('/api/staff/addStaffOrStudent', staff.addStaffOrStudent);
+
 
 //StudentRoutes:
 router.get('/api/student/ticket/open', student.getAllOpen);

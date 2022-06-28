@@ -32,7 +32,8 @@ const TicketSchema = new mongoose.Schema({
   },
   clientStatus: {
     type: String,
-    enum: ['awaiting', 'approved', 'in-progress'],
+    required: true,
+    enum: ['awaiting', 'approved', 'in-progress', 'complete'],
     default: "awaiting",
   },
   creatorId: {
@@ -52,11 +53,6 @@ const TicketSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
    },
-  complete: {
-    type: Boolean,
-    required: true,
-    default: false
-  }
 })
 
 const UserSchema = new mongoose.Schema({
@@ -79,6 +75,7 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true
   },
   password: {
     type: String
