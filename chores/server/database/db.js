@@ -100,11 +100,7 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
     defaut: true
-<<<<<<< HEAD
-  },
-=======
   }
->>>>>>> main
 });
 
 // const CategorySchema = new mongoose.Schema({
