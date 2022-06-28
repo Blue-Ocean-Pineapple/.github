@@ -19,17 +19,20 @@ function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
 
   return (
-    <Router>
-      <Routes>
-         <Route exact path="/" element={<Home />} />
-         <Route path="/login" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}/>
-         <Route path="/admin" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Admin />}/>
-         <Route path="/customer" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Customer />}/>
-         <Route path="/staff" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Staff />}/>
-         <Route path="/student" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Student />}/>
-         <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} />
-      </Routes>
-    </Router>
+    <div>
+      <Map/>
+    </div>
+    // <Router>
+    //   <Routes>
+    //      <Route exact path="/" element={<Home />} />
+    //      <Route path="/login" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}/>
+    //      <Route path="/admin" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Admin />}/>
+    //      <Route path="/customer" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Customer />}/>
+    //      <Route path="/staff" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Staff />}/>
+    //      <Route path="/student" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Student />}/>
+    //      <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} />
+    //   </Routes>
+    // </Router>
   );
 }
 
