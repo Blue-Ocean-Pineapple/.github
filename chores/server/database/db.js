@@ -14,23 +14,24 @@ mongoose.connect('mongodb://localhost/chores',
 // });
 
 const TicketSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  wage: {
+      type: Number,
+  },
   description: {
     type: String,
     trim: true,
     required: true,
   },
   location: {
-    type: {
-      type: String,
-      enum: ['Point'],
-    },
-    coordinates: {
-      type: [Number],
-    }
+    type: String,
+    required: true,
   },
   clientStatus: {
     type: String,
-    required: true,
     enum: ['awaiting', 'approved', 'in-progress'],
     default: "awaiting",
   },
@@ -49,6 +50,7 @@ const TicketSchema = new mongoose.Schema({
   },
   createdAt : {
     type: Date,
+    default: Date.now,
    },
   complete: {
     type: Boolean,
@@ -123,3 +125,4 @@ const Ticket = mongoose.model('tickets', TicketSchema);
 module.exports.User = User;
 module.exports.Ticket = Ticket;
 // module.exports.Category = Category;
+
