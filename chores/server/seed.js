@@ -1,7 +1,11 @@
 const Post = require('./models/student.js');
+const PostUser = require('./models/admin.js');
 const ticketData = require('../examples/ticket.json');
+const userData = require('../examples/user.json');
 
 Post.deleteTickets()
+.then(() => PostUser.deleteAllUsers())
 .then(() => Promise.all(ticketData.map((tix) => Post.createTicket(tix))))
+.then(() => Promise.all(userData.map((user) => PostUser.createTicketTest(user))))
 .then(() => console.log('database has been reset'))
 .catch((err) => console.log('Error in resetting db: ',err))

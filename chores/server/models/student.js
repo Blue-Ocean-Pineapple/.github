@@ -2,28 +2,28 @@ const db = require('../database/db.js');
 
 module.exports = {
   getAllOpen: () => {
-    return db.ticket.find({complete: false, status: 'approved'})
+    return db.Ticket.find({complete: false, status: 'approved'})
   },
 
   getAllClosed: (studentId) => {
-    return db.ticket.find({studentId: studentId, complete: true})
+    return db.Ticket.find({studentId: studentId, complete: true})
   },
 
   voteTask: (info) => {
-    return db.ticket.findOneAndUpdate({ticketId: info.ticketId},
+    return db.Ticket.findOneAndUpdate({TicketId: info.TicketId},
       {$push: {reacts: info.studentId}})
   },
 
-  completeTask: (ticketId) => {
-    return db.ticket.findOneAndUpdate({ticketId}, {complete: true})
+  completeTask: (TicketId) => {
+    return db.Ticket.findOneAndUpdate({TicketId}, {complete: true})
   },
 
   createTicket: (info) => {
-    return db.ticket.create(info)
+    return db.Ticket.create(info)
   },
 
   deleteTickets: () => {
-    return db.ticket.deleteMany({})
+    return db.Ticket.deleteMany({})
   }
 
 }
