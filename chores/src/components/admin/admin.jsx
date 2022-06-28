@@ -14,7 +14,6 @@ import {
   TableContainer,
   Flex,
   Text
-
 } from '@chakra-ui/react';
 
 export default function Admin(props) {
