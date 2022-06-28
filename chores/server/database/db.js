@@ -116,6 +116,6 @@ const User = mongoose.model('users', UserSchema);
 const Ticket = mongoose.model('tickets', TicketSchema);
 // const category = mongoose.model('categories', CategorySchema);
 
-module.exports.user = User;
-module.exports.ticket = Ticket;
+module.exports.User = User;
+module.exports.Ticket = Ticket;
 // module.exports.category = category;

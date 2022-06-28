@@ -1,22 +1,30 @@
 [
   {
+    "name": "Outside",
+    "location": "test",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved"
   },
   {
+    "name": "Inside",
+    "location": "test",
     "description": "Wash dishes",
      "creatorId": "2",
      "clientStatus": "approved"
    },
   {
-   "description": "Walk dog around neighborhood",
+    "name": "Outside",
+    "location": "test",
+   "description": "Rake leaves",
     "creatorId": "1",
     "clientStatus": "approved",
     "complete": true,
     "studentId": "1"
   },
   {
+    "name": "Outside",
+    "location": "test",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",

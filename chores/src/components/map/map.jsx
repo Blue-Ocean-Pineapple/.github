@@ -1,4 +1,5 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useCallback } from 'react';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import axios from 'axios';
 
 // grab user's location to center google map api for nearby tickets but for MVP just center around LA
@@ -12,21 +13,52 @@ import axios from 'axios';
 
 // useEffect axios.get all assigned tickets
 
+const containerStyle = {
+  width: '500px',
+  height: '500px'
+};
+
+const center = {
+  lat:34.052235,
+  lng:-118.243683
+}
+
 const Map = () => {
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: `${process.env.REACT_APP_MAP_API}`
+  })
   const [assignedTix, setTix] = useState([]);
+  const [map, setMap] = useState(null);
+
+  const onLoad = useCallback((map) => {
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+    setMap(map)
+  },[]);
+
+  const onUnmount = useCallback((map) => {
+    setMap(null)
+  }, [])
+
 
   useEffect(() => {
-    console.log('running axios');
     axios.get(`${process.env.REACT_APP_URL}/api/map/ticket`)
-    .then((data) => console.log(data))
+    .then((data) => setTix(data.data))
     .catch((err) => console.log(err))
   }, [])
 
-  return(
-    <div>
-      <p>This is the Map Page</p>
-    </div>
-  )
+  return isLoaded ? (
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={10}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+    </GoogleMap>
+    )
+  : null
 }
 
 export default Map;
