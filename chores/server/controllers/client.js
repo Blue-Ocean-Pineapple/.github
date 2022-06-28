@@ -1,53 +1,39 @@
 const client = require("../models/client.js");
 
-exports.getAll = (req, res) => {
-  client.findAll((err, clients) => {
-    if (err) {
-      res.sendStatus(501);
-    } else {
-      res.status(200).send(clients[0]);
-    }
-  });
-};
+module.exports = {
 
-exports.getClient = (req, res) => {
-  client.findByID(req.body.id, (err, clients) => {
-    if (err) {
-      res.sendStatus(501);
-    } else {
-      res.status(200).send(clients[0][0]);
-      console.log(clients[0][0]);
-    }
-  });
-};
+  getAll: (req, res) => {
+    client.findAll()
+      .select("-__v")
+      .exec()
+        .then((data) => res.send(data).status(200))
+        .catch((err) => console.log(err))
+  },
 
-exports.createOne = (req, res) => {
-  console.log(req.body);
-  client.createOne(req.body.id, (err, clients) => {
-    if (err) {
-      res.sendStatus(501);
-    } else {
-      res.sendStatus(201);
-    }
-  });
-};
+  getClient: (req, res) => {
+    client.findByID(req.params._id)
+    .select("-__v")
+    .exec()
+      .then((data) => res.send(data).status(200))
+      .catch((err) => console.log(err))
+  },
 
-exports.update = (req, res) => {
-  client.update(req.body.id, (err, clients) => {
-    if (err) {
-      res.sendStatus(501);
-    } else {
-      res.sendStatus(203);
-    }
-  });
-};
+  createOne: (req, res) => { //need UID as prop
+    client.createOne(req.body.name, req.body.wage, req.body.description, req.body.location, req.body.creatorId, req.body.createdAt)
+      .then((data) => res.sendStatus(201))
+      .catch((err) => console.log(err))
+  },
 
-exports.delete = (req, res) => {
-  client.delete(req.body.id, (err, clients) => {
-    if (err) {
-      res.sendStatus(501);
-    } else {
-      res.sendStatus(204);
-    }
-  });
-};
+  update: (req, res) => {
+    client.update(req.body.description, req.body._id, req.body.location, req.body.updatedDescription, req.body.updatedLocation)
+      .then((data) => res.sendStatus(203))
+      .catch((err) => console.log(err))
+  },
+
+  delete: (req, res) => {
+    client.delete(req.body._id)
+      .then((data) => res.sendStatus(204))
+      .catch((err) => console.log(err))
+  }
+
+}

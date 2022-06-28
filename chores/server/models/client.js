@@ -1,21 +1,21 @@
-const client = require("../database/db.js");
+const {ticket} = require("../database/db.js");
 
-exports.findAll = (words, definition) => {
-  return client.create({word: words, definition: definition});
+exports.findAll = () => {
+  return ticket.find({complete: false});
 };
 
-exports.findByID = (words, definition) => {
-  return client.create({word: words, definition: definition});
+exports.findByID = (id) => {
+  return ticket.find({_id: id});
 };
 
-exports.createOne = (words, definition) => {
-  return client.create({word: words, definition: definition});
+exports.createOne = (name, wage, description, location, id, created) => {
+  return ticket.create({name: name, wage: wage, description: description, location: location, creatorId: id, createdAt: created});
 };
 
-exports.delete = (words, definition) => {
-  return client.deleteOne({word: words, definition: definition});
-};
-//try
-exports.update = (words, definition, updatedWord, updatedDefinition) => {
-  return client.findOneAndUpdate({word: words, definition: definition}, {word: updatedWord, definition: updatedDefinition})
+exports.update = (description, id, location, updatedDescription, updatedLocation) => {
+  return ticket.findOneAndUpdate({description: description, _id: id, location: location}, {description: updatedDescription, _id: id, location: updatedLocation})
 }
+
+exports.delete = (id) => {
+  return ticket.deleteOne({_id: id});
+};
