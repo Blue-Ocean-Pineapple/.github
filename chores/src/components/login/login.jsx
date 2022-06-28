@@ -20,9 +20,9 @@ import { useAuth } from '../../contexts/AuthContext';
 import axios from 'axios';
 
 
-export default function Login() {
+export default function Login({setIsAuth}) {
   const navigate = useNavigate();
-  const { currentUser, signInWithGoogle, login, signInWithFacebook } = useAuth();
+  const { signInWithGoogle, login, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -51,6 +51,8 @@ export default function Login() {
               .then(res => {
                 console.log('login res', res)
                 // axios.post('/user/info', {user: currentUser})
+                localStorage.setItem('isAuth', true)
+                setIsAuth(true)
                 navigate('/profile')
               })
               .catch(error => {
@@ -104,7 +106,7 @@ export default function Login() {
         </chakra.form>
         <HStack justifyContent='space-between' my={4}>
           <Button variant='link' onClick={() => navigate('/register')}>
-           Log In
+           Register
           </Button>
         </HStack>
         <DividerWithText my={6}>OR</DividerWithText>
@@ -117,6 +119,8 @@ export default function Login() {
             signInWithGoogle()
               .then(user => {
                 console.log(user)
+                localStorage.setItem('isAuth', true)
+                setIsAuth(true)
               })
               .catch(e => console.log(e.message))
           }
@@ -133,6 +137,8 @@ export default function Login() {
             signInWithFacebook()
               .then(user => {
                 console.log(user)
+                localStorage.setItem('isAuth', true)
+                setIsAuth(true)
               })
               .catch(e => console.log(e.message))
           }

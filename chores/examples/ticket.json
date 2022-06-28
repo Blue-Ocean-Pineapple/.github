@@ -1,15 +1,21 @@
 [
   {
+    "name":"Test",
+    "location":"TEST",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved"
   },
   {
+    "name":"Test1",
+    "location":"TEST",
     "description": "Wash dishes",
      "creatorId": "2",
      "clientStatus": "approved"
    },
   {
+    "name":"Test2",
+    "location":"TEST",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved",
@@ -17,6 +23,8 @@
     "studentId": "1"
   },
   {
+    "name":"Test4",
+    "location":"TEST",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",

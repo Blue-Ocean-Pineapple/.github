@@ -8,12 +8,12 @@ import { Layout } from './Layout.jsx';
 import { useAuth } from '../../contexts/AuthContext'
 
 
-export default function Homepage() {
+export default function Homepage({setIsAuth}) {
   const { currentUser } = useAuth()
   return (
-    <Layout>
+    <Layout setIsAuth={setIsAuth}>
       <Heading>Home page</Heading>
-      {/* <Text my={6}>{ `current user is ${currentUser}`}</Text> */}
+      <Text my={6}>{ `current user is ${currentUser}`}</Text>
         <Heading>
         </Heading>
     </Layout>

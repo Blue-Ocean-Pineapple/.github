@@ -64,11 +64,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  firstName: {
+  name: {
     type: String,
     required: true,
   },
-  lastName: {
+  email: {
     type: String,
     required: true,
   },
@@ -76,14 +76,18 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  email: {
+  // password: {
+  //   type: String
+  // },
+  address: {
     type: String,
     required: true,
   },
-  password: {
-    type: String
+  city: {
+    type: String,
+    required: true,
   },
-  address: {
+  state: {
     type: String,
     required: true,
   },
@@ -102,7 +106,7 @@ const UserSchema = new mongoose.Schema({
   active: {
     type: Boolean,
     required: true,
-    defaut: true
+    default: true
   }
 });
 
@@ -122,6 +126,6 @@ const User = mongoose.model('users', UserSchema);
 const Ticket = mongoose.model('tickets', TicketSchema);
 // const category = mongoose.model('categories', CategorySchema);
 
-module.exports.user = User;
-module.exports.ticket = Ticket;
+module.exports.User = User;
+module.exports.Ticket = Ticket;
 // module.exports.category = category;

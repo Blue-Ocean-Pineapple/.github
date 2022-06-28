@@ -35,7 +35,7 @@ export default function AuthContextProvider({ children }) {
   }, [])
 
   useEffect(() => {
-    console.log('The user is', currentUser)
+    console.log('The current user is', currentUser)
   }, [currentUser])
 
   function login(email, password) {

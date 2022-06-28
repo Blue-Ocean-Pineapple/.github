@@ -10,7 +10,6 @@ import Profile from './components/profile/Profile.jsx';
 // import Student from './components/student/student.jsx';
 // import Navbar from './components/home/Navbar.jsx';
 
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,7 +25,7 @@ function App() {
     <AuthContextProvider>
     <Router>
       <Routes>
-         <Route exact path="/" element={<Home />} />
+         <Route exact path="/" element={<Home setIsAuth={setIsAuth}/>} />
          <Route path="/login" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}/>
          <Route path="/register" element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}/>
          <Route path="/profile" element={!isAuth ? <Profile /> : <Home />}/>
