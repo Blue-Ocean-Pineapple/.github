@@ -18,16 +18,29 @@ export default function Staff () {
   const [users, setUsers] = useState([]);
 
   const getAllTickets = () => {
-    axios.get('/api/staff/allTickets')
+    console.log('hello')
+    axios.get('/staff/allTickets')
       .then((res) => {
-        console.log('get my plants? res?', res.data)
-
-        setTickets(res.data);
+        console.log('all tickets res?', res)
+        setTickets(res);
       })
-      .catch((err) => {
-        console.log('err!!', err)
-      })
+      .catch((err) => {console.log('err!!', err)})
   }
+
+  const getAllStudents = () => {
+    console.log('hello')
+    axios.get('/staff/allStudents')
+      .then((res) => {
+        console.log('all students res?', res)
+        setTickets(res);
+      })
+      .catch((err) => {console.log('err!!', err)})
+  }
+
+  useEffect(() => {
+    getAllTickets();
+    getAllStudents();
+  }, [])
 
 
 
@@ -48,7 +61,9 @@ export default function Staff () {
 
         <Tbody>
         </Tbody>
+      </Table>
 
+      <Table variant='striped'>
         <Thead className='staff'>
           <Tr variant='striped'>
             <Th >To convert</Th>
@@ -59,7 +74,9 @@ export default function Staff () {
 
         <Tbody>
         </Tbody>
+      </Table>
 
+      <Table variant='striped'>
         <Thead className='student'>
           <Tr variant='striped'>
             <Th >To convert</Th>
@@ -70,7 +87,6 @@ export default function Staff () {
 
         <Tbody>
         </Tbody>
-
       </Table>
     </TableContainer>
 
