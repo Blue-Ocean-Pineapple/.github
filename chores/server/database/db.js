@@ -32,7 +32,6 @@ const TicketSchema = new mongoose.Schema({
   },
   clientStatus: {
     type: String,
-    required: true,
     enum: ['awaiting', 'approved', 'in-progress'],
     default: "awaiting",
   },
