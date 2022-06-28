@@ -1,4 +1,4 @@
-const model = require('../model/admin.js');
+const model = require('../models/admin.js');
 
 module.exports = {
     getAllTickets: function(req, res) {

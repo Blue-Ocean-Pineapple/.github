@@ -4,6 +4,7 @@ const student = require('../controllers/student.js');
 const admin = require('../controllers/admin.js');
 const staff = require('../controllers/staff.js');
 const clients = require('../controllers/client.js');
+const map = require('../controllers/map.js');
 
 const router = express.Router();
 //testPostman
@@ -46,5 +47,8 @@ router.put('/api/admin/:id', admin.updateTicket);
 router.delete('/api/admin/:id', admin.deleteAccount);
 router.post('/api/admin/:id', admin.addStaff);
 router.post('/api/admin/:id', admin.addStudent);
+
+//MapRoutes:
+router.get('/api/map/ticket', map.getGeoLoc);
 
 module.exports = router;
