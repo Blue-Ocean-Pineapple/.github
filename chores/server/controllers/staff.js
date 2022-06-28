@@ -2,7 +2,7 @@ const model = require('../models/staff.js');
 
 module.exports = {
     getAllTickets: function(req, res) {
-        model.getAllStudents((err, results) => {
+        model.getAllTickets((err, results) => {
             console.log('ticket data?', results.data);
             if (err) {
                 res.status(500).send(err);
