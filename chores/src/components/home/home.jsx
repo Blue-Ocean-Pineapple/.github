@@ -1,20 +1,21 @@
 import React from 'react';
 import {
-  ChakraProvider,
-  Box,
-  theme,
-  Heading
+  Heading,
+  Text
 } from '@chakra-ui/react';
 
-export default function Home(props) {
+import { Layout } from './Layout.jsx';
+import { useAuth } from '../../contexts/AuthContext'
 
+
+export default function Homepage() {
+  const { currentUser } = useAuth()
   return (
-    <ChakraProvider theme={theme}>
-    <Box>
-      <Heading>
-        Chores
-      </Heading>
-    </Box>
-  </ChakraProvider>
+    <Layout>
+      <Heading>Home page</Heading>
+      {/* <Text my={6}>{ `current user is ${currentUser}`}</Text> */}
+        <Heading>
+        </Heading>
+    </Layout>
   )
 }
