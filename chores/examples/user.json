@@ -1,13 +1,26 @@
 [
   {
-    "firstName": "test",
-    "lastName": "mcTest",
-    "age": 32,
-    "email": "test@gmail.com",
-    "password": "test",
-    "address": "123 test",
-    "phone": "2222222222",
-    "role": "student",
-    "organization": "test"
-  }
+   "firstName" :"Jessica",
+    "lastName": "Yu",
+    "age": "15",
+    "email": "yuelejessica@gmail.com",
+    "password": "12345567",
+    "address": "17222 main street",
+    "phone": "78789808080",
+    "role":"staff",
+    "organization": "Portola",
+    "active":"Yes"
+  },
+  {
+    "firstName" :"John",
+     "lastName": "Ong",
+     "age": "15",
+     "email": "john@gmail.com",
+     "password": "123242",
+     "address": "17222 First street",
+     "phone": "7878980822",
+     "role":"Student",
+     "organization": "Portola",
+     "active":"Yes"
+   }
 ]
