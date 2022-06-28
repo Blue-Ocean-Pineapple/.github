@@ -1,0 +1,13 @@
+[
+  {
+    "firstName": "test",
+    "lastName": "mcTest",
+    "age": 32,
+    "email": "test@gmail.com",
+    "password": "test",
+    "address": "123 test",
+    "phone": "2222222222",
+    "role": "student",
+    "organization": "test"
+  }
+]

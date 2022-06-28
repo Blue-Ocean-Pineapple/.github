@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/chores',
     mongoose.set('useCreateIndex', true);
   });
 
-  // ,function(){
+//   ,function(){
 //   mongoose.connection.db.dropDatabase();
 // });
 
@@ -110,10 +110,10 @@ const CategorySchema = new mongoose.Schema({
 },
 { timestamps: true });
 
-const user = mongoose.model('users', UserSchema);
-const ticket = mongoose.model('tickets', TicketSchema);
-const category = mongoose.model('categories', CategorySchema);
+const User = mongoose.model('users', UserSchema);
+const Ticket = mongoose.model('tickets', TicketSchema);
+const Category = mongoose.model('categories', CategorySchema);
 
-module.exports.user = user;
-module.exports.ticket = ticket;
-module.exports.category = category;
+module.exports.User = User;
+module.exports.Ticket = Ticket;
+module.exports.Category = Category;
