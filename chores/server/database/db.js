@@ -56,6 +56,10 @@ const TicketSchema = new mongoose.Schema({
 })
 
 const UserSchema = new mongoose.Schema({
+  uid: {
+    type: String,
+    required: true,
+  },
   firstName: {
     type: String,
     required: true,
@@ -84,9 +88,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  photo : {
-    type: String
-  },
   role: {
     type: String,
     required: true
@@ -99,7 +100,11 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
     defaut: true
+<<<<<<< HEAD
   },
+=======
+  }
+>>>>>>> main
 });
 
 // const CategorySchema = new mongoose.Schema({
@@ -121,3 +126,4 @@ const Ticket = mongoose.model('tickets', TicketSchema);
 module.exports.User = User;
 module.exports.Ticket = Ticket;
 // module.exports.Category = Category;
+
