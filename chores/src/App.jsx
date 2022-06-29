@@ -19,7 +19,8 @@ function App(props) {
 
   return (
     <AuthContextProvider>
-      <Router>
+      <Map/>
+      {/* <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/student" element={<Student />} />
@@ -37,8 +38,8 @@ function App(props) {
          <Route path="/staff" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Staff />}/>
          <Route path="/student" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Student />}/>
          <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} />*/}
-        </Routes>
-      </Router>
+        {/* </Routes>
+      </Router> */}
       {/* <Staff /> */}
       {/* <Admin /> */}
       {/* <Customer />
