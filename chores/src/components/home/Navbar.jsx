@@ -11,7 +11,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import { useAuth } from "../../contexts/AuthContext.js";
 import Navlink from "./Navlink";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Admin from '../admin/Admin.jsx';
+import Admin from "../admin/Admin.jsx";
 // import Customer from './components/customer/Customer.jsx';
 // import Map from "./components/map/Map.jsx";
 // import Staff from './components/staff/Staff.jsx';
@@ -41,7 +41,6 @@ export function Navbar({ setIsAuth }) {
         {currentUser && <Navlink to="/admin" name="Admin" />}
         {currentUser && (
           <Navlink
-<<<<<<< HEAD
             to="/logout"
             name="Logout"
             onClick={async (e) => {
@@ -51,18 +50,6 @@ export function Navbar({ setIsAuth }) {
                 setIsAuth(false);
                 window.location.pathname = "/login";
               });
-=======
-            to='/logout'
-            name='Logout'
-            onClick={async e => {
-              e.preventDefault()
-              await logout()
-              .then(() => {
-                localStorage.clear()
-                setIsAuth(false)
-                window.location.pathname='/login';
-              })
->>>>>>> main
             }}
           />
         )}
