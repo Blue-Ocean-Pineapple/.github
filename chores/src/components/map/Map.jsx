@@ -11,7 +11,16 @@ import { CircularProgress,
         DrawerContent,
         DrawerCloseButton,
         useDisclosure,
-        Button
+        Button,
+        Popover,
+        PopoverTrigger,
+        PopoverContent,
+        PopoverHeader,
+        PopoverBody,
+        PopoverFooter,
+        PopoverArrow,
+        PopoverCloseButton,
+        PopoverAnchor,
       } from '@chakra-ui/react'
 
 // grab user's location to center google map api for nearby tickets but for MVP just center around LA
@@ -64,13 +73,6 @@ const Map = () => {
   //   .catch((err) => {console.log(err);})
   // };
 
-  useEffect(() => {
-    console.log('data:',data)
-    // if (data) {
-    //   data.forEach((ticket) => getGeoCode(ticket));
-    //   console.log(data)
-    // }
-  }, [data])
 
 
   return isLoading ?
@@ -115,9 +117,8 @@ const Map = () => {
                   "border": "solid gray",
                   "borderRadius": 15
                 }}>
-                  <p>{ticket.name}</p>
-                  <p>{ticket.location}</p>
-                  <p>{ticket.wage}</p>
+                  <p>{ticket.taskName}</p>
+                  <p>{ticket.address}</p>
                   <p>{ticket.description}</p>
                 </div>
                     )
@@ -138,20 +139,25 @@ const Map = () => {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        <Marker
-        position={{lat:34.052235, lng:-118.243683}}
-          />
-
-      {/* {data.map((ticket,key) => {
-        console.log('ticket:',ticket)
-        console.log('position:',ticket.position)
+      {data.map((ticket,key) => {
         return (
-          <Marker
-          key={key}
-          position={ticket.position}
-          />
+          <Popover key={key}>
+            <PopoverTrigger>
+              <div>
+                <Marker
+                position={ticket.coordinates}
+                />
+              </div>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverHeader>Confirmation!</PopoverHeader>
+                <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+            </PopoverContent>
+          </Popover>
         )
-      })} */}
+      })}
       </GoogleMap>
 
       </div>

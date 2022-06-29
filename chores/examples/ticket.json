@@ -1,7 +1,7 @@
 [
   {
    "clientName": "hi",
-   "location": "448 S Hill St, Los Angeles, CA 90013",
+   "address": "448 S Hill St, Los Angeles, CA 90013",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved",
@@ -10,7 +10,7 @@
   },
   {
     "clientName": "momma",
-    "location": "500 Mateo St, Los Angeles, CA 90013",
+    "address": "500 Mateo St, Los Angeles, CA 90013",
     "description": "Wash dishes",
      "creatorId": "2",
      "clientStatus": "approved",
@@ -19,7 +19,7 @@
    },
   {
     "clientName": "your",
-    "location": "2121 E 7th Pl, Los Angeles, CA 90021",
+    "address": "2121 E 7th Pl, Los Angeles, CA 90021",
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
@@ -30,7 +30,7 @@
   },
   {
     "clientName": "love me",
-    "location": "1725 Naud St, Los Angeles, CA 90012",
+    "address": "1725 Naud St, Los Angeles, CA 90012",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
