@@ -1,35 +1,33 @@
 import React from "react";
 import axios from "axios";
 
-export default class Form extends React.Component {
+export default class TickerForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      image_id: "",
-      content: "",
-      summary: "",
-      status: "public",
+      name: "",
+      wage: "",
+      description: "",
+      location: ""
     };
   }
 
-  handleNewPost(titleArg, image_idArg, contentArg, summaryArg, statusArg) {
+  handleNewPost(nameArg, wageArg, descriptionArg, locationArg) {
     this.setState({
-      title: titleArg,
-      image_id: image_idArg,
-      content: contentArg,
-      summary: summaryArg,
-      status: statusArg
+      name: nameArg,
+      wage: wageArg,
+      description: descriptionArg,
+      location: locationArg,
     }, this.handleAddPost);
   }
 
   handleAddPost() {
-    axios.post('/jotnet', {
-      title: this.state.title,
-      image_id: this.state.image_id,
-      content: this.state.content,
-      summary: this.state.summary,
-      status: this.state.status
+    axios.post('http://localhost:3001/api/clients/create', {
+      name: this.state.name,
+      wage: this.state.wage,
+      description: this.state.description,
+      location: this.state.location,
+      creatorId: 'tester',
     });
   }
 
@@ -41,13 +39,14 @@ export default class Form extends React.Component {
         </header>
         <form onSubmit={(event) => {
           event.preventDefault();
-          this.handleNewPost(event.target.title.value, event.target.image_id.value, event.target.content.value, event.target.summary.value, this.state.status);
+          this.handleNewPost(event.target.name.value, event.target.wage.value, event.target.description.value, event.target.location.value);
+          alert("Form submitted")
         }}>
           <label>
             Name:
             <input
               type="text"
-              name="title"
+              name="name"
               placeholder="Ticket name"
               required
               autocomplete="off"
@@ -55,10 +54,10 @@ export default class Form extends React.Component {
           </label> <br></br>
 
           <label>
-            Wage:
+            Wage: $
             <input
               type="text"
-              name="image_id"
+              name="wage"
               placeholder="$$$"
               required
               autocomplete="off"
@@ -67,10 +66,9 @@ export default class Form extends React.Component {
 
           <label>
             Description:
-            <textarea
-              cols="48"
-              rows="8"
-              name="content"
+            <input
+              type="text"
+              name="description"
               placeholder="Enter additional information here"
               required
               autocomplete="off"
@@ -81,7 +79,7 @@ export default class Form extends React.Component {
             Location:
             <input
               type="text"
-              name="summary"
+              name="location"
               placeholder="Address Of Chore"
               required
               autocomplete="off"
