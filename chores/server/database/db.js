@@ -85,7 +85,6 @@ const TicketSchema = new mongoose.Schema({
 const UserSchema = new mongoose.Schema({
   uid: {
     type:String,
-    // default: mongoose.ObjectId(),
     required: true,
   },
   name: {

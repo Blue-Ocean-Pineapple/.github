@@ -18,11 +18,9 @@ function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   return (
-    // <div>
-    //   <Map/>
-    // </div>
+
     <AuthContextProvider>
-      {/* <Router>
+      <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route
@@ -38,14 +36,15 @@ function App(props) {
          <Route path="/customer" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Customer />}/>
          <Route path="/staff" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Staff />}/>
          <Route path="/student" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Student />}/>
-         <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} /> */}
-        {/* </Routes>
-      </Router> */}
+         <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} />*/}
+        </Routes>
+      </Router>
     {/* <Staff /> */}
-    <Admin />
+    {/* <Admin /> */}
     {/* <Customer />
     <Student />
     {/* <Map /> */}
+
     </AuthContextProvider>
   );
 }
