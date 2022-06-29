@@ -1,38 +1,55 @@
 [
   {
-   "name": "hi",
-   "location": "sesame street",
+   "clientName": "hi",
+   "address": "448 S Hill St, Los Angeles, CA 90013",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved",
-    "name": "Dog Walk"
+    "taskName": "Dog Walk",
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
   },
   {
-    "name": "momma",
-    "location": "sesame street",
+    "clientName": "momma",
+    "address": "500 Mateo St, Los Angeles, CA 90013",
     "description": "Wash dishes",
      "creatorId": "2",
      "clientStatus": "approved",
-     "name": "Washing Dishes"
+     "taskName": "Washing Dishes",
+     "coordinates": {"lat":34.041451,"lng":-118.232719}
    },
   {
-    "name": "your",
-    "location": "sesame street",
+    "clientName": "your",
+    "address": "2121 E 7th Pl, Los Angeles, CA 90021",
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
     "complete": true,
+<<<<<<< HEAD
     "studentId": "1",
-    "name": "Dog Walk"
+    "taskName": "Dog Walk",
+    "coordinates": {"lat":34.033825,"lng":-118.229301}
   },
   {
-    "name": "love me",
+    "clientName": "love me",
+    "address": "1725 Naud St, Los Angeles, CA 90012",
+=======
+    "studentId": "1"
+  },
+  {
+    "clientName": "love me",
+    "taskName": "Lawn mowing",
     "location": "sesame street",
+>>>>>>> main
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
+<<<<<<< HEAD
      "studentId": "2",
-     "name": "Lawn mowing"
+     "taskName": "Lawn mowing",
+     "coordinates": {"lat":34.068630,"lng":-118.226631}
+=======
+     "studentId": "2"
+>>>>>>> main
    }
 ]
