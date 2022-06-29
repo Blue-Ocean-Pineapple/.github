@@ -11,9 +11,8 @@ export default function Homepage({setIsAuth}) {
   return (
     <Layout setIsAuth={setIsAuth}>
       <Heading>Home page</Heading>
-      <Text my={6}>{`current user is ${currentUser}`}</Text>
-        <Heading>
-        </Heading>
+      {/* <Text my={6}>{`current user is ${currentUser.email}`}</Text> */}
+
     </Layout>
   )
 }

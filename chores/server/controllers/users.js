@@ -4,7 +4,7 @@ var { User } = require('../database/db.js');
 
 module.exports = {
     saveUser: async (req, res) => {
-      console.log("req from axios saveUser", req.body);
+      console.log("req from axios saveUser", req);
       // const {uid, name, age, email, address, city, state, phone, role, organization, active} = req.body;
       // const user = {
       //   uid, name, age, email, address, city, state, phone, role, organization, active
@@ -19,6 +19,7 @@ module.exports = {
       //     res.status(200).send(data);
       //   }
       // })
+      // let value = req || req.body;
       const newUser = new User(req.body);
       try{
         const result = await newUser.save();
@@ -67,4 +68,7 @@ module.exports = {
   //     }
   //   });
   // }
+  deleteAllUsers: () => {
+    return User.deleteMany({})
+  },
 }

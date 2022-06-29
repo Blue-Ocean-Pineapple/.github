@@ -60,6 +60,7 @@ export default function Profile() {
       console.log('HIT POST USER!', res.data);
       setUpdatedUserInfo(res.data);
       setIsSubmitting(true);
+      navigate('/'+ res.data.email)
     } catch (err) {
       console.log('error while updating user information', err)
     }
