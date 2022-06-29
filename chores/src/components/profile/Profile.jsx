@@ -78,7 +78,7 @@ export default function Profile() {
           {/* {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
           {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
           {updatedUserInfo && <pre> Name: {JSON.stringify(updatedUserInfo.name)}</pre>} */}
-          {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>}
+          {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
         currentUser && (
