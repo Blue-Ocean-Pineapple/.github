@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Moment from 'moment';
 import {
   Heading,
   Table,
@@ -24,58 +25,59 @@ import {
 } from '@chakra-ui/react'
 import { Select } from "chakra-react-select";
 
-export default function AllTickets ({ tickets, students, staff }) {
+export default function AllTickets ({ openTickets, closedTickets, students, staff }) {
   // const [input, setInput] = useState('')
+  // const [openTickets, setOpenTickets] = useState([])
+  // const [closedTickets, setClosedTickets] = useState([])
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const assignTicket = () => {
-    console.log('tickets', tickets.data)
     console.log('students', students)
     console.log('staff', staff)
+    console.log('opentickets', openTickets);
+    console.log('closedtickets', closedTickets);
     onClose();
   }
 
+
   // const isError = input === ''
 
-  const openTickets = (tickets) => {
-    console.log('HELLO FROM OPEN TICKETS', tickets)
-    return tickets.data.map((currentTicket) => {
-      if(currentTicket.complete === 'true') {
-        return (
-          <>
-            <Th>{currentTicket._id}</Th>
-            <Th>{currentTicket.taskName}</Th>
-            <Th>{currentTicket.clientName}</Th>
-            <Th>{currentTicket.createdAt}</Th>
-            <Th>{currentTicket.location}</Th>
-            <Th>{currentTicket.clientStatus}</Th>
-            <Th>
-            <FormControl isRequired>
-              <Select
-                options={[
-                  {
-                    label: "status",
-                    options: [
-                      {value: 'awaiting', label: "awaiting"},
-                      {value: 'approved', label: "approved"},
-                      {value: 'in-progress', label: "in-progress"},
-                      {value: 'complete', label: "complete"}
-                    ]
-                  }
-                ]}
-                placeholder="--"
-              />
-            </FormControl>
-          </Th>
-            <Th>
-              <Button onClick={onOpen}>Assign</Button>
-            </Th>
-          </>
-        )
+  // const openTickets = () => {
+  //   console.log('HELLO FROM OPEN TICKETS', tickets)
+  //   openTickets.map((currentTicket) => {
+  //       return
+  //         <>
+  //           <Th>{currentTicket._id}</Th>
+  //           <Th>{currentTicket.taskName}</Th>
+  //           <Th>{currentTicket.clientName}</Th>
+  //           <Th>{Moment(currentTicket.createdAt).format('MM-DD-YYYY')}</Th>
+  //           <Th>{currentTicket.location}</Th>
+  //           <Th>{currentTicket.clientStatus}</Th>
+  //           <Th>
+  //             <FormControl isRequired>
+  //               <Select
+  //                 options={[
+  //                   {
+  //                     label: "status",
+  //                     options: [
+  //                       {value: 'awaiting', label: "awaiting"},
+  //                       {value: 'approved', label: "approved"},
+  //                       {value: 'in-progress', label: "in-progress"},
+  //                       {value: 'complete', label: "complete"}
+  //                     ]
+  //                   }
+  //                 ]}
+  //                 placeholder="--"
+  //               />
+  //             </FormControl>
+  //           </Th>
+  //           <Th>
+  //             <Button onClick={onOpen}>Assign</Button>
+  //           </Th>
+  //         </>
+  //   })
+  // }
 
-      }
-    })
-  }
 
   return (
     <TableContainer>
@@ -125,17 +127,15 @@ export default function AllTickets ({ tickets, students, staff }) {
             <Button onClick={onOpen}>Assign</Button>
           </Th>
 
-            {/* {this.openTickets(tickets)} */}
-
-            {/* {
-              tickets.data.map(currentTicket => {
-                if(currentTicket.complete === 'true') {
-                  return (
+{/* 
+            {
+              openTickets.map((currentTicket) => {
+                  return
                     <>
                       <Th>{currentTicket._id}</Th>
                       <Th>{currentTicket.taskName}</Th>
                       <Th>{currentTicket.clientName}</Th>
-                      <Th>{currentTicket.createdAt}</Th>
+                      <Th>{Moment(currentTicket.createdAt).format('MM-DD-YYYY')}</Th>
                       <Th>{currentTicket.location}</Th>
                       <Th>{currentTicket.clientStatus}</Th>
                       <Th>
@@ -156,13 +156,10 @@ export default function AllTickets ({ tickets, students, staff }) {
                         />
                       </FormControl>
                     </Th>
-                      <Th>
-                        <Button onClick={onOpen}>Assign</Button>
-                      </Th>
-                    </>
-                  )
-
-                }
+                    <Th>
+                      <Button onClick={onOpen}>Assign</Button>
+                    </Th>
+                  </>
               })
             } */}
 

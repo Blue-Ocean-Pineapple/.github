@@ -43,17 +43,28 @@ const NavBar = () => (
 
 
 export default function Staff () {
-  const [tickets, setTickets] = useState([]);
+  const [openTickets, setOpenTickets] = useState([]);
+  const [closedTickets, setClosedTickets] = useState([]);
   const [student, setStudent] = useState([]);
   const [staff, setStaff] = useState([]);
   const [admin, setAdmin] = useState([]);
   const [customer, setCustomer] = useState([]);
 
   const getAllTickets = () => {
+    let open = [];
+    let closed = [];
     axios.get('/staff/allTickets')
       .then((res) => {
         console.log('all tickets res?', res)
-        setTickets(res);
+        res.data.map((ticket) => {
+          if (ticket.complete) {
+            open.push(ticket)
+          } else {
+            closed.push(ticket)
+          }
+        })
+        setOpenTickets(open);
+        setClosedTickets(closed);
       })
       .catch((err) => {console.log('err!!', err)})
   }
@@ -100,7 +111,13 @@ export default function Staff () {
         <Router>
           <NavBar />
           <Routes >
-            <Route path="/alltickets" element={<AllTickets tickets={tickets} staff={staff} students={student} />} />
+            <Route path="/alltickets"
+            element={
+            <AllTickets
+              openTickets={openTickets}
+              closedTickets={closedTickets}
+              staff={staff}
+              students={student} />} />
             <Route path="/allstaff" element={<AllStaff staff={staff} />} />
             <Route path="/allstudents" element={<AllStudents students={student} />} />
           </Routes>
