@@ -7,16 +7,22 @@ const clients = require("../controllers/client.js");
 const map = require("../controllers/map.js");
 
 const router = express.Router();
+
 //testPostman
-router.get("/", (req, res) => res.send("HELLO FROM CHORES"));
+// router.get('/', (req, res) => (
+//   res.send('HELLO FROM CHORES')
+// ));
+
 //UserRoute:
 router.post("/api/users/info", users.saveUser);
+router.get("/api/users/:uid", users.getOne);
+router.get("/api/users", users.getAll);
 // router.put('/api/users/:id', users.update);
 // router.delete('/api/users/:id', users.delete);
-// router.get('/api/users/:id', users.getOne);
 
 //ClientRoute:
 router.get("/api/clients/tickets", clients.getAll);
+router.get("/api/clients/done", clients.getCompleted);
 router.get("/api/clients/:id", clients.getClient); //change to ticketId?
 router.post("/api/clients/create", clients.createOne);
 router.put("/api/clients/update", clients.update);
@@ -30,12 +36,17 @@ router.put("/api/staff/updateTicketStatus", staff.updateTicketStatus);
 router.delete("/api/staff/deactivateStudent", staff.deactivateStudent);
 router.post("/api/staff/addStaffOrStudent", staff.addStaffOrStudent);
 
-// StudentRoutes
-router.get("/api/student/:id/ticket/open", student.getAllOpen);
-router.get("/api/student/:id/ticket/closed", student.getAllClosed);
-// router.get("/api/student/:id/ticket/:ticket_id", student.showTicket);
-router.put("/api/student/:id/ticket/:ticket_id/vote", student.voteTask);
-router.put("/api/student/ticket/:ticket_id/completed", student.completeTask);
+// // StudentRoutes
+// router.get("/api/student/:id/ticket/open", student.getAllOpen);
+// router.get("/api/student/:id/ticket/closed", student.getAllClosed);
+// // router.get("/api/student/:id/ticket/:ticket_id", student.showTicket);
+// router.put("/api/student/:id/ticket/:ticket_id/vote", student.voteTask);
+// router.put("/api/student/ticket/:ticket_id/completed", student.completeTask);
+//StudentRoutes:
+router.get("/api/student/ticket/open", student.getAllOpen);
+router.get("/api/student/ticket/closed", student.getAllClosed);
+router.put("/api/student/ticket/vote", student.voteTask);
+router.put("/api/student/ticket/completed", student.completeTask);
 // router.post('/api/student/account', student.createOne);
 // router.delete('/api/student/account', student.delete);
 

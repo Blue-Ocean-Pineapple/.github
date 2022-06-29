@@ -65,19 +65,24 @@ const TicketSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-  },
-});
+   },
+  complete: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const UserSchema = new mongoose.Schema({
   uid: {
+    type:String,
+    // default: mongoose.ObjectId(),
+    required: true,
+  },
+  name: {
     type: String,
     required: true,
   },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
+  email: {
     type: String,
     required: true,
   },
@@ -85,21 +90,27 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  email: {
+  // password: {
+  //   type: String
+  // },
+  address: {
     type: String,
     required: true,
-    unique: true,
   },
-  password: {
+  city: {
     type: String,
+    required: true,
   },
-  address: {
+  state: {
     type: String,
     required: true,
   },
   phone: {
     type: String,
     required: true,
+  },
+  photo : {
+    type: String
   },
   role: {
     type: String,
@@ -111,9 +122,8 @@ const UserSchema = new mongoose.Schema({
   },
   active: {
     type: Boolean,
-    required: true,
-    defaut: true,
-  },
+    default: false
+  }
 });
 
 // const CategorySchema = new mongoose.Schema({
@@ -128,6 +138,7 @@ const UserSchema = new mongoose.Schema({
 // },
 // { timestamps: true });
 
+<<<<<<< HEAD
 const User = mongoose.model("users", UserSchema);
 const Ticket = mongoose.model("tickets", TicketSchema);
 // const Category = mongoose.model('categories', CategorySchema);
@@ -135,3 +146,12 @@ const Ticket = mongoose.model("tickets", TicketSchema);
 module.exports.User = User;
 module.exports.Ticket = Ticket;
 // module.exports.Category = Category;
+=======
+const User = mongoose.model('users', UserSchema);
+const Ticket = mongoose.model('tickets', TicketSchema);
+// const category = mongoose.model('categories', CategorySchema);
+
+module.exports.User = User;
+module.exports.Ticket = Ticket;
+// module.exports.category = category;
+>>>>>>> main
