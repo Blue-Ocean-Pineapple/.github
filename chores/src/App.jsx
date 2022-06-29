@@ -4,15 +4,9 @@ import React from 'react';
 // import Home from './components/home/home.jsx';
 // import Profile from './components/profile/Profile.jsx';
 // import Admin from './components/admin/admin.jsx';
-<<<<<<< HEAD
 // import Customer from './components/customer/customer.jsx';
 import Map from './components/map/map.jsx';
 // import Staff from './components/staff/staff.jsx';
-=======
-import Customer from './components/customer/Customer.jsx';
-// import Map from './components/map/map.jsx';
-import Staff from './components/staff/Staff.jsx';
->>>>>>> main
 // import Student from './components/student/student.jsx';
 // import Navbar from './components/home/Navbar.jsx';
 
@@ -28,10 +22,9 @@ function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
 
   return (
-<<<<<<< HEAD
-    <div>
-      <Map/>
-    </div>
+    // <div>
+    //   <Map/>
+    // </div>
     // <AuthContextProvider>
     // <Router>
     //   <Routes>
@@ -47,25 +40,6 @@ function App(props) {
     //   </Routes>
     //  </Router>
     // </AuthContextProvider>
-=======
-    <AuthContextProvider>
-     <Router>
-      <Routes>
-         <Route exact path="/" element={<Home setIsAuth={setIsAuth}/>} />
-         <Route path="/login" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}/>
-         <Route path="/register" element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}/>
-         <Route path="/profile" element={!isAuth ? <Profile /> : <Home />}/>
-         {/* <Route path="/admin" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Admin />}/>
-         <Route path="/customer" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Customer />}/>
-         <Route path="/staff" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Staff />}/>
-         <Route path="/student" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Student />}/>
-         <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} /> */}
-           {/* <Customer /> */}
-      </Routes>
-     </Router>
-    </AuthContextProvider>
-
->>>>>>> main
   );
 }
 
