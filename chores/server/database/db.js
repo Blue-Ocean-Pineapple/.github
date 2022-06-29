@@ -35,14 +35,20 @@ const TicketSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  location: {
-    type: {
-      type: String,
-      enum: ["Point"],
+  address: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  coordinates: {
+    lat: {
+      type: Number,
+      required: true,
     },
-    coordinates: {
-      type: [Number],
-    },
+    lng: {
+      type: Number,
+      required: true,
+    }
   },
   clientStatus: {
     type: String,

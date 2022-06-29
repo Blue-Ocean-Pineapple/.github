@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// chores/src/components/admin/adminEntry.jsx
+// chores/src/components/admin/AdminEntry.jsx
 import AdminEntry from './AdminEntry.jsx'
 import UserEntry from './UserEntry.jsx'
 import axios from 'axios';
