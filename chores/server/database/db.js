@@ -138,7 +138,6 @@ const UserSchema = new mongoose.Schema({
 // },
 // { timestamps: true });
 
-<<<<<<< HEAD
 const User = mongoose.model("users", UserSchema);
 const Ticket = mongoose.model("tickets", TicketSchema);
 // const Category = mongoose.model('categories', CategorySchema);
@@ -146,12 +145,3 @@ const Ticket = mongoose.model("tickets", TicketSchema);
 module.exports.User = User;
 module.exports.Ticket = Ticket;
 // module.exports.Category = Category;
-=======
-const User = mongoose.model('users', UserSchema);
-const Ticket = mongoose.model('tickets', TicketSchema);
-// const category = mongoose.model('categories', CategorySchema);
-
-module.exports.User = User;
-module.exports.Ticket = Ticket;
-// module.exports.category = category;
->>>>>>> main

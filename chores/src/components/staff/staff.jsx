@@ -1,21 +1,53 @@
-// import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  TableContainer,
-} from '@chakra-ui/react'
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import AllStaff from './pages/AllStaff';
+import AllStudents from './pages/AllStudents';
+import AllTickets from './pages/AllTickets';
+import {
+  ChakraProvider,
+  Flex,
+  Text,
+  Link,
+  Box,
+  Grid,
+  HStack,
+  StackDivider
+} from '@chakra-ui/react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link as RouteLink
+} from "react-router-dom";
+
+type NavLinkProps = { text: string };
+const NavLink = ({ text }: NavLinkProps) => (
+  <Link>
+    <Text fontSize="xl">{text}</Text>
+  </Link>
+);
+
+const NavBar = () => (
+  <HStack spacing={3} divider={<StackDivider />} as="nav">
+    <RouteLink to="/alltickets">
+      <NavLink text="Tickets" />
+    </RouteLink>
+    <RouteLink to="/allstaff">
+      <NavLink text="Staff" />
+    </RouteLink>
+    <RouteLink to="/allstudents">
+      <NavLink text="Students" />
+    </RouteLink>
+  </HStack>
+);
+
 
 export default function Staff () {
   const [tickets, setTickets] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [staff, setStaff] = useState([]);
+  const [customer, setCustomer] = useState([]);
+  const [admin, setAdmin] = useState([]);
 
   const getAllTickets = () => {
     console.log('hello')
@@ -27,19 +59,29 @@ export default function Staff () {
       .catch((err) => {console.log('err!!', err)})
   }
 
-  const getAllStudents = () => {
+  const getAllUsers = () => {
     console.log('hello')
     axios.get('/staff/allStudents')
       .then((res) => {
         console.log('all students res?', res)
-        setTickets(res);
+        res.map(user => {
+          if (user.role === 'student') {
+            setStudents(students.push(user))
+          } else if (user.role === 'staff') {
+            setStudents(staff.push(user))
+          } else if (user.role === 'admin') {
+            setStudents(admin.push(user))
+          } else if (user.role === 'customer') {
+            setStudents(customer.push(user))
+          }
+        })
       })
       .catch((err) => {console.log('err!!', err)})
   }
 
   useEffect(() => {
     getAllTickets();
-    getAllStudents();
+    getAllUsers();
   }, [])
 
 
@@ -47,48 +89,17 @@ export default function Staff () {
 
   return (
 
-
-    <TableContainer>
-      <Table variant='striped'>
-        {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
-        <Thead className='tickets'>
-          <Tr>
-            <Th>To convert</Th>
-            <Th>into</Th>
-            <Th isNumeric>multiply by</Th>
-          </Tr>
-        </Thead>
-
-        <Tbody>
-        </Tbody>
-      </Table>
-
-      <Table variant='striped'>
-        <Thead className='staff'>
-          <Tr variant='striped'>
-            <Th >To convert</Th>
-            <Th>into</Th>
-            <Th isNumeric>multiply by</Th>
-          </Tr>
-        </Thead>
-
-        <Tbody>
-        </Tbody>
-      </Table>
-
-      <Table variant='striped'>
-        <Thead className='student'>
-          <Tr variant='striped'>
-            <Th >To convert</Th>
-            <Th>into</Th>
-            <Th isNumeric>multiply by</Th>
-          </Tr>
-        </Thead>
-
-        <Tbody>
-        </Tbody>
-      </Table>
-    </TableContainer>
-
+    <div>
+      <ChakraProvider>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/alltickets" element={<AllTickets tickets={tickets} />} />
+            <Route path="/allstaff" element={<AllStaff staff={staff} />} />
+            <Route path="/allstudents" element={<AllStudents students={students} />} />
+          </Routes>
+        </Router>
+      </ChakraProvider>
+    </div>
   )
 }

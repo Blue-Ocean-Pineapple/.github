@@ -35,13 +35,6 @@ export function Navbar({setIsAuth}) {
         {currentUser && <Navlink to="/profile" name="Profile" />}
         {currentUser && (
           <Navlink
-<<<<<<< HEAD
-            to="/logout"
-            name="Logout"
-            onClick={async (e) => {
-              e.preventDefault();
-              await logout();
-=======
             to='/logout'
             name='Logout'
             onClick={async e => {
@@ -52,7 +45,6 @@ export function Navbar({setIsAuth}) {
                 setIsAuth(false)
                 window.location.pathname='/login';
               })
->>>>>>> main
             }}
           />
         )}
