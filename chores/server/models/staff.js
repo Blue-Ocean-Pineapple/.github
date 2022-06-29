@@ -5,7 +5,7 @@ module.exports = {
     console.log('model req getalltickets', req)
     db.Ticket.find({})
       .then((results) => {
-        console.log('model getalltickets results', results)
+        // console.log('model getalltickets results', results)
         callback(null, results)
       })
       .catch((err) => {callback(err)})
@@ -13,7 +13,7 @@ module.exports = {
 
   getAllUsers: function(req, callback) {
     console.log('model req getAllUsers', req)
-    db.User.find({ role: 'student' })
+    db.User.find({})
       .then((results) => {
         console.log('model getAllUsers results', results)
         callback(null, results)
