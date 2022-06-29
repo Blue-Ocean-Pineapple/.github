@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   ChakraProvider,
   Box,
@@ -9,6 +10,14 @@ import {
 } from '@chakra-ui/react';
 
 export default function UserEntry(props) {
+
+  const remove = () => {
+    axios.delete(`http://localhost:3001/api/staff/updateTicketStatus`, )
+    .then((response) => {
+
+    })
+    .catch((err) => console.log(err))
+  }
 
   return (
   <ChakraProvider>
