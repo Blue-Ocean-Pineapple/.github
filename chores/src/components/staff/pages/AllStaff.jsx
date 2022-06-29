@@ -37,7 +37,7 @@ export default function AllStaff ({ staff }) {
 
       <Heading as='h2' size='xl' mt={10} mb={5}>Inactive</Heading>
       <Table variant='striped'>
-        <Thead className='inactivestaff'>
+        <Thead className='activestaff'>
           <Tr variant='striped'>
             <Th>Name</Th>
             <Th isNumeric>ID</Th>

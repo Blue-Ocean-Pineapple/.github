@@ -25,6 +25,9 @@ import { Select } from "chakra-react-select";
 export default function AllTickets ({ tickets }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const assignTicket = () => {
+    console.log('howdy')
+  }
 
   return (
     <TableContainer>
@@ -33,6 +36,7 @@ export default function AllTickets ({ tickets }) {
         <Thead className='opentickets'>
           <Tr variant='striped'>
             <Th>Ticket No.</Th>
+            <Th>Task</Th>
             <Th>Customer</Th>
             <Th>Status</Th>
             <Th>Assign</Th>
@@ -42,6 +46,7 @@ export default function AllTickets ({ tickets }) {
         </Thead>
         <Tbody>
           <Th>1</Th>
+          <Th>Async Await</Th>
           <Th>John Ong</Th>
           <Th>In Progress</Th>
           <Th>
@@ -54,7 +59,7 @@ export default function AllTickets ({ tickets }) {
                 <ModalCloseButton />
                 <ModalBody>
                   <Container mb={16}>
-                    <FormControl mb={4}>
+                    <FormControl mb={4} isRequired>
                       <FormLabel>
                         Staff
                       </FormLabel>
@@ -73,7 +78,7 @@ export default function AllTickets ({ tickets }) {
                       />
                     </FormControl>
 
-                    <FormControl mb={4}>
+                    <FormControl mb={4} isRequired>
                       <FormLabel>
                         Student
                       </FormLabel>
@@ -102,7 +107,7 @@ export default function AllTickets ({ tickets }) {
                   <Button variant='ghost' mr={3} onClick={onClose}>
                     Cancel
                   </Button>
-                  <Button colorScheme='blue' >Submit</Button>
+                  <Button colorScheme='blue' onClick={assignTicket}>Submit</Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>
