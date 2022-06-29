@@ -35,12 +35,13 @@ export default class TickerForm extends React.Component {
 
   handleAddPost() {
     axios.post('http://localhost:3001/api/clients/create', {
-      name: this.state.name,
+      taskName: this.state.name,
       wage: this.state.wage,
       description: this.state.description,
-      address: this.state.location,
-      coordinates: this.state.coordinates,
+      address: this.state.address,
+      coordinates: {"lat":34.048859,"lng":-118.251343},
       creatorId: 'tester',
+      clientName: 'tester',
     });
   }
 
