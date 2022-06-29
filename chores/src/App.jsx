@@ -39,11 +39,11 @@ function App(props) {
          <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} />*/}
         </Routes>
       </Router>
-      {/* <Staff /> */}
       {/* <Admin /> */}
       {/* <Customer />
     <Student />
     {/* <Map /> */}
+    <Staff />
     </AuthContextProvider>
   );
 }
