@@ -1,9 +1,20 @@
-import { React, useEffect, useState, useCallback } from 'react';
+import { React, useEffect, useState, useCallback, useRef } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 import axios from 'axios';
 import useGetAssignedTickets from '../customHooks/useGetAssignedTickets.jsx';
-import { CircularProgress } from '@chakra-ui/react'
+import { CircularProgress,
+        Drawer,
+        DrawerBody,
+        DrawerFooter,
+        DrawerHeader,
+        DrawerOverlay,
+        DrawerContent,
+        DrawerCloseButton,
+        useDisclosure,
+        Button,
+        Input
+      } from '@chakra-ui/react'
 
 // grab user's location to center google map api for nearby tickets but for MVP just center around LA
 
@@ -17,8 +28,8 @@ import { CircularProgress } from '@chakra-ui/react'
 // useEffect axios.get all assigned tickets
 
 const containerStyle = {
-  width: '80vw',
-  height: '80vw'
+  width: '100vw',
+  height: '100vw'
 };
 
 // basing it off LA area
@@ -34,6 +45,8 @@ const Map = () => {
   })
   const [map, setMap] = useState(null);
   const { data, isLoading } = useGetAssignedTickets();
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = useRef()
 
   const onLoad = useCallback((map) => {
     setMap(map)
@@ -74,6 +87,54 @@ const Map = () => {
     }} /> :
     isLoaded && data ? (
       <div>
+        <div
+        style={{
+          "display": "flex",
+          "justifyContent":"center"
+        }}>
+        <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+          Open
+        </Button>
+        <Drawer
+          isOpen={isOpen}
+          placement='right'
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Assigned Tickets</DrawerHeader>
+
+            <DrawerBody>
+            {data.map((ticket, key)=>{
+              return (
+                <div
+                key={key}
+                style={{
+                  "paddingBottom": '10px',
+                  "marginBottom": '10px'
+                }}>
+                  <p>{ticket.name}</p>
+                  <p>{ticket.location}</p>
+                  <p>{ticket.wage}</p>
+                  <p>{ticket.description}</p>
+                </div>
+                    )
+              })}
+              </DrawerBody>
+            {/* <DrawerBody>
+              <Input placeholder='Type here...' />
+            </DrawerBody> */}
+
+            <DrawerFooter>
+              <Button variant='outline' mr={3} onClick={onClose}>
+                Cancel
+              </Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
