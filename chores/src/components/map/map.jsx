@@ -14,8 +14,8 @@ import axios from 'axios';
 // useEffect axios.get all assigned tickets
 
 const containerStyle = {
-  width: '500px',
-  height: '500px'
+  width: '400px',
+  height: '400px'
 };
 
 const center = {
@@ -32,8 +32,8 @@ const Map = () => {
   const [map, setMap] = useState(null);
 
   const onLoad = useCallback((map) => {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    // const bounds = new window.google.maps.LatLngBounds(center);
+    // map.fitBounds(bounds);
     setMap(map)
   },[]);
 
@@ -52,7 +52,7 @@ const Map = () => {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={10}
+      zoom={12}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
