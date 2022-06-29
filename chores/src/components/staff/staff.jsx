@@ -28,7 +28,7 @@ const NavLink = ({ text }: NavLinkProps) => (
 );
 
 const NavBar = () => (
-  <HStack spacing={3} divider={<StackDivider />} as="nav">
+  <HStack mt={8} spacing={3} divider={<StackDivider />} as="nav">
     <RouteLink to="/alltickets">
       <NavLink text="Tickets" />
     </RouteLink>
@@ -93,7 +93,7 @@ export default function Staff () {
       <ChakraProvider>
         <Router>
           <NavBar />
-          <Routes>
+          <Routes >
             <Route path="/alltickets" element={<AllTickets tickets={tickets} />} />
             <Route path="/allstaff" element={<AllStaff staff={staff} />} />
             <Route path="/allstudents" element={<AllStudents students={students} />} />
