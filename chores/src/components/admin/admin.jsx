@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// chores/src/components/admin/adminEntry.jsx
-import AdminEntry from './adminEntry.jsx'
+// chores/src/components/admin/AdminEntry.jsx
+import AdminEntry from './AdminEntry.jsx'
 import axios from 'axios';
 import {
   ChakraProvider,

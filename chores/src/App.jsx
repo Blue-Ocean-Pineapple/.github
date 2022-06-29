@@ -1,13 +1,13 @@
 import React from 'react';
-// import Login from './components/login/login.jsx';
+// import Login from './components/login/Login.jsx';
 // import Register from './components/register/Register.jsx';
-// import Home from './components/home/home.jsx';
+// import Home from './components/home/Home.jsx';
 // import Profile from './components/profile/Profile.jsx';
-// import Admin from './components/admin/admin.jsx';
-// import Customer from './components/customer/customer.jsx';
-import Map from './components/map/map.jsx';
-// import Staff from './components/staff/staff.jsx';
-// import Student from './components/student/student.jsx';
+// import Admin from './components/admin/Admin.jsx';
+// import Customer from './components/customer/Customer.jsx';
+import Map from './components/map/Map.jsx';
+// import Staff from './components/staff/Staff.jsx';
+// import Student from './components/student/Student.jsx';
 // import Navbar from './components/home/Navbar.jsx';
 
 import {
