@@ -1,29 +1,32 @@
 [
   {
    "clientName": "hi",
-   "taskName": "Dog Walk",
-   "location": "sesame street",
+   "address": "448 S Hill St, Los Angeles, CA 90013",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
-    "clientStatus": "approved"
+    "clientStatus": "approved",
+    "taskName": "Dog Walk",
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
   },
   {
     "clientName": "momma",
-    "taskName": "Washing Dishes",
-    "location": "sesame street",
+    "address": "500 Mateo St, Los Angeles, CA 90013",
     "description": "Wash dishes",
-    "creatorId": "2",
-    "clientStatus": "approved"
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Washing Dishes",
+     "coordinates": {"lat":34.041451,"lng":-118.232719}
    },
   {
     "clientName": "your",
-    "taskName": "Dog Walk",
-    "location": "sesame street",
+    "address": "2121 E 7th Pl, Los Angeles, CA 90021",
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
     "complete": true,
-    "studentId": "1"
+    "studentId": "1",
+    "coordinates": {"lat":34.041451,"lng":-118.232719}
+
   },
   {
     "clientName": "love me",
@@ -33,6 +36,7 @@
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
-     "studentId": "2"
+     "studentId": "2",
+     "coordinates": {"lat":34.068630,"lng":-118.226631}
    }
 ]

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Geocode from "react-geocode";
 
 export default class TickerForm extends React.Component {
   constructor(props) {
@@ -8,25 +9,37 @@ export default class TickerForm extends React.Component {
       name: "",
       wage: "",
       description: "",
-      location: ""
+      address: "",
+      coordinates: {}
     };
   }
 
   handleNewPost(nameArg, wageArg, descriptionArg, locationArg) {
+    this.getGeoCode(locationArg);
     this.setState({
       name: nameArg,
       wage: wageArg,
       description: descriptionArg,
-      location: locationArg,
+      address: locationArg,
     }, this.handleAddPost);
   }
+
+  getGeoCode = (locationArg) => {
+    Geocode.fromAddress(locationArg)
+    .then((data) => {
+      this.setState({
+        coordinates: data.results[0].geometry.location})
+    })
+    .catch((err) => {console.log(err);})
+  };
 
   handleAddPost() {
     axios.post('http://localhost:3001/api/clients/create', {
       name: this.state.name,
       wage: this.state.wage,
       description: this.state.description,
-      location: this.state.location,
+      address: this.state.location,
+      coordinates: this.state.coordinates,
       creatorId: 'tester',
     });
   }

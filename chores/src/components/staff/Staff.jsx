@@ -1,8 +1,8 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import AllStaff from './pages/AllStaff';
-import AllStudents from './pages/AllStudents';
-import AllTickets from './pages/AllTickets';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import AllStaff from "./pages/AllStaff";
+import AllStudents from "./pages/AllStudents";
+import AllTickets from "./pages/AllTickets";
 import {
   ChakraProvider,
   Flex,
@@ -11,13 +11,13 @@ import {
   Box,
   Grid,
   HStack,
-  StackDivider
-} from '@chakra-ui/react';
+  StackDivider,
+} from "@chakra-ui/react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link as RouteLink
+  Link as RouteLink,
 } from "react-router-dom";
 
 type NavLinkProps = { text: string };
@@ -66,46 +66,47 @@ export default function Staff () {
         setOpenTickets(open);
         setClosedTickets(closed);
       })
-      .catch((err) => {console.log('err!!', err)})
-  }
+      .catch((err) => {
+        console.log("err!!", err);
+      });
+  };
 
   const getAllUsers = () => {
     let students = [];
     let staffs = [];
     let admins = [];
-    let customers =[];
-    axios.get('/staff/allStudents')
+    let customers = [];
+    axios
+      .get("/staff/allStudents")
       .then((res) => {
-        console.log('all users res?', res)
+        console.log("all users res?", res);
         res.data.map((user) => {
-          if (user.role === 'Student') {
-            students.push(user)
-          } else if (user.role === 'Staff') {
-            staffs.push(user)
-          } else if (user.role === 'Admin') {
-            admins.push(user)
-          } else if (user.role === 'Customer') {
-            customers.push(user)
+          if (user.role === "Student") {
+            students.push(user);
+          } else if (user.role === "Staff") {
+            staffs.push(user);
+          } else if (user.role === "Admin") {
+            admins.push(user);
+          } else if (user.role === "Customer") {
+            customers.push(user);
           }
-        })
+        });
         setStudent(students);
         setStaff(staffs);
         setAdmin(admins);
         setCustomer(customers);
       })
-      .catch((err) => {console.log('err!!', err)})
-  }
+      .catch((err) => {
+        console.log("err!!", err);
+      });
+  };
 
   useEffect(() => {
     getAllTickets();
     getAllUsers();
-  }, [])
-
-
-
+  }, []);
 
   return (
-
     <div>
       <ChakraProvider>
         <Router>
@@ -119,10 +120,13 @@ export default function Staff () {
               staff={staff}
               students={student} />} />
             <Route path="/allstaff" element={<AllStaff staff={staff} />} />
-            <Route path="/allstudents" element={<AllStudents students={student} />} />
+            <Route
+              path="/allstudents"
+              element={<AllStudents students={student} />}
+            />
           </Routes>
         </Router>
       </ChakraProvider>
     </div>
-  )
+  );
 }

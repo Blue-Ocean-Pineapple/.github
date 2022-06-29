@@ -3,10 +3,10 @@ import Login from "./components/login/Login.jsx";
 import Register from "./components/register/Register.jsx";
 import Home from "./components/home/Home.jsx";
 import Profile from "./components/profile/Profile.jsx";
-// import Admin from './components/admin/Admin.jsx';
-// import Customer from './components/customer/Customer.jsx';
+import Admin from "./components/admin/Admin.jsx";
+import Customer from "./components/customer/Customer.jsx";
 import Map from "./components/map/Map.jsx";
-import Staff from './components/staff/Staff.jsx';
+import Staff from "./components/staff/Staff.jsx";
 import Student from "./components/student/Student.jsx";
 // import Navbar from './components/home/Navbar.jsx';
 
@@ -18,13 +18,11 @@ function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   return (
-    // <div>
-    //   <Map/>
-    // </div>
     <AuthContextProvider>
-      {/* <Router>
+      <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/student" element={<Student />} />
           <Route
             path="/login"
             element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}
@@ -38,10 +36,14 @@ function App(props) {
          <Route path="/customer" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Customer />}/>
          <Route path="/staff" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Staff />}/>
          <Route path="/student" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Student />}/>
-         <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} /> */}
-        {/* </Routes>
-      </Router> */}
-    <Staff />
+         <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} />*/}
+        </Routes>
+      </Router>
+      {/* <Staff /> */}
+      {/* <Admin /> */}
+      {/* <Customer />
+    <Student />
+    {/* <Map /> */}
     </AuthContextProvider>
   );
 }
