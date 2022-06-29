@@ -22,6 +22,7 @@ router.get('/api/users', users.getAll);
 
 //ClientRoute:
 router.get('/api/clients/tickets', clients.getAll);
+router.get('/api/clients/done', clients.getCompleted);
 router.get('/api/clients/:id', clients.getClient); //change to ticketId?
 router.post('/api/clients/create', clients.createOne);
 router.put('/api/clients/update', clients.update);
