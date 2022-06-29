@@ -13,7 +13,7 @@ exports.findByID = (id) => {
 };
 
 exports.createOne = (name, wage, description, location, id, created) => {
-  return Ticket.create({name: name, wage: wage, description: description, location: location, creatorId: id, createdAt: created});
+  return Ticket.create({name: name, wage: wage, description: description, location: location, creatorId: id});
 };
 
 exports.update = (description, id, location, updatedDescription, updatedLocation) => {
@@ -21,5 +21,6 @@ exports.update = (description, id, location, updatedDescription, updatedLocation
 }
 
 exports.delete = (id) => {
+  console.log(id)
   return Ticket.deleteOne({_id: id});
 };

@@ -20,7 +20,7 @@ import axios from "axios";
 
 export default function Profile() {
   const { currentUser } = useAuth();
-  console.log('currentUser in Profile', currentUser);
+  // console.log('currentUser in Profile', currentUser);
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -33,10 +33,9 @@ export default function Profile() {
   const [organization, setOrginization] = useState('');
   const [active, setActive] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-
   const [isOpen, setOpen] = useState(false);
   const [role, setRole] = useState(roles);
+  const [updatedUserInfo, setUpdatedUserInfo] = useState({});
 
   const toggleDropdown = () => setOpen(!isOpen);
 
@@ -57,21 +56,25 @@ export default function Profile() {
     }
     console.log('Updated User', updatedUser);
     try {
-      const res =  await axios.post('/users/info', updatedUser);
+      const res =  await axios.post('http://localhost:3001/api/users/info', updatedUser);
       console.log('HIT POST USER!', res.data);
+      setUpdatedUserInfo(res.data);
       setIsSubmitting(true);
-      navigate('/users/' + res.data.uid)
+      // navigate('/users/' + res.data.uid)
     } catch (err) {
       console.log('error while updating user information', err)
     }
   }
+
   return (
     <Layout>
       <Heading>Profile page</Heading>
       <Container maxW='container.lg' overflowX='auto' py={4}>
         <chakra.pre p={4}>
-          {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
+          {/* {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
           {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
+          {updatedUserInfo && <pre> Name: {JSON.stringify(updatedUserInfo.name)}</pre>} */}
+          {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>}
         </chakra.pre>
         {
         currentUser && (
@@ -138,16 +141,6 @@ export default function Profile() {
                 onChange={e =>setPhone(e.target.value)}
               />
             </FormControl>
-            {/* <FormControl id='role'>
-              <FormLabel>Role</FormLabel>
-              <Input
-                name='role'
-                type='dropdown'
-                autoComplete='role'
-                required
-                onChange={e =>setRole(e.target.value)}
-              />
-            </FormControl> */}
             <Menu>
               <MenuButton as={Button} colorScheme='teal' onClick={toggleDropdown}>Role</MenuButton>
               <MenuList>

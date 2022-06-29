@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-// chores/src/components/admin/adminEntry.jsx
+// chores/src/components/admin/AdminEntry.jsx
 import AdminEntry from "./AdminEntry.jsx";
+import UserEntry from "./UserEntry.jsx";
 import axios from "axios";
 import {
   ChakraProvider,
@@ -19,6 +20,7 @@ import {
 
 export default function Admin(props) {
   const [admin, setAdmin] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios
@@ -26,8 +28,20 @@ export default function Admin(props) {
       .then((response) => {
         console.log("working");
         let adminData = response.data;
-        console.log(adminData);
+        //console.log(adminData);
         setAdmin(adminData);
+      })
+      .catch((err) => console.log("error", err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/staff/allStudents")
+      .then((response) => {
+        console.log("working");
+        let userData = response.data;
+        console.log(userData);
+        setUsers(userData);
       })
       .catch((err) => console.log("error", err));
   }, []);
@@ -86,6 +100,46 @@ export default function Admin(props) {
                         staffId={data.staffId}
                         studentId={data.studentId}
                         key={data._id}
+                      />
+                    );
+                  })}
+                </Tbody>
+              </Table>
+            </TableContainer>
+          </Box>
+        </Flex>
+      </Box>
+
+      <Box bg="white" />
+      <Flex justifyContent="center"></Flex>
+      <Box className="ContainingBox" width="100vw">
+        <Flex
+          className="containingFlex"
+          flexDirection="row"
+          justifyContent="center"
+        >
+          <Box className="tableBox" maxW="60vw" margin="20px">
+            <Text textAlign="center">Users</Text>
+            <TableContainer display="block" maxWidth="100%">
+              <Table variant="striped">
+                <TableCaption>User Account List</TableCaption>
+                <Thead>
+                  <Tr>
+                    <Th>User Name</Th>
+                    <Th>Organization</Th>
+                    <Th>Role</Th>
+                    <Th>Date</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {users.map((data) => {
+                    return (
+                      <UserEntry
+                        firstName={data.firstName}
+                        lastName={data.lastName}
+                        organization={data.organization}
+                        id={data._id}
+                        role={data.role}
                       />
                     );
                   })}

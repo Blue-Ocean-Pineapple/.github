@@ -1,133 +1,42 @@
 [
   {
-   "location": "sesame street",
+   "clientName": "hi",
+   "address": "448 S Hill St, Los Angeles, CA 90013",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved",
-    "name": "Dog Walk"
+    "taskName": "Dog Walk",
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
   },
   {
-    "location": "sesame street",
+    "clientName": "momma",
+    "address": "500 Mateo St, Los Angeles, CA 90013",
     "description": "Wash dishes",
      "creatorId": "2",
      "clientStatus": "approved",
-     "name": "Washing Dishes"
-   },
-   {
-    "location": "sesame street",
-    "description": "Wash dishes",
-     "creatorId": "2",
-     "clientStatus": "approved",
-     "name": "Washing Dishes",
-     "complete": false
+     "taskName": "Washing Dishes",
+     "coordinates": {"lat":34.041451,"lng":-118.232719}
    },
   {
-    "location": "sesame street",
+    "clientName": "your",
+    "address": "2121 E 7th Pl, Los Angeles, CA 90021",
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
     "complete": true,
     "studentId": "1",
-    "name": "Dog Walk"
+    "coordinates": {"lat":34.041451,"lng":-118.232719}
+
   },
   {
+    "clientName": "love me",
+    "taskName": "Lawn mowing",
     "location": "sesame street",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
      "studentId": "2",
-     "name": "Lawn mowing"
-   },
-   {
-    "name": "Dog Walk",
-    "wage": 15,
-    "description": "I want you to walk my dog, he is big and red and named Clifford",
-    "clientStatus": "complete",
-    "complete": true,
-    "creatorId": 23,
-    "studentId": 5
-   },
-   {
-    "name": "Washing Dishes",
-    "wage": 20,
-    "description": "I want you to wash my dishes, they've been piling up!!",
-    "clientStatus": "approved",
-    "complete": false,
-    "creatorId": 23,
-    "studentId": 5
-   },
-   {
-    "name": "Cat sitting",
-    "wage": 20,
-    "description": "My cat, Salem, needs to be sat.",
-    "clientStatus": "approved",
-    "complete": false,
-    "creatorId": 90,
-    "studentId": 5
-   },
-   {
-    "name": "Sweeping the floors",
-    "wage": 10,
-    "description": "Our floor is dirty, you need to sweep it or its just going to get worse!",
-    "clientStatus": "approved",
-    "complete": false,
-    "creatorId": 2031,
-    "studentId": 5
-   },
-   {
-    "name": "Washing my dog",
-    "wage": 50,
-    "description": "He is a smelly old dog and needs-a-washing.",
-    "clientStatus": "approved",
-    "complete": false,
-    "creatorId": 3421,
-    "studentId": 5
-   },
-   {
-    "name": "Teach me how to dougie",
-    "wage": 100,
-    "description": "I can't dance, and I want to learn. Someone teach me how to dance!",
-    "clientStatus": "approved",
-    "complete": false,
-    "creatorId": 9402,
-    "studentId": 5
-   },
-   {
-    "name": "Raking the leaves",
-    "wage": 50,
-    "description": "Need you to rake the leaves in my yard. I can't even see the drive way floor anymore",
-    "clientStatus": "approved",
-    "complete": false,
-    "creatorId": 43221,
-    "studentId": 5
-   },
-   {
-    "name": "Baby Sitting",
-    "wage": 25,
-    "description": "Please I need help baby sitting 9 of my kids",
-    "clientStatus": "in-progress",
-    "complete": false,
-    "creatorId": 25,
-    "studentId": 5
-   },
-   {
-    "name": "Baby Sitting",
-    "wage": 25,
-    "description": "Please I need help baby sitting 20 of my kids",
-    "clientStatus": "complete",
-    "complete": true,
-    "creatorId": 5921,
-    "studentId": 5
-   },
-   {
-    "name": "Video Games",
-    "wage": 25,
-    "description": "Teach me how to play video games",
-    "clientStatus": "complete",
-    "complete": true,
-    "creatorId": 23912,
-    "studentId": 5
+     "coordinates": {"lat":34.068630,"lng":-118.226631}
    }
 ]
-

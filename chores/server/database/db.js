@@ -14,12 +14,16 @@ mongoose
     mongoose.set("useCreateIndex", true);
   });
 
-//   function(){
+// function(){
 //   mongoose.connection.db.dropDatabase();
 // });
 
 const TicketSchema = new mongoose.Schema({
-  name: {
+  clientName: {
+    type: String,
+    required: true,
+  },
+  taskName: {
     type: String,
     required: true,
   },
@@ -31,13 +35,19 @@ const TicketSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  location: {
-    type: {
-      type: String,
-      enum: ["Point"],
+  address: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  coordinates: {
+    lat: {
+      type: Number,
+      required: true,
     },
-    coordinates: {
-      type: [Number],
+    lng: {
+      type: Number,
+      required: true,
     },
   },
   clientStatus: {
@@ -75,7 +85,6 @@ const TicketSchema = new mongoose.Schema({
 const UserSchema = new mongoose.Schema({
   uid: {
     type: String,
-    // default: mongoose.ObjectId(),
     required: true,
   },
   name: {
