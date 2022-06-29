@@ -1,29 +1,46 @@
-const db = require('../database/db.js');
+const { Ticket } = require("../database/db.js");
 
 module.exports = {
   getAllOpen: () => {
-    return db.Ticket.find({complete: false, status: 'approved'})
+    return Ticket.find({ clientStatus: "approved" });
+    // We cant just search up for tickets, we need to search for the tickets
+    // approved under a certain organization
+  },
+
+  getAllAssignedOpen: (studentId) => {
+    return Ticket.find({
+      studentId,
+      clientStatus: "approved",
+    });
   },
 
   getAllClosed: (studentId) => {
-    return db.Ticket.find({studentId: studentId, complete: true})
+    return Ticket.find({ studentId, clientStatus: "complete" });
   },
 
-  voteTask: (info) => {
-    return db.Ticket.findOneAndUpdate({TicketId: info.TicketId},
-      {$push: {reacts: info.studentId}})
+  voteTask: ({ ticketId, studentId }) => {
+    return Ticket.findOneAndUpdate(
+      { ticketId },
+      { $push: { reacts: studentId } }
+    );
   },
 
-  completeTask: (TicketId) => {
-    return db.Ticket.findOneAndUpdate({TicketId}, {complete: true})
+  completeTask: (ticketId) => {
+    return Ticket.findOneAndUpdate({ ticketId }, { clientStatus: "complete" });
+  },
+
+  rejectTask: ({ ticketId, studentId }) => {
+    return Ticket.findOneAndUpdate(
+      { ticketId, studentId },
+      { studentId: null }
+    );
   },
 
   createTicket: (info) => {
-    return db.Ticket.create(info)
+    return Ticket.create(info);
   },
 
   deleteTickets: () => {
-    return db.Ticket.deleteMany({})
-  }
-
-}
+    return Ticket.deleteMany({});
+  },
+};
