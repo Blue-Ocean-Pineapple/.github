@@ -12,17 +12,15 @@ import {
 import React, { useState } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { Card } from '../home/Card'
 import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
-import axios from 'axios';
 
-
-export default function Login() {
+export default function Login({setIsAuth}) {
   const navigate = useNavigate();
-  const { currentUser, signInWithGoogle, login, signInWithFacebook } = useAuth();
+  const { signInWithGoogle, login, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -50,7 +48,8 @@ export default function Login() {
             login(email, password)
               .then(res => {
                 console.log('login res', res)
-                // axios.post('/user/info', {user: currentUser})
+                localStorage.setItem('isAuth', true)
+                setIsAuth(true)
                 navigate('/profile')
               })
               .catch(error => {
@@ -93,7 +92,7 @@ export default function Login() {
 
             <Button
               type='submit'
-              colorScheme='pink'
+              colorScheme='teal'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
@@ -104,19 +103,21 @@ export default function Login() {
         </chakra.form>
         <HStack justifyContent='space-between' my={4}>
           <Button variant='link' onClick={() => navigate('/register')}>
-           Log In
+           Register
           </Button>
         </HStack>
         <DividerWithText my={6}>OR</DividerWithText>
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='red'
+          colorScheme='google'
           leftIcon={<FaGoogle />}
           onClick={() =>
             signInWithGoogle()
               .then(user => {
-                console.log(user)
+                console.log('google user', user)
+                localStorage.setItem('isAuth', true)
+                navigate('/profile')
               })
               .catch(e => console.log(e.message))
           }
@@ -127,12 +128,14 @@ export default function Login() {
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='blue'
+          colorScheme='facebook'
           leftIcon={<FaFacebook />}
           onClick={() =>
             signInWithFacebook()
               .then(user => {
                 console.log(user)
+                localStorage.setItem('isAuth', true)
+                navigate('/profile')
               })
               .catch(e => console.log(e.message))
           }

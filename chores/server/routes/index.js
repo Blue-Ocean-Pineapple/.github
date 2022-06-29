@@ -7,16 +7,18 @@ const clients = require('../controllers/client.js');
 const map = require('../controllers/map.js');
 
 const router = express.Router();
+
 //testPostman
-router.get('/', (req, res) => (
-  res.send('HELLO FROM CHORES')
-));
+// router.get('/', (req, res) => (
+//   res.send('HELLO FROM CHORES')
+// ));
 
 //UserRoute:
 router.post('/api/users/info', users.saveUser);
+router.get('/api/users/:uid', users.getOne);
+router.get('/api/users', users.getAll);
 // router.put('/api/users/:id', users.update);
 // router.delete('/api/users/:id', users.delete);
-// router.get('/api/users/:id', users.getOne);
 
 //ClientRoute:
 router.get('/api/clients/tickets', clients.getAll);
@@ -33,7 +35,6 @@ router.put('/api/staff/assignStudentAndStaff', staff.assignStudentAndStaff);
 router.put('/api/staff/updateTicketStatus', staff.updateTicketStatus);
 router.delete('/api/staff/deactivateStudent', staff.deactivateStudent);
 router.post('/api/staff/addStaffOrStudent', staff.addStaffOrStudent);
-
 
 //StudentRoutes:
 router.get('/api/student/ticket/open', student.getAllOpen);
