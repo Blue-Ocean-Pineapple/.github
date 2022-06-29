@@ -1,34 +1,38 @@
 [
   {
    "name": "hi",
-   "location": "sesame street",
+   "location": "448 S Hill St, Los Angeles, CA 90013",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
-    "clientStatus": "approved"
+    "clientStatus": "approved",
+    "name": "Dog Walk"
   },
   {
     "name": "momma",
-    "location": "sesame street",
+    "location": "500 Mateo St, Los Angeles, CA 90013",
     "description": "Wash dishes",
      "creatorId": "2",
-     "clientStatus": "approved"
+     "clientStatus": "approved",
+     "name": "Washing Dishes"
    },
   {
     "name": "your",
-    "location": "sesame street",
+    "location": "2121 E 7th Pl, Los Angeles, CA 90021",
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
     "complete": true,
-    "studentId": "1"
+    "studentId": "1",
+    "name": "Dog Walk"
   },
   {
     "name": "love me",
-    "location": "sesame street",
+    "location": "1725 Naud St, Los Angeles, CA 90012",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
-     "studentId": "2"
+     "studentId": "2",
+     "name": "Lawn mowing"
    }
 ]

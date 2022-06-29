@@ -1,12 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 //create connection
-mongoose.connect('mongodb://localhost/chores',
-  { useNewUrlParser: true }, { useUnifiedTopology: true } )
+mongoose
+  .connect(
+    "mongodb://localhost/chores",
+    { useNewUrlParser: true },
+    { useUnifiedTopology: true }
+  )
   .then(() => {
-    console.log('database connected sucessfully!');
-  }).catch(() => {
-    mongoose.set('useCreateIndex', true);
+    console.log("database connected sucessfully!");
+  })
+  .catch(() => {
+    mongoose.set("useCreateIndex", true);
   });
 
 //   function(){
@@ -19,7 +24,7 @@ const TicketSchema = new mongoose.Schema({
     required: true,
   },
   wage: {
-      type: Number,
+    type: Number,
   },
   description: {
     type: String,
@@ -29,10 +34,12 @@ const TicketSchema = new mongoose.Schema({
   location: {
     type: String,
     required: true,
+    trim: true
   },
   clientStatus: {
     type: String,
-    enum: ['awaiting', 'approved', 'in-progress'],
+    required: true,
+    enum: ["awaiting", "approved", "in-progress", "complete"],
     default: "awaiting",
   },
   creatorId: {
@@ -40,21 +47,23 @@ const TicketSchema = new mongoose.Schema({
     required: true,
   },
   reacts: [String],
-  studentId: [String],
+  studentId: {
+    type: String,
+    default: null,
+  },
   staffId: {
     type: String,
-    default: null
+    default: null,
   },
   date: {
-    type: Date
+    type: Date,
   },
-  createdAt : {
+  createdAt: {
     type: Date,
     default: Date.now,
    },
   complete: {
     type: Boolean,
-    required: true,
     default: false
   }
 })
@@ -101,16 +110,15 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    required: true
+    required: true,
   },
   organization: {
     type: String,
-    required: true
+    required: true,
   },
   active: {
     type: Boolean,
-    required: true,
-    default: true
+    default: false
   }
 });
 
@@ -126,10 +134,10 @@ const UserSchema = new mongoose.Schema({
 // },
 // { timestamps: true });
 
-const User = mongoose.model('users', UserSchema);
-const Ticket = mongoose.model('tickets', TicketSchema);
-// const category = mongoose.model('categories', CategorySchema);
+const User = mongoose.model("users", UserSchema);
+const Ticket = mongoose.model("tickets", TicketSchema);
+// const Category = mongoose.model('categories', CategorySchema);
 
 module.exports.User = User;
 module.exports.Ticket = Ticket;
-// module.exports.category = category;
+// module.exports.Category = Category;

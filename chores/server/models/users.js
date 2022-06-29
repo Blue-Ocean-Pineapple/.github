@@ -7,7 +7,6 @@ module.exports = {
     try {
       // const salt = await bcrypt.genSalt(10);
       // const hashedPass = await bcrypt.hash(req.body.password, salt);
-      console.log('req.body', req);
       const newUser = new User({
         uid: req.uid,
         name:req.name,

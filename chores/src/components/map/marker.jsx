@@ -1,11 +1,12 @@
 import { React, useEffect, useState } from 'react';
+import { Marker } from '@react-google-maps/api';
 
 const Marker = (options) => {
   const [marker, setMarker] = useState();
 
   useEffect(() => {
     if (!marker) {
-      setMarker(new google.maps.Marker());
+      setMarker(new Marker());
     }
 
     // remove marker from map on unmount
