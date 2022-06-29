@@ -19,7 +19,11 @@ mongoose
 // });
 
 const TicketSchema = new mongoose.Schema({
-  name: {
+  taskName: {
+    type: String,
+    required: true,
+  },
+  clientName: {
     type: String,
     required: true,
   },
@@ -35,6 +39,16 @@ const TicketSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true
+  },
+  coordinates: {
+    lat: {
+      type: Number,
+      required: true,
+    },
+    lng: {
+      type: Number,
+      required: true,
+    }
   },
   clientStatus: {
     type: String,

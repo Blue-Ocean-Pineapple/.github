@@ -1,7 +1,6 @@
 import { React, useEffect, useState, useCallback, useRef } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-import Geocode from "react-geocode";
-import axios from 'axios';
+// import Geocode from "react-geocode";
 import useGetAssignedTickets from '../customHooks/useGetAssignedTickets.jsx';
 import { CircularProgress,
         Drawer,
@@ -12,8 +11,7 @@ import { CircularProgress,
         DrawerContent,
         DrawerCloseButton,
         useDisclosure,
-        Button,
-        Input
+        Button
       } from '@chakra-ui/react'
 
 // grab user's location to center google map api for nearby tickets but for MVP just center around LA
@@ -112,8 +110,10 @@ const Map = () => {
                 <div
                 key={key}
                 style={{
-                  "paddingBottom": '10px',
-                  "marginBottom": '10px'
+                  "padding": '10px',
+                  "marginBottom": '10px',
+                  "border": "solid gray",
+                  "borderRadius": 15
                 }}>
                   <p>{ticket.name}</p>
                   <p>{ticket.location}</p>
@@ -123,10 +123,6 @@ const Map = () => {
                     )
               })}
               </DrawerBody>
-            {/* <DrawerBody>
-              <Input placeholder='Type here...' />
-            </DrawerBody> */}
-
             <DrawerFooter>
               <Button variant='outline' mr={3} onClick={onClose}>
                 Cancel
