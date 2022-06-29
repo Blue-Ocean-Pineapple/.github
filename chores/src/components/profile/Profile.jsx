@@ -149,7 +149,7 @@ export default function Profile() {
               />
             </FormControl> */}
             <Menu>
-              <MenuButton as={Button} colorScheme='pink' onClick={toggleDropdown}>Role</MenuButton>
+              <MenuButton as={Button} colorScheme='teal' onClick={toggleDropdown}>Role</MenuButton>
               <MenuList>
                 {
                   roles.map((role) => {
@@ -182,7 +182,7 @@ export default function Profile() {
             </FormControl>
             <Button
               type='submit'
-              colorScheme='pink'
+              colorScheme='teal'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}

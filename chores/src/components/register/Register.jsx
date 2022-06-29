@@ -18,6 +18,9 @@ import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout.jsx';
 import { useAuth } from '../../contexts/AuthContext';
 
+// const user = auth.currentUser;
+// axios.post(‘/user/info’, {uid: user.uid, displayName: user.displayName, photoURL: user.photoURL, email: user.email});
+
 export default function Register({setIsAuth}) {
   const navigate = useNavigate();
   const { signInWithGoogle, register, signInWithFacebook } = useAuth();
@@ -89,7 +92,7 @@ export default function Register({setIsAuth}) {
 
             <Button
               type='submit'
-              colorScheme='pink'
+              colorScheme='teal'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
@@ -107,7 +110,7 @@ export default function Register({setIsAuth}) {
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='red'
+          colorScheme='facebook'
           leftIcon={<FaGoogle />}
           onClick={() =>
             signInWithGoogle()
@@ -123,7 +126,7 @@ export default function Register({setIsAuth}) {
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='blue'
+          colorScheme='facebook'
           leftIcon={<FaFacebook />}
           onClick={() =>
             signInWithFacebook()

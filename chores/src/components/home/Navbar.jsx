@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 
 export function Navbar({setIsAuth}) {
+  const { toggleColorMode } = useColorMode()
   const { logout, currentUser } = useAuth();
   return (
     <Box
@@ -52,6 +53,12 @@ export function Navbar({setIsAuth}) {
             }}
           />
         )}
+        <IconButton
+          variant='ghost'
+          icon={useColorModeValue(<FaSun />, <FaMoon />)}
+          onClick={toggleColorMode}
+          aria-label='toggle-dark-mode'
+        />
       </HStack>
     </Box>
   )

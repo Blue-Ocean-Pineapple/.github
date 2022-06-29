@@ -92,7 +92,7 @@ export default function Login({setIsAuth}) {
 
             <Button
               type='submit'
-              colorScheme='pink'
+              colorScheme='teal'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
@@ -110,7 +110,7 @@ export default function Login({setIsAuth}) {
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='red'
+          colorScheme='google'
           leftIcon={<FaGoogle />}
           onClick={() =>
             signInWithGoogle()
@@ -128,7 +128,7 @@ export default function Login({setIsAuth}) {
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='blue'
+          colorScheme='facebook'
           leftIcon={<FaFacebook />}
           onClick={() =>
             signInWithFacebook()
