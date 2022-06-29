@@ -5,7 +5,7 @@ module.exports = {
     console.log('model req getalltickets', req)
     db.Ticket.find({})
       .then((results) => {
-        console.log('model getalltickets results', results)
+        // console.log('model getalltickets results', results)
         callback(null, results)
       })
       .catch((err) => {callback(err)})
