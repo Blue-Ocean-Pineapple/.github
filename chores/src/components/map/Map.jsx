@@ -141,21 +141,10 @@ const Map = () => {
       >
       {data.map((ticket,key) => {
         return (
-          <Popover key={key}>
-            <PopoverTrigger>
-              <div>
-                <Marker
-                position={ticket.coordinates}
-                />
-              </div>
-            </PopoverTrigger>
-            <PopoverContent>
-              <PopoverArrow />
-                <PopoverCloseButton />
-                <PopoverHeader>Confirmation!</PopoverHeader>
-                <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
-            </PopoverContent>
-          </Popover>
+          <Marker
+          key={key}
+          position={ticket.coordinates}
+          />
         )
       })}
       </GoogleMap>
