@@ -32,16 +32,16 @@ function App(props) {
             element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}
           />
           <Route path="/profile" element={!isAuth ? <Profile /> : <Home />} />
-          {/* <Route path="/admin" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Admin />}/>
-         <Route path="/customer" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Customer />}/>
-         <Route path="/staff" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Staff />}/>
-         <Route path="/student" element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Student />}/>
-         <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} />*/}
+          <Route path="/admin" element={ <Admin />}/>
+         <Route path="/customer" element={ <Customer />}/>
+         <Route path="/staff" element={ <Staff />}/>
+         <Route path="/student" element={ <Student />}/>
+         <Route path="/map" element={ <Map />} />
         </Routes>
       </Router>
       {/* <Admin /> */}
       {/* <Customer />
-    <Student />
+     <Student />
     {/* <Map /> */}
     <Staff />
     </AuthContextProvider>
