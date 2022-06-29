@@ -4,14 +4,16 @@
    "location": "sesame street",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
-    "clientStatus": "approved"
+    "clientStatus": "approved",
+    "name": "Dog Walk"
   },
   {
     "name": "momma",
     "location": "sesame street",
     "description": "Wash dishes",
      "creatorId": "2",
-     "clientStatus": "approved"
+     "clientStatus": "approved",
+     "name": "Washing Dishes"
    },
   {
     "name": "your",
@@ -20,7 +22,8 @@
     "creatorId": "1",
     "clientStatus": "complete",
     "complete": true,
-    "studentId": "1"
+    "studentId": "1",
+    "name": "Dog Walk"
   },
   {
     "name": "love me",
@@ -29,6 +32,7 @@
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
-     "studentId": "2"
+     "studentId": "2",
+     "name": "Lawn mowing"
    }
 ]
