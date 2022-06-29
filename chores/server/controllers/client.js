@@ -27,7 +27,7 @@ module.exports = {
   },
 
   createOne: (req, res) => { //need UID as prop
-    client.createOne(req.body.name, req.body.wage, req.body.description, req.body.location, req.body.creatorId, req.body.createdAt)
+    client.createOne(req.body.taskName, req.body.wage, req.body.description, req.body.address, req.body.coordinates, req.body.creatorId, req.body.clientName)
       .then((data) => res.sendStatus(201))
       .catch((err) => console.log(err))
   },
