@@ -13,7 +13,7 @@ module.exports = {
 
   getAllUsers: function(req, callback) {
     console.log('model req getAllUsers', req)
-    db.User.find({ role: 'student' })
+    db.User.find({})
       .then((results) => {
         console.log('model getAllUsers results', results)
         callback(null, results)
