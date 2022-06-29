@@ -9,11 +9,16 @@ import {
   Td,
   TableCaption,
   TableContainer,
-  Heading
+  Heading,
+  Button
 } from '@chakra-ui/react'
 
 export default function AllStaff ({ staff }) {
 
+  const activeStaff = () => {
+
+  }
+  
   return (
     <TableContainer>
       <Heading as='h2' size='xl' mt={10} mb={5}>Active</Heading>
@@ -37,19 +42,26 @@ export default function AllStaff ({ staff }) {
 
       <Heading as='h2' size='xl' mt={10} mb={5}>Inactive</Heading>
       <Table variant='striped'>
-        <Thead className='activestaff'>
+        <Thead className='inactivestaff'>
           <Tr variant='striped'>
             <Th>Name</Th>
+            <Th>Activate Staff</Th>
             <Th isNumeric>ID</Th>
           </Tr>
         </Thead>
 
         <Tbody>
           <Th>Alexis Stone</Th>
+          <Th>
+            <Button>Activate</Button>
+          </Th>
           <Th isNumeric>39492</Th>
         </Tbody>
         <Tbody>
           <Th>Jin Peng</Th>
+          <Th>
+            <Button>Activate</Button>
+          </Th>
           <Th isNumeric>48395</Th>
         </Tbody>
       </Table>

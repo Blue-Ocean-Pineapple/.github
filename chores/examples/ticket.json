@@ -1,38 +1,38 @@
 [
   {
-   "name": "hi",
+   "clientName": "hi",
+   "taskName": "Dog Walk",
    "location": "sesame street",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
-    "clientStatus": "approved",
-    "name": "Dog Walk"
+    "clientStatus": "approved"
   },
   {
-    "name": "momma",
+    "clientName": "momma",
+    "taskName": "Washing Dishes",
     "location": "sesame street",
     "description": "Wash dishes",
-     "creatorId": "2",
-     "clientStatus": "approved",
-     "name": "Washing Dishes"
+    "creatorId": "2",
+    "clientStatus": "approved"
    },
   {
-    "name": "your",
+    "clientName": "your",
+    "taskName": "Dog Walk",
     "location": "sesame street",
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
     "complete": true,
-    "studentId": "1",
-    "name": "Dog Walk"
+    "studentId": "1"
   },
   {
-    "name": "love me",
+    "clientName": "love me",
+    "taskName": "Lawn mowing",
     "location": "sesame street",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
-     "studentId": "2",
-     "name": "Lawn mowing"
+     "studentId": "2"
    }
 ]

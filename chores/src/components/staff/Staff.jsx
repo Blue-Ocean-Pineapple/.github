@@ -44,13 +44,12 @@ const NavBar = () => (
 
 export default function Staff () {
   const [tickets, setTickets] = useState([]);
-  const [students, setStudents] = useState([]);
+  const [student, setStudent] = useState([]);
   const [staff, setStaff] = useState([]);
-  const [customer, setCustomer] = useState([]);
   const [admin, setAdmin] = useState([]);
+  const [customer, setCustomer] = useState([]);
 
   const getAllTickets = () => {
-    console.log('hello')
     axios.get('/staff/allTickets')
       .then((res) => {
         console.log('all tickets res?', res)
@@ -60,21 +59,28 @@ export default function Staff () {
   }
 
   const getAllUsers = () => {
-    console.log('hello')
+    let students = [];
+    let staffs = [];
+    let admins = [];
+    let customers =[];
     axios.get('/staff/allStudents')
       .then((res) => {
-        console.log('all students res?', res)
-        res.map(user => {
-          if (user.role === 'student') {
-            setStudents(students.push(user))
-          } else if (user.role === 'staff') {
-            setStudents(staff.push(user))
-          } else if (user.role === 'admin') {
-            setStudents(admin.push(user))
-          } else if (user.role === 'customer') {
-            setStudents(customer.push(user))
+        console.log('all users res?', res)
+        res.data.map((user) => {
+          if (user.role === 'Student') {
+            students.push(user)
+          } else if (user.role === 'Staff') {
+            staffs.push(user)
+          } else if (user.role === 'Admin') {
+            admins.push(user)
+          } else if (user.role === 'Customer') {
+            customers.push(user)
           }
         })
+        setStudent(students);
+        setStaff(staffs);
+        setAdmin(admins);
+        setCustomer(customers);
       })
       .catch((err) => {console.log('err!!', err)})
   }
@@ -94,9 +100,9 @@ export default function Staff () {
         <Router>
           <NavBar />
           <Routes >
-            <Route path="/alltickets" element={<AllTickets tickets={tickets} />} />
+            <Route path="/alltickets" element={<AllTickets tickets={tickets} staff={staff} students={student} />} />
             <Route path="/allstaff" element={<AllStaff staff={staff} />} />
-            <Route path="/allstudents" element={<AllStudents students={students} />} />
+            <Route path="/allstudents" element={<AllStudents students={student} />} />
           </Routes>
         </Router>
       </ChakraProvider>

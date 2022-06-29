@@ -8,7 +8,7 @@
     "state":"CA",
     "address": "17222 main street",
     "phone": "78789808080",
-    "role":"staff",
+    "role":"Staff",
     "organization": "Portola",
     "active":"true"
   },
@@ -34,7 +34,7 @@
      "city":"Costa Mesa",
      "state":"CA",
      "phone": "7878980822",
-     "role":"Staff",
+     "role":"Admin",
      "organization": "Portola",
      "active":"true"
    },
@@ -48,7 +48,7 @@
      "city":"San Francisco",
      "state":"CA",
      "phone": "7878980822",
-     "role":"Staff",
+     "role":"Customer",
      "organization": "Portola",
      "active":"false"
    }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Heading,
   Table,
@@ -18,15 +18,63 @@ import {
   useDisclosure,
   FormControl,
   FormLabel,
-  Container
+  Container,
+  FormHelperText,
+  FormErrorMessage
 } from '@chakra-ui/react'
 import { Select } from "chakra-react-select";
 
-export default function AllTickets ({ tickets }) {
+export default function AllTickets ({ tickets, students, staff }) {
+  // const [input, setInput] = useState('')
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const assignTicket = () => {
-    console.log('howdy')
+    console.log('tickets', tickets.data)
+    console.log('students', students)
+    console.log('staff', staff)
+    onClose();
+  }
+
+  // const isError = input === ''
+
+  const openTickets = (tickets) => {
+    console.log('HELLO FROM OPEN TICKETS', tickets)
+    return tickets.data.map((currentTicket) => {
+      if(currentTicket.complete === 'true') {
+        return (
+          <>
+            <Th>{currentTicket._id}</Th>
+            <Th>{currentTicket.taskName}</Th>
+            <Th>{currentTicket.clientName}</Th>
+            <Th>{currentTicket.createdAt}</Th>
+            <Th>{currentTicket.location}</Th>
+            <Th>{currentTicket.clientStatus}</Th>
+            <Th>
+            <FormControl isRequired>
+              <Select
+                options={[
+                  {
+                    label: "status",
+                    options: [
+                      {value: 'awaiting', label: "awaiting"},
+                      {value: 'approved', label: "approved"},
+                      {value: 'in-progress', label: "in-progress"},
+                      {value: 'complete', label: "complete"}
+                    ]
+                  }
+                ]}
+                placeholder="--"
+              />
+            </FormControl>
+          </Th>
+            <Th>
+              <Button onClick={onOpen}>Assign</Button>
+            </Th>
+          </>
+        )
+
+      }
+    })
   }
 
   return (
@@ -35,22 +83,88 @@ export default function AllTickets ({ tickets }) {
       <Table variant='striped'>
         <Thead className='opentickets'>
           <Tr variant='striped'>
-            <Th>Ticket No.</Th>
+            <Th>Ticket ID</Th>
             <Th>Task</Th>
             <Th>Customer</Th>
+            <Th>Created At</Th>
+            <Th>Location</Th>
             <Th>Status</Th>
+            <Th>Change Status</Th>
             <Th>Assign</Th>
             {/* <Th isNumeric>multiply by</Th> */}
 
           </Tr>
         </Thead>
+
         <Tbody>
           <Th>1</Th>
           <Th>Async Await</Th>
           <Th>John Ong</Th>
+          <Th>06/29/2022</Th>
+          <Th>San Jose</Th>
           <Th>In Progress</Th>
           <Th>
+            <FormControl isRequired>
+              <Select
+                options={[
+                  {
+                    label: "status",
+                    options: [
+                      {value: 'awaiting', label: "awaiting"},
+                      {value: 'approved', label: "approved"},
+                      {value: 'in-progress', label: "in-progress"},
+                      {value: 'complete', label: "complete"}
+                    ]
+                  }
+                ]}
+                placeholder="--"
+              />
+            </FormControl>
+          </Th>
+          <Th>
             <Button onClick={onOpen}>Assign</Button>
+          </Th>
+
+            {/* {this.openTickets(tickets)} */}
+
+            {/* {
+              tickets.data.map(currentTicket => {
+                if(currentTicket.complete === 'true') {
+                  return (
+                    <>
+                      <Th>{currentTicket._id}</Th>
+                      <Th>{currentTicket.taskName}</Th>
+                      <Th>{currentTicket.clientName}</Th>
+                      <Th>{currentTicket.createdAt}</Th>
+                      <Th>{currentTicket.location}</Th>
+                      <Th>{currentTicket.clientStatus}</Th>
+                      <Th>
+                      <FormControl isRequired>
+                        <Select
+                          options={[
+                            {
+                              label: "status",
+                              options: [
+                                {value: 'awaiting', label: "awaiting"},
+                                {value: 'approved', label: "approved"},
+                                {value: 'in-progress', label: "in-progress"},
+                                {value: 'complete', label: "complete"}
+                              ]
+                            }
+                          ]}
+                          placeholder="--"
+                        />
+                      </FormControl>
+                    </Th>
+                      <Th>
+                        <Button onClick={onOpen}>Assign</Button>
+                      </Th>
+                    </>
+                  )
+
+                }
+              })
+            } */}
 
             <Modal isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
@@ -67,15 +181,22 @@ export default function AllTickets ({ tickets }) {
                         name="staff"
                         options={[
                           {
-                            label: "Students",
+                            label: "Staff",
                             options: [
                               {value: 'brian', label: "Brian Bui"},
                               {value: 'skip', label: "Skipper Harris"}
                             ]
                           }
                         ]}
-                        placeholder="Select some colors..."
+                        placeholder="Select student"
                       />
+                      {/* {!isError ? (
+                        <FormHelperText>
+                          Select staff.
+                        </FormHelperText>
+                      ) : (
+                        <FormErrorMessage>Staff is required.</FormErrorMessage>
+                      )} */}
                     </FormControl>
 
                     <FormControl mb={4} isRequired>
@@ -111,7 +232,6 @@ export default function AllTickets ({ tickets }) {
                 </ModalFooter>
               </ModalContent>
             </Modal>
-          </Th>
         </Tbody>
       </Table>
 
@@ -119,7 +239,7 @@ export default function AllTickets ({ tickets }) {
       <Table variant='striped'>
         <Thead className='tickets'>
           <Tr variant='striped'>
-            <Th>Ticket No.</Th>
+            <Th>Ticket ID</Th>
             <Th>Customer</Th>
             <Th>Completed On</Th>
             <Th>Assigned Staff</Th>
