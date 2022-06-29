@@ -42,10 +42,13 @@ router.post("/api/staff/addStaffOrStudent", staff.addStaffOrStudent);
 // // router.get("/api/student/:id/ticket/:ticket_id", student.showTicket);
 // router.put("/api/student/:id/ticket/:ticket_id/vote", student.voteTask);
 // router.put("/api/student/ticket/:ticket_id/completed", student.completeTask);
+// all our open ticket query the same
 //StudentRoutes:
 router.get("/api/student/ticket/open", student.getAllOpen);
-router.get("/api/student/ticket/closed", student.getAllClosed);
-router.put("/api/student/ticket/vote", student.voteTask);
+router.get("/api/student/:id/ticket/open", student.getAllAssignedOpen);
+router.get("/api/student/:id/ticket/closed", student.getAllClosed);
+router.put("/api/student/ticket/voteUp", student.voteUp);
+router.put("/api/student/ticket/voteDown", student.voteDown);
 router.put("/api/student/ticket/completed", student.completeTask);
 // router.post('/api/student/account', student.createOne);
 // router.delete('/api/student/account', student.delete);
