@@ -12,8 +12,8 @@ import { useAuth } from "../../contexts/AuthContext.js";
 import Navlink from "./Navlink";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-export function Navbar({setIsAuth}) {
-  const { toggleColorMode } = useColorMode()
+export function Navbar({ setIsAuth }) {
+  const { toggleColorMode } = useColorMode();
   const { logout, currentUser } = useAuth();
   return (
     <Box
@@ -35,32 +35,23 @@ export function Navbar({setIsAuth}) {
         {currentUser && <Navlink to="/profile" name="Profile" />}
         {currentUser && (
           <Navlink
-<<<<<<< HEAD
             to="/logout"
             name="Logout"
             onClick={async (e) => {
               e.preventDefault();
-              await logout();
-=======
-            to='/logout'
-            name='Logout'
-            onClick={async e => {
-              e.preventDefault()
-              await logout()
-              .then(() => {
-                localStorage.clear()
-                setIsAuth(false)
-                window.location.pathname='/login';
-              })
->>>>>>> main
+              await logout().then(() => {
+                localStorage.clear();
+                setIsAuth(false);
+                window.location.pathname = "/login";
+              });
             }}
           />
         )}
         <IconButton
-          variant='ghost'
+          variant="ghost"
           icon={useColorModeValue(<FaSun />, <FaMoon />)}
           onClick={toggleColorMode}
-          aria-label='toggle-dark-mode'
+          aria-label="toggle-dark-mode"
         />
       </HStack>
     </Box>
