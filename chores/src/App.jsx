@@ -7,7 +7,7 @@ import Profile from "./components/profile/Profile.jsx";
 // import Customer from './components/customer/customer.jsx';
 // import Map from './components/map/map.jsx';
 // import Staff from './components/staff/staff.jsx';
-// import Student from './components/student/student.jsx';
+import Student from "./components/student/student.jsx";
 // import Navbar from './components/home/Navbar.jsx';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -22,6 +22,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/student" element={<Student />} />
           <Route
             path="/login"
             element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}

@@ -22,6 +22,7 @@ module.exports = {
       .then((data) => res.send(data).status(200))
       .catch((err) => res.send(err).status(404));
   },
+
   getAllAssignedOpen: (req, res) => {
     const id = req.params.id;
     model
@@ -54,16 +55,16 @@ module.exports = {
       .catch((err) => res.send(err).status(404));
   },
 
-  rejectTask: (req, res) => {
-    let info = {
-      studentId: req.params.studentId,
-      ticketId: req.parmas.ticketId,
-    };
-    model
-      .rejectTask(info)
-      .then((data) => res.send(data.data).status(200))
-      .catch((err) => res.send(err).status(404));
-  },
+  // rejectTask: (req, res) => {
+  //   let info = {
+  //     studentId: req.params.studentId,
+  //     ticketId: req.parmas.ticketId,
+  //   };
+  //   model
+  //     .rejectTask(info)
+  //     .then((data) => res.send(data.data).status(200))
+  //     .catch((err) => res.send(err).status(404));
+  // },
 
   // createOne: (req, res) => {
 

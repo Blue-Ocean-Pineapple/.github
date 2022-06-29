@@ -9,7 +9,6 @@ const map = require("../controllers/map.js");
 const router = express.Router();
 //testPostman
 router.get("/", (req, res) => res.send("HELLO FROM CHORES"));
-
 //UserRoute:
 router.post("/api/users/info", users.saveUser);
 // router.put('/api/users/:id', users.update);
