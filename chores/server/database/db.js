@@ -14,16 +14,16 @@ mongoose
     mongoose.set("useCreateIndex", true);
   });
 
-//   function(){
+  // function(){
 //   mongoose.connection.db.dropDatabase();
 // });
 
 const TicketSchema = new mongoose.Schema({
-  taskName: {
+  clientName: {
     type: String,
     required: true,
   },
-  clientName: {
+  taskName: {
     type: String,
     required: true,
   },
