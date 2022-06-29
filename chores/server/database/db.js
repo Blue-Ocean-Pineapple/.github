@@ -32,8 +32,7 @@ const TicketSchema = new mongoose.Schema({
   },
   clientStatus: {
     type: String,
-    required: true,
-    enum: ['awaiting', 'approved', 'in-progress', 'complete'],
+    enum: ['awaiting', 'approved', 'in-progress'],
     default: "awaiting",
   },
   creatorId: {
@@ -53,6 +52,11 @@ const TicketSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
    },
+  complete: {
+    type: Boolean,
+    required: true,
+    default: false
+  }
 })
 
 const UserSchema = new mongoose.Schema({
@@ -79,7 +83,6 @@ const UserSchema = new mongoose.Schema({
   address: {
     type: String,
     required: true,
-    unique: true
   },
   city: {
     type: String,
@@ -92,6 +95,9 @@ const UserSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: true,
+  },
+  photo : {
+    type: String
   },
   role: {
     type: String,
@@ -122,9 +128,8 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('users', UserSchema);
 const Ticket = mongoose.model('tickets', TicketSchema);
-// const Category = mongoose.model('categories', CategorySchema);
+// const category = mongoose.model('categories', CategorySchema);
 
 module.exports.User = User;
 module.exports.Ticket = Ticket;
-// module.exports.Category = Category;
-
+// module.exports.category = category;

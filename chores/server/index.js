@@ -4,9 +4,11 @@ var cors = require('cors')
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 const db = require('./database/db.js');
 var router = require('./routes/index.js');
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
