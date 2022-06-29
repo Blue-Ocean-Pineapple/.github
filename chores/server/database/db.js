@@ -60,11 +60,16 @@ const TicketSchema = new mongoose.Schema({
 })
 
 const UserSchema = new mongoose.Schema({
-  firstName: {
+  uid: {
+    type:String,
+    // default: mongoose.ObjectId(),
+    required: true,
+  },
+  name: {
     type: String,
     required: true,
   },
-  lastName: {
+  email: {
     type: String,
     required: true,
   },
@@ -72,14 +77,18 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  email: {
+  // password: {
+  //   type: String
+  // },
+  address: {
     type: String,
     required: true,
   },
-  password: {
-    type: String
+  city: {
+    type: String,
+    required: true,
   },
-  address: {
+  state: {
     type: String,
     required: true,
   },
@@ -97,6 +106,11 @@ const UserSchema = new mongoose.Schema({
   organization: {
     type: String,
     required: true
+  },
+  active: {
+    type: Boolean,
+    required: true,
+    default: true
   }
 });
 

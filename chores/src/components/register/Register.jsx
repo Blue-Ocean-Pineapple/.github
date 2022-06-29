@@ -12,16 +12,16 @@ import {
 import React, { useState } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Card } from '../home/Card'
 import DividerWithText from '../home/DividerWithText.jsx';
-import { Layout } from '../home/Layout'
+import { Layout } from '../home/Layout.jsx';
 import { useAuth } from '../../contexts/AuthContext';
 
 // const user = auth.currentUser;
 // axios.post(‘/user/info’, {uid: user.uid, displayName: user.displayName, photoURL: user.photoURL, email: user.email});
 
-export default function Register() {
+export default function Register({setIsAuth}) {
   const navigate = useNavigate();
   const { signInWithGoogle, register, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
@@ -51,7 +51,6 @@ export default function Register() {
               .then(res => {
                 console.log('register res', res)
                 navigate('/profile')
-
               })
               .catch(error => {
                 console.log(error.message)
@@ -93,34 +92,25 @@ export default function Register() {
 
             <Button
               type='submit'
-              colorScheme='pink'
+              colorScheme='teal'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
-              onClick={() =>
-                toast({
-                  title: 'Account created.',
-                  description: "We've created your account for you.",
-                  status: 'success',
-                  duration: 9000,
-                  isClosable: true,
-                })
-              }
             >
               Sign Up
             </Button>
           </Stack>
         </chakra.form>
         <HStack justifyContent='space-between' my={4}>
-          <Button variant='link' onClick={() => navigate('/register')}>
-            Register
+          <Button variant='link' onClick={() => navigate('/login')}>
+            Login
           </Button>
         </HStack>
         <DividerWithText my={6}>OR</DividerWithText>
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='red'
+          colorScheme='facebook'
           leftIcon={<FaGoogle />}
           onClick={() =>
             signInWithGoogle()
@@ -136,7 +126,7 @@ export default function Register() {
         <Button
           variant='outline'
           isfullwidth="true"
-          colorScheme='blue'
+          colorScheme='facebook'
           leftIcon={<FaFacebook />}
           onClick={() =>
             signInWithFacebook()

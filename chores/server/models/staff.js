@@ -1,5 +1,4 @@
 const db = require ('../database/db');
-const mongoose = require ('mongoose');
 
 module.exports = {
   getAllTickets: function(req, callback) {

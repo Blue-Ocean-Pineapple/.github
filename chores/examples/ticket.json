@@ -1,30 +1,51 @@
 [
   {
+<<<<<<< HEAD
     "name": "Outside",
     "location": "test",
+=======
+   "name": "hi",
+   "location": "sesame street",
+>>>>>>> main
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved"
   },
   {
+<<<<<<< HEAD
     "name": "Inside",
     "location": "test",
+=======
+    "name": "momma",
+    "location": "sesame street",
+>>>>>>> main
     "description": "Wash dishes",
      "creatorId": "2",
      "clientStatus": "approved"
    },
   {
+<<<<<<< HEAD
     "name": "Outside",
     "location": "test",
    "description": "Rake leaves",
+=======
+    "name": "your",
+    "location": "sesame street",
+    "description": "Walk dog around neighborhood",
+>>>>>>> main
     "creatorId": "1",
-    "clientStatus": "approved",
+    "clientStatus": "complete",
     "complete": true,
     "studentId": "1"
   },
   {
+<<<<<<< HEAD
     "name": "Outside",
     "location": "test",
+=======
+    "name": "love me",
+    "location": "sesame street",
+>>>>>>> main
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
