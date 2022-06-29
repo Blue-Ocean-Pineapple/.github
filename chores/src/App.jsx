@@ -25,6 +25,7 @@ function App(props) {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/student" element={<Student />} />
           <Route
             path="/login"
             element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}

@@ -32,15 +32,26 @@ module.exports = {
   },
 
   // vote on ticket, need ticket id, student id
-  voteTask: (req, res) => {
+  voteUp: (req, res) => {
     const info = {
-      studentId:
-        req.body.student_id || req.query.student_id || req.params.student_id,
-      ticketId: req.body.ticketId || req.query.ticketId || req.params.ticketId,
+      studentId: req.body.studentId,
+      ticketId: req.body.ticketId,
     };
     console.log(info);
     model
-      .voteTask(info)
+      .voteUp(info)
+      .then((data) => res.send(data.data).status(200))
+      .catch((err) => res.send(err).status(404));
+  },
+
+  voteDown: (req, res) => {
+    const info = {
+      studentId: req.body.studentId,
+      ticketId: req.body.ticketId,
+    };
+    console.log(info);
+    model
+      .voteDown(info)
       .then((data) => res.send(data.data).status(200))
       .catch((err) => res.send(err).status(404));
   },

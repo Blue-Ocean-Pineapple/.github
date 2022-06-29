@@ -51,5 +51,18 @@
      "role":"Staff",
      "organization": "Portola",
      "active":"false"
+   },
+   {
+    "uid":"5334123",
+    "name":"Brian Bui",
+     "age": "29",
+     "email": "brianbui@gmail.com",
+     "address": "1994 Streets",
+     "city":"San Jose",
+     "state":"CA",
+     "phone": "4085213215",
+     "role":"Student",
+     "organization": "EVHS",
+     "active":"true"
    }
 ]
