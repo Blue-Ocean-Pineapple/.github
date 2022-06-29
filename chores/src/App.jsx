@@ -19,7 +19,7 @@ function App(props) {
 
   return (
     <AuthContextProvider>
-      <Router>
+      {/* <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/student" element={<Student />} />
@@ -38,7 +38,7 @@ function App(props) {
          <Route path="/student" element={ <Student />}/>
          <Route path="/map" element={ <Map />} />
         </Routes>
-      </Router>
+      </Router> */}
       {/* <Admin /> */}
       {/* <Customer />
      <Student />
