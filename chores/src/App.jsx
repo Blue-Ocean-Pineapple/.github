@@ -3,8 +3,8 @@ import Login from "./components/login/Login.jsx";
 import Register from "./components/register/Register.jsx";
 import Home from "./components/home/Home.jsx";
 import Profile from "./components/profile/Profile.jsx";
-// import Admin from './components/admin/Admin.jsx';
-// import Customer from './components/customer/Customer.jsx';
+import Admin from './components/admin/Admin.jsx';
+import Customer from './components/customer/Customer.jsx';
 import Map from "./components/map/Map.jsx";
 import Staff from './components/staff/Staff.jsx';
 import Student from "./components/student/Student.jsx";
@@ -41,7 +41,11 @@ function App(props) {
          <Route path="/map" element={!isAuth ? <Login setIsAuth={setIsAuth}/> : <Map />} /> */}
         {/* </Routes>
       </Router> */}
-    <Staff />
+    {/* <Staff /> */}
+    <Admin />
+    {/* <Customer />
+    <Student />
+    {/* <Map /> */}
     </AuthContextProvider>
   );
 }
