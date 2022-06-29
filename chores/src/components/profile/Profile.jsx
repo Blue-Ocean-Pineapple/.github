@@ -60,11 +60,15 @@ export default function Profile() {
       console.log('HIT POST USER!', res.data);
       setUpdatedUserInfo(res.data);
       setIsSubmitting(true);
-      // navigate('/users/' + res.data.uid)
     } catch (err) {
       console.log('error while updating user information', err)
     }
   }
+
+  // const handlepage = async (e) => {
+  //   e.preventDefault();
+  //   navigate('/'+ updatedUserInfo.role)
+  // }
 
   return (
     <Layout>
@@ -182,6 +186,16 @@ export default function Profile() {
             >
             Update Account
             </Button>
+            {/* <Button
+              type='submit'
+              colorScheme='teal'
+              size='lg'
+              fontSize='md'
+              isLoading={isSubmitting}
+              onSubmit={handlepage}
+            >
+           Go to {updatedUserInfo.role}
+            </Button> */}
           </Stack>
         </chakra.form>
             )

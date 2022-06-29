@@ -14,16 +14,12 @@ mongoose
     mongoose.set("useCreateIndex", true);
   });
 
-// function(){
+//   function(){
 //   mongoose.connection.db.dropDatabase();
 // });
 
 const TicketSchema = new mongoose.Schema({
-  clientName: {
-    type: String,
-    required: true,
-  },
-  taskName: {
+  name: {
     type: String,
     required: true,
   },
@@ -35,19 +31,13 @@ const TicketSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  address: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  coordinates: {
-    lat: {
-      type: Number,
-      required: true,
+  location: {
+    type: {
+      type: String,
+      enum: ["Point"],
     },
-    lng: {
-      type: Number,
-      required: true,
+    coordinates: {
+      type: [Number],
     },
   },
   clientStatus: {
@@ -75,16 +65,16 @@ const TicketSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-  },
+   },
   complete: {
     type: Boolean,
-    default: false,
-  },
-});
+    default: false
+  }
+})
 
 const UserSchema = new mongoose.Schema({
   uid: {
-    type: String,
+    type:String,
     required: true,
   },
   name: {
@@ -99,9 +89,6 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  // password: {
-  //   type: String
-  // },
   address: {
     type: String,
     required: true,
@@ -118,8 +105,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  photo: {
-    type: String,
+  photo : {
+    type: String
   },
   role: {
     type: String,
@@ -131,8 +118,8 @@ const UserSchema = new mongoose.Schema({
   },
   active: {
     type: Boolean,
-    default: false,
-  },
+    default: false
+  }
 });
 
 // const CategorySchema = new mongoose.Schema({
