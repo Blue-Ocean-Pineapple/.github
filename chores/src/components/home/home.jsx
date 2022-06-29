@@ -4,10 +4,10 @@ import {
   Text
 } from '@chakra-ui/react';
 import { Layout } from './Layout.jsx';
-import { useAuth } from '../../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function Homepage({setIsAuth}) {
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuth();
   return (
     <Layout setIsAuth={setIsAuth}>
       <Heading>Home page</Heading>
