@@ -3,7 +3,7 @@ import Login from './components/login/Login.jsx';
 import Register from './components/register/Register.jsx';
 import Home from './components/home/Home.jsx';
 import Profile from './components/profile/Profile.jsx';
-import Admin from './components/admin/admin.jsx'
+import Admin from './components/admin/Admin.jsx'
 // import Admin from './components/admin/admin.jsx';
 import Customer from './components/customer/Customer.jsx';
 // import Map from './components/map/map.jsx';
