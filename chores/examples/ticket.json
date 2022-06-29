@@ -1,22 +1,30 @@
 [
   {
+   "name": "hi",
+   "location": "sesame street",
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved"
   },
   {
+    "name": "momma",
+    "location": "sesame street",
     "description": "Wash dishes",
      "creatorId": "2",
      "clientStatus": "approved"
    },
   {
-   "description": "Walk dog around neighborhood",
+    "name": "your",
+    "location": "sesame street",
+    "description": "Walk dog around neighborhood",
     "creatorId": "1",
-    "clientStatus": "approved",
+    "clientStatus": "complete",
     "complete": true,
     "studentId": "1"
   },
   {
+    "name": "love me",
+    "location": "sesame street",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",

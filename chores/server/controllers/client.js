@@ -10,6 +10,14 @@ module.exports = {
         .catch((err) => console.log(err))
   },
 
+  getCompleted: (req, res) => {
+    client.findCompleted()
+      .select("-__v")
+      .exec()
+        .then((data) => res.send(data).status(200))
+        .catch((err) => console.log(err))
+  },
+
   getClient: (req, res) => {
     client.findByID(req.params._id)
     .select("-__v")

@@ -4,7 +4,7 @@ import Register from './components/register/Register.jsx';
 import Home from './components/home/Home.jsx';
 import Profile from './components/profile/Profile.jsx';
 // import Admin from './components/admin/admin.jsx';
-// import Customer from './components/customer/customer.jsx';
+// import Customer from './components/customer/Customer.jsx';
 // import Map from './components/map/map.jsx';
 import Staff from './components/staff/Staff.jsx';
 // import Student from './components/student/student.jsx';
@@ -39,6 +39,7 @@ function App() {
     //  </Router>
     // </AuthContextProvider>
     <Staff />
+
   );
 }
 
