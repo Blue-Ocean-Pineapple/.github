@@ -1,7 +1,11 @@
 const {Ticket} = require("../database/db.js");
 
 exports.findAll = () => {
-  return Ticket.find({complete: false});
+  return Ticket.find({ $or:[ {'clientStatus':'approved'}, {'clientStatus':'awaiting'}, {'clientStatus':'in-progress'}]});
+};
+
+exports.findCompleted = () => {
+  return Ticket.find({'clientStatus': 'complete'})
 };
 
 exports.findByID = (id) => {

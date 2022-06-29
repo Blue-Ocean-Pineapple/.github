@@ -1,26 +1,55 @@
 [
   {
-   "firstName" :"Jessica",
-    "lastName": "Yu",
+    "uid":"huhihiuhiuhiuhiu",
+    "name":"Jessica Yu",
     "age": "15",
     "email": "yuelejessica@gmail.com",
-    "password": "12345567",
+    "city":"Irvine",
+    "state":"CA",
     "address": "17222 main street",
     "phone": "78789808080",
     "role":"staff",
     "organization": "Portola",
-    "active":"Yes"
+    "active":"true"
   },
   {
-    "firstName" :"John",
-     "lastName": "Ong",
+    "uid":"hiuiuhihiuhiuhiuhiu",
+    "name":"John Ong",
      "age": "15",
      "email": "john@gmail.com",
-     "password": "123242",
      "address": "17222 First street",
+     "city":"Irvine",
+     "state":"CA",
      "phone": "7878980822",
      "role":"Student",
      "organization": "Portola",
-     "active":"Yes"
+     "active":"true"
+   },
+   {
+    "uid":"huhhiuhuhihiii",
+    "name":"Jake Harmon",
+     "age": "18",
+     "email": "jake@gmail.com",
+     "address": "17222 First street",
+     "city":"Costa Mesa",
+     "state":"CA",
+     "phone": "7878980822",
+     "role":"Staff",
+     "organization": "Portola",
+     "active":"true"
+   },
+   {
+    "uid":"huhhhuihhihihiiuhuhihiii",
+    "name":"Josh Harmon",
+     "age": "38",
+     "email": "josh@gmail.com",
+     "password": "huhuhui",
+     "address": "17222 First street",
+     "city":"San Francisco",
+     "state":"CA",
+     "phone": "7878980822",
+     "role":"Staff",
+     "organization": "Portola",
+     "active":"false"
    }
 ]
