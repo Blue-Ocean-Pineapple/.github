@@ -23,16 +23,23 @@ export default function AllStudents ({ students }) {
         <Thead className='activestudent'>
           <Tr variant='striped'>
             <Th>Name</Th>
+            <Th>Deactivate</Th>
             <Th isNumeric>ID</Th>
           </Tr>
         </Thead>
 
         <Tbody>
           <Th>Esther Kuang</Th>
+          <Th>
+            <Button>Select</Button>
+          </Th>
           <Th isNumeric>22393</Th>
         </Tbody>
         <Tbody>
           <Th>Hansol Ji</Th>
+          <Th>
+            <Button>Select</Button>
+          </Th>
           <Th isNumeric>38495</Th>
         </Tbody>
       </Table>
