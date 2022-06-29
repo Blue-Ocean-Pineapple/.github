@@ -4,21 +4,18 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
   Button,
 } from '@chakra-ui/react';
 
 function Ticket() {
   const [toggle, setToggle] = useState(false);
-  const [openCompareModal, setModal] = useState(false);
   const [tickets, setTickets] = useState([]);
   const [completed, setCompleted] = useState([]);
-
+  const [showForm, toggleForm] = useState(false);
 
   const onLoad = ()=> {
     axios.get(`http://localhost:3001/api/clients/tickets`)
@@ -50,6 +47,36 @@ function Ticket() {
     setToggle(false);
   };
 
+  function handleChange(ticketDescription, ticketId, ticketLocation, updatedDescription, updatedLocation) {
+    axios.put(`http://localhost:3001/api/clients/update`, {
+      _id: ticketId,
+      description: ticketDescription,
+      location: ticketLocation,
+      updatedDescription: updatedDescription,
+      updatedLocation: updatedLocation,
+    })
+    .then(()=> {
+      alert('Change successful');
+      window.location.reload(false);
+    })
+    .catch((error) => {
+      alert(error);
+    });
+  };
+
+  function handleDelete(ticketId) {
+    axios.delete(`http://localhost:3001/api/clients/delete`, { data: {
+      _id: ticketId,
+    } })
+    .then(()=> {
+      alert('Delete successful');
+      window.location.reload(false);
+    })
+    .catch((error) => {
+      alert(error);
+    });
+  };
+
   return (
     <div>
       {toggle === false ? (
@@ -62,6 +89,8 @@ function Ticket() {
               <Th>description</Th>
               <Th>location</Th>
               <Th>status</Th>
+              <Th>modify</Th>
+              <Th>delete</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -72,6 +101,20 @@ function Ticket() {
               <Td>{ticket.description}</Td>
               <Td>{ticket.location}</Td>
               <Td>{ticket.clientStatus}</Td>
+              <Td>
+                <Button colorScheme='blue' onClick={
+                  () => {
+                  let updatedDefinition = prompt('Enter new definition')
+                  let updatedLocation = prompt('Enter new location')
+                  handleChange(ticket.description, ticket._id, ticket.location, updatedDefinition, updatedLocation);
+                  }
+                  }>Modify</Button>
+              </Td>
+              <Td>
+                <Button colorScheme='blue' onClick={() => {
+                  handleDelete(ticket._id);
+                  }}>Delete</Button>
+              </Td>
             </Tr>
           ))}
           </Tbody>
