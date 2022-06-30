@@ -61,10 +61,7 @@ const TicketSchema = new mongoose.Schema({
     required: true,
   },
   reacts: [String],
-  studentId: {
-    type: String,
-    default: null,
-  },
+  studentId: [String],
   staffId: {
     type: String,
     default: null,

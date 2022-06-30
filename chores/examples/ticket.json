@@ -17,6 +17,61 @@
      "taskName": "Washing Dishes",
      "coordinates": {"lat":34.041451,"lng":-118.232719}
    },
+   {
+    "clientName": "JOE",
+    "address": "1725 Naud St, Los Angeles, CA 90012",
+    "description": "Clean the garage",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Clean Garage",
+     "coordinates": {"lat":34.068630,"lng":-118.226631}
+   },
+   {
+    "clientName": "Reala",
+    "address": "900 Wilshire Blvd fl 71, Los Angeles, CA 90017",
+    "description": "Feed dog three scoops of kibble",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Feed dog",
+     "coordinates": {"lat":34.050090,"lng":-118.260330}
+   },
+   {
+    "clientName": "Mat",
+    "address": "114 E 2nd St, Los Angeles, CA 90012",
+    "description": "Wash dishes",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Washing Dishes",
+     "coordinates": {"lat":34.050499,"lng":-118.244049}
+   },
+   {
+    "clientName": "Tree",
+    "address": "3901 W 6th St, Los Angeles, CA 90020",
+    "description": "test",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Test",
+     "coordinates": {"lat":34.063690,"lng":-118.308240}
+   },
+   {
+    "clientName": "Mojojojo",
+    "address": "2132 E 7th Pl, Los Angeles, CA 90021",
+    "description": "test",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Test",
+     "coordinates": {"lat":34.033510,"lng":-118.228680}
+   },
+   {
+    "clientName": "Rocky",
+    "address": "10100 Constellation Blvd, Los Angeles, CA, United States",
+    "description": "test",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Test",
+     "coordinates": {"lat":34.05839157104492,"lng":-118.41632843017578}
+   },
+
   {
     "clientName": "your",
     "address": "2121 E 7th Pl, Los Angeles, CA 90021",
