@@ -32,7 +32,7 @@ router.get("/api/staff/allTickets", staff.getAllTickets);
 router.get("/api/staff/allStudents", staff.getAllUsers);
 router.put("/api/staff/assignStudentAndStaff", staff.assignStudentAndStaff);
 router.put("/api/staff/updateTicketStatus", staff.updateTicketStatus);
-router.delete("/api/staff/deactivateStudent", staff.deactivateStudent);
+router.put("/api/staff/deactivateStudentOrStaff", staff.deactivateStudentOrStaff);
 router.put("/api/staff/addStaffOrStudent", staff.addStaffOrStudent);
 
 // // StudentRoutes

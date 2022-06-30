@@ -45,9 +45,10 @@ module.exports = {
         });
     },
 
-    deactivateStudent: function(req, res) {
-        model.deactivateStudent(req.body, (err, results) => {
-            console.log('deactivateStudent data?', results);
+    deactivateStudentOrStaff: function(req, res) {
+      console.log('HOWDY', req.body)
+        model.deactivateStudentOrStaff(req.body, (err, results) => {
+            console.log('deactivateStudentOrStaff data?', results);
             if (err) {
                 res.status(500).send(err);
             } else {
@@ -57,7 +58,6 @@ module.exports = {
     },
 
     addStaffOrStudent: function(req, res) {
-      console.log('HOWDY', req.body)
         model.addStaffOrStudent(req.body, (err, results) => {
             console.log('addStaffOrStudent data?', results);
             if (err) {

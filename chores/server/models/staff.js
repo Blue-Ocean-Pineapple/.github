@@ -47,10 +47,9 @@ module.exports = {
       .catch((err) => {callback(err)})
   },
 
-  deactivateStudent: function(req, callback) {
-    console.log('model req deactivateStudent', req)
-    const email = ({ email: req.email });
-    db.User.findOneAndUpdate(email, { active: !req.acive }, { new: true, upsert: true })
+  deactivateStudentOrStaff: function(req, callback) {
+    console.log('model req deactivateStudent', req.active, req._id);
+    db.User.findOneAndUpdate({ _id: req._id }, { active: false, _id: req._id })
       .then((results) => {
         console.log('model deactivateStudent results', results)
         callback(null, results)

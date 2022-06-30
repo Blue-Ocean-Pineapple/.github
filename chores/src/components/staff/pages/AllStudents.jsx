@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {
   Table,
   Thead,
@@ -14,7 +15,34 @@ import {
 } from '@chakra-ui/react'
 
 export default function AllStudents ({ students }) {
-console.log('howdy')
+
+  const handleDeactivateStudent = (e) => {
+    e.preventDefault();
+    // console.log('howdy delete?', e.target.getAttribute("id"));
+    let obj = students.find(obj => obj._id === e.target.getAttribute("id"));
+    console.log('obj??', obj._id);
+    axios.put('/staff/deactivateStudentOrStaff', obj)
+    .then((response) => {
+      console.log('response data:', response);
+    })
+    .catch((err) => {
+      console.log('submit err:', err);
+    })
+  }
+
+  const handleActivateStudent = (e) => {
+    e.preventDefault();
+    // console.log('howdy delete?', e.target.getAttribute("id"));
+    let obj = students.find(obj => obj._id === e.target.getAttribute("id"));
+    // console.log('obj??', obj);
+    axios.put('/staff/deactivateStudentOrStaff', obj)
+    .then((response) => {
+      console.log('response data:', response);
+    })
+    .catch((err) => {
+      console.log('submit err:', err);
+    })
+  }
 
   return (
     <TableContainer>
@@ -58,7 +86,7 @@ console.log('howdy')
                     <Th>{person.name}</Th>
                     <Th>{person.email}</Th>
                     <Th>
-                      <Button>Select</Button>
+                      <Button id={person._id} onClick={(e) => handleDeactivateStudent(e)}>Select</Button>
                     </Th>
                     <Th isNumeric>{person._id}</Th>
                   </Tr>
@@ -109,7 +137,7 @@ console.log('howdy')
                     <Th>{person.name}</Th>
                     <Th>{person.email}</Th>
                     <Th>
-                      <Button>Activate</Button>
+                      <Button id={person._id} onClick={(e) => handleActivateStudent(e)}>Activate</Button>
                     </Th>
                     <Th isNumeric>{person._id}</Th>
                   </Tr>

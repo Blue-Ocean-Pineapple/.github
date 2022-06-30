@@ -17,7 +17,7 @@ import axios from 'axios';
 export default function AllStaff ({ staff }) {
 
   const handleStaff = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     // console.log('howdy delete?', e.target.getAttribute("id"));
     let obj = staff.find(obj => obj._id === e.target.getAttribute("id"));
     // console.log('obj??', obj);
