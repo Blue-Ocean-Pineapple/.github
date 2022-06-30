@@ -41,11 +41,6 @@ function App(props) {
           <Route path="/map" element={ <Map />} />
         </Routes>
       </Router>
-      {/* <Admin /> */}
-      {/* <Customer />
-     <Student />
-    {/* <Map /> */}
-    {/* <Staff /> */}
     </AuthContextProvider>
 
   );

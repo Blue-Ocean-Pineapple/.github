@@ -59,6 +59,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
         </Thead>
 
         <Tbody>
+        <Tr variant='striped'>
           <Th>1</Th>
           <Th>Async Await</Th>
           <Th>John Ong</Th>
@@ -87,36 +88,38 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
             <Button onClick={onOpen}>Assign</Button>
           </Th>
           {
-            openTickets.map((currentTicket) => {
+            openTickets.map((currentTicket, i) => {
               return (
-                <Tbody>
-                  <Th>{currentTicket._id}</Th>
-                  <Th>{currentTicket.taskName}</Th>
-                  <Th>{currentTicket.clientName}</Th>
-                  <Th>{Moment(currentTicket.createdAt).format('MM-DD-YYYY')}</Th>
-                  <Th>{currentTicket.address}</Th>
-                  <Th>{currentTicket.clientStatus}</Th>
-                  <Th>
-                  <FormControl isRequired>
-                    <Select
-                      options={[
-                        {
-                          label: "status",
-                          options: [
-                            {value: 'awaiting', label: "awaiting"},
-                            {value: 'approved', label: "approved"},
-                            {value: 'in-progress', label: "in-progress"},
-                            {value: 'complete', label: "complete"}
-                          ]
-                        }
-                      ]}
-                      placeholder="--"
-                    />
-                  </FormControl>
-                </Th>
-                <Th>
-                  <Button onClick={onOpen}>Assign</Button>
-                </Th>
+                <Tbody key={i}>
+                  <Tr variant='striped'>
+                    <Th>{currentTicket._id}</Th>
+                    <Th>{currentTicket.taskName}</Th>
+                    <Th>{currentTicket.clientName}</Th>
+                    <Th>{Moment(currentTicket.createdAt).format('MM-DD-YYYY')}</Th>
+                    <Th>{currentTicket.address}</Th>
+                    <Th>{currentTicket.clientStatus}</Th>
+                    <Th>
+                      <FormControl isRequired>
+                        <Select
+                          options={[
+                            {
+                              label: "status",
+                              options: [
+                                {value: 'awaiting', label: "awaiting"},
+                                {value: 'approved', label: "approved"},
+                                {value: 'in-progress', label: "in-progress"},
+                                {value: 'complete', label: "complete"}
+                              ]
+                            }
+                          ]}
+                          placeholder="--"
+                        />
+                      </FormControl>
+                    </Th>
+                    <Th>
+                      <Button onClick={onOpen}>Assign</Button>
+                    </Th>
+                  </Tr>
               </Tbody>
               )
             })
@@ -188,6 +191,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
               </ModalFooter>
             </ModalContent>
           </Modal>
+          </Tr>
         </Tbody>
       </Table>
 
@@ -208,13 +212,15 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
           <Th>Barry Cheung</Th>
           <Th>Jessica Yu, Leia Harlow</Th> */}
           {
-            closedTickets.map((currentTicket) => {
+            closedTickets.map((currentTicket, i) => {
               return (
-                <Tbody>
-                  <Th>{currentTicket._id}</Th>
-                  <Th>{currentTicket.taskName}</Th>
-                  <Th>{currentTicket.staffId}</Th>
-                  <Th>{currentTicket.studentId}</Th>
+                <Tbody key={i}>
+                  <Tr variant='striped'>
+                    <Th>{currentTicket._id}</Th>
+                    <Th>{currentTicket.taskName}</Th>
+                    <Th>{currentTicket.staffId}</Th>
+                    <Th>{currentTicket.studentId}</Th>
+                  </Tr>
                 </Tbody>
               )
             })

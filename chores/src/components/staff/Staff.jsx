@@ -5,23 +5,8 @@ import AllStudents from "./pages/AllStudents";
 import AllTickets from "./pages/AllTickets";
 import {
   ChakraProvider,
-  Flex,
-  Text,
-  Link,
-  Box,
-  Grid,
-  HStack,
-  StackDivider,
-  ButtonGroup,
   Button
 } from "@chakra-ui/react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  // Route,
-  Link as RouteLink,
-  useNavigate
-} from "react-router-dom";
 
 export default function Staff () {
   const [openTickets, setOpenTickets] = useState([]);
@@ -63,7 +48,7 @@ export default function Staff () {
     axios
       .get("/staff/allStudents")
       .then((res) => {
-        console.log("all users res?", res);
+        console.log("all users res?", res.data);
         res.data.map((user) => {
           if (user.role === "Student") {
             students.push(user);
@@ -118,9 +103,9 @@ export default function Staff () {
   }
   return (
     <ChakraProvider >
-      <button onClick={() => setCurPage('alltickets')}>Tickets</button>
-      <button onClick={() => setCurPage('allstaff')}>Staff</button>
-      <button onClick={() => setCurPage('allstudents')}>Students</button>
+      <Button onClick={() => setCurPage('alltickets')}>Tickets</Button>
+      <Button onClick={() => setCurPage('allstaff')}>Staff</Button>
+      <Button onClick={() => setCurPage('allstudents')}>Students</Button>
       {renderView()}
     </ChakraProvider>
   );

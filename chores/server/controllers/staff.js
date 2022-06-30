@@ -57,6 +57,7 @@ module.exports = {
     },
 
     addStaffOrStudent: function(req, res) {
+      console.log('HOWDY', req.body)
         model.addStaffOrStudent(req.body, (err, results) => {
             console.log('addStaffOrStudent data?', results);
             if (err) {

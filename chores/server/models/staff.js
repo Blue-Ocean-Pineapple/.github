@@ -59,9 +59,8 @@ module.exports = {
   },
 
   addStaffOrStudent: function(req, callback) {
-    console.log('model req addStaffOrStudent', req)
-    const email = ({ email: req.email });
-    db.User.findOneAndUpdate(email, req, { new: true, upsert: true })
+    console.log('model req addStaffOrStudent', req.active, req._id);
+    db.User.findOneAndUpdate({ _id: req._id }, { active: true, _id: req._id })
       .then((results) => {
         console.log('model addStaffOrStudent results', results)
         callback(null, results)
