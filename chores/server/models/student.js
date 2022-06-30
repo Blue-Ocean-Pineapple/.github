@@ -23,30 +23,36 @@ module.exports = {
 
   voteUp: ({ ticketId, studentId }) => {
     return Ticket.findOneAndUpdate(
-      { ticketId },
-      { $addToSet: { reacts: studentId } }
+      { _id: ticketId },
+      { $addToSet: { voteUp: studentId } }
+    );
+  },
+
+  removeVoteUp: ({ ticketId, studentId }) => {
+    return Ticket.findOneAndUpdate(
+      { _id: ticketId },
+      { $pull: { voteUp: studentId } }
     );
   },
 
   voteDown: ({ ticketId, studentId }) => {
     return Ticket.findOneAndUpdate(
-      { ticketId },
-      { $pull: { reacts: studentId } }
+      { _id: ticketId },
+      { $addToSet: { voteDown: studentId } }
+    );
+  },
+  removeVoteDown: ({ ticketId, studentId }) => {
+    return Ticket.findOneAndUpdate(
+      { _id: ticketId },
+      { $pull: { voteDown: studentId } }
     );
   },
 
-  completeTask: (ticketId) => {
-    return Ticket.findOneAndUpdate(
-      { ticketId },
-      { complete: true, clientStatus: "complete" }
-    );
+  hasVotedUp: ({ ticketId, studentId }) => {
+    return Ticket.find({ _id: ticketId, voteUp: studentId });
   },
-
-  rejectTask: ({ ticketId, studentId }) => {
-    return Ticket.findOneAndUpdate(
-      { ticketId, studentId },
-      { studentId: null }
-    );
+  hasVotedDown: ({ ticketId, studentId }) => {
+    return Ticket.find({ _id: ticketId, voteDown: studentId });
   },
 
   createTicket: (info) => {

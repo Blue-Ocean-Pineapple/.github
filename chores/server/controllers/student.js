@@ -40,6 +40,17 @@ module.exports = {
     console.log(info);
     model
       .voteUp(info)
+      .then((data) => res.send(data).status(200))
+      .catch((err) => res.send(err).status(404));
+  },
+  removeVoteUp: (req, res) => {
+    const info = {
+      studentId: req.body.studentId,
+      ticketId: req.body.ticketId,
+    };
+    console.log(info);
+    model
+      .removeVoteUp(info)
       .then((data) => res.send(data.data).status(200))
       .catch((err) => res.send(err).status(404));
   },
@@ -55,29 +66,99 @@ module.exports = {
       .then((data) => res.send(data.data).status(200))
       .catch((err) => res.send(err).status(404));
   },
-
-  // mark as complete, need ticket id; set complete to true
-  completeTask: (req, res) => {
-    let ticketId =
-      req.body.ticketId || req.query.ticketId || req.params.ticketId;
+  removeVoteDown: (req, res) => {
+    const info = {
+      studentId: req.body.studentId,
+      ticketId: req.body.ticketId,
+    };
+    console.log(info);
     model
-      .completeTask(ticketId)
+      .removeVoteDown(info)
       .then((data) => res.send(data.data).status(200))
       .catch((err) => res.send(err).status(404));
   },
 
-  // rejectTask: (req, res) => {
-  //   let info = {
-  //     studentId: req.params.studentId,
-  //     ticketId: req.parmas.ticketId,
-  //   };
-  //   model
-  //     .rejectTask(info)
-  //     .then((data) => res.send(data.data).status(200))
-  //     .catch((err) => res.send(err).status(404));
-  // },
+  hasVotedUp: (req, res) => {
+    const info = {
+      studentId: req.params.id,
+      ticketId: req.params.ticketId,
+    };
+    console.log("we are in controller has voted up", info);
+    model
+      .hasVotedUp(info)
+      .then((data) => {
+        console.log(data, "this is the data returning to user");
+        res.send(data).status(200);
+      })
+      .catch((err) => res.send(err).status(404));
+  },
 
-  // createOne: (req, res) => {
+  hasVotedDown: (req, res) => {
+    const info = {
+      studentId: req.params.id,
+      ticketId: req.params.ticketId,
+    };
+    model
+      .hasVotedDown(info)
+      .then((data) => {
+        console.log(data);
+        res.send(data).status(200);
+      })
+      .catch((err) => res.send(err).status(404));
+  },
 
-  // }
+  hasVoted: async (req, res) => {
+    const info = {
+      studentId: req.params.id,
+      ticketId: req.params.ticketId,
+    };
+    const hasVotedUp = await model.hasVotedUp(info);
+
+    if (hasVotedUp.length) {
+      return res.status(200).send(true);
+    }
+    const hasVotedDown = await model.hasVotedDown(info);
+
+    if (hasVotedDown.length) {
+      return res.status(200).send(false);
+    }
+
+    return res.status(200).send(null);
+  },
+
+  createTicket: (req, res) => {
+    const {
+      clientName,
+      taskName,
+      wage,
+      address,
+      description,
+      clientStatus,
+      complete,
+      creatorId,
+      studentId,
+      coordinates,
+    } = req.body;
+
+    const info = {
+      clientName,
+      taskName,
+      wage,
+      address,
+      description,
+      clientStatus,
+      complete,
+      creatorId,
+      studentId,
+      coordinates,
+    };
+    console.log(info, "info in controller");
+    model
+      .createTicket(info)
+      .then((data) => {
+        console.log(data, "here is the data");
+        res.send(data).status(200);
+      })
+      .catch((err) => res.send(err).status(404));
+  },
 };
