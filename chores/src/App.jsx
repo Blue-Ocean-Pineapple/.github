@@ -42,7 +42,6 @@ function App(props) {
         </Routes>
       </Router>
       {/* <Staff /> */}
-      <Admin />
       {/* <Customer />
      <Student />
     {/* <Map /> */}

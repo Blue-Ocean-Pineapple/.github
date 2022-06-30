@@ -13,7 +13,7 @@ module.exports = {
     },
 
     getAllUsers: function(req, res) {
-      console.log('getAllUsers data?', req);
+    //   console.log('getAllUsers data?', req);
         model.getAllUsers(req, (err, results) => {
             if (err) {
                 res.status(500).send(err);
@@ -44,6 +44,17 @@ module.exports = {
           }
         });
     },
+
+    updateTicketComplete: function(req, res) {
+        model.updateTicketComplete(req.body, (err, results) => {
+            console.log('updateTicket data?', results);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+          });
+      },
 
     deactivateStudent: function(req, res) {
         model.deactivateStudent(req.body, (err, results) => {
