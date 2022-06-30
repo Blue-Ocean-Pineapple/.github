@@ -18,7 +18,7 @@ export default function AllStaff ({ staff }) {
   const activeStaff = () => {
 
   }
-  
+
   return (
     <TableContainer>
       <Heading as='h2' size='xl' mt={10} mb={5}>Active</Heading>
@@ -26,18 +26,34 @@ export default function AllStaff ({ staff }) {
         <Thead className='activestaff'>
           <Tr variant='striped'>
             <Th>Name</Th>
+            <Th>Email</Th>
             <Th isNumeric>ID</Th>
           </Tr>
         </Thead>
 
         <Tbody>
           <Th>Brian Bui</Th>
+          <Th>bbBrian@gmail.com</Th>
           <Th isNumeric>53245</Th>
         </Tbody>
         <Tbody>
           <Th>Skipper Harris</Th>
+          <Th>skippityskoop@gmail.com</Th>
           <Th isNumeric>45857</Th>
         </Tbody>
+        {
+          staff.map((person) => {
+            if (person.active) {
+              return (
+                <Tbody>
+                  <Th>{person.name}</Th>
+                  <Th>{person.email}</Th>
+                  <Th isNumeric>{person._id}</Th>
+                </Tbody>
+              )
+            }
+          })
+        }
       </Table>
 
       <Heading as='h2' size='xl' mt={10} mb={5}>Inactive</Heading>
@@ -45,6 +61,7 @@ export default function AllStaff ({ staff }) {
         <Thead className='inactivestaff'>
           <Tr variant='striped'>
             <Th>Name</Th>
+            <Th>Email</Th>
             <Th>Activate Staff</Th>
             <Th isNumeric>ID</Th>
           </Tr>
@@ -52,6 +69,7 @@ export default function AllStaff ({ staff }) {
 
         <Tbody>
           <Th>Alexis Stone</Th>
+          <Th>stonestonestone@gmail.com</Th>
           <Th>
             <Button>Activate</Button>
           </Th>
@@ -59,11 +77,29 @@ export default function AllStaff ({ staff }) {
         </Tbody>
         <Tbody>
           <Th>Jin Peng</Th>
+          <Th>jpjpjp@gmail.com</Th>
           <Th>
             <Button>Activate</Button>
           </Th>
           <Th isNumeric>48395</Th>
         </Tbody>
+
+        {
+          staff.map((person) => {
+            if (person.active) {
+              return (
+                <Tbody>
+                  <Th>{person.name}</Th>
+                  <Th>{person.email}</Th>
+                  <Th>
+                    <Button>Activate</Button>
+                  </Th>
+                  <Th isNumeric>{person._id}</Th>
+                </Tbody>
+              )
+            }
+          })
+        }
       </Table>
     </TableContainer>
   )
