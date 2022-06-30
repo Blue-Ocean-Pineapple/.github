@@ -10,7 +10,7 @@ export default function Homepage({setIsAuth}) {
   const { currentUser } = useAuth();
   return (
     <Layout setIsAuth={setIsAuth}>
-      <Heading>Home page</Heading>
+      <Heading>Hi </Heading>
       {/* <Text my={6}>{`current user is ${currentUser.email}`}</Text> */}
 
     </Layout>

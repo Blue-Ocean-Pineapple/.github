@@ -9,7 +9,7 @@ import {
   Stack,
   useToast,
 } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
 import {  useNavigate } from 'react-router-dom'
@@ -18,13 +18,23 @@ import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
 
-export default function Login({setIsAuth}) {
+export default function Login({ setIsAuth }) {
   const navigate = useNavigate();
   const { signInWithGoogle, login, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast();
+
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => {
+      mounted.current = false
+    }
+  }, [])
+
 
   return (
     <Layout>
@@ -62,7 +72,7 @@ export default function Login({setIsAuth}) {
                 })
               })
               .finally(() => {
-                 setIsSubmitting(false)
+                 mounted.current && setIsSubmitting(false)
               })
           }}
         >
