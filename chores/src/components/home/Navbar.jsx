@@ -12,7 +12,7 @@ import { useAuth } from "../../contexts/AuthContext.js";
 import Navlink from "./Navlink";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-export function Navbar({ setIsAuth }) {
+export function Navbar({ setIsAuth, role }) {
   const { toggleColorMode } = useColorMode();
   const { logout, currentUser } = useAuth();
   return (
@@ -33,10 +33,10 @@ export function Navbar({ setIsAuth }) {
         {!currentUser && <Navlink to="/login" name="Login" />}
         {!currentUser && <Navlink to="/register" name="Register" />}
         {currentUser && <Navlink to="/profile" name="Profile" />}
-        {currentUser && <Navlink to="/admin" name="Admin" />}
-        {currentUser && <Navlink to="/customer" name="Customer" />}
-        {currentUser && <Navlink to="/staff" name="Staff" />}
-        {currentUser && <Navlink to="/student" name="Student" />}
+        {currentUser && role === 'Admin' && <Navlink to="/admin" name="Admin" />}
+        {currentUser && role === 'Client' &&  <Navlink to="/customer" name="Customer" />}
+        {currentUser && role === 'Staff' && <Navlink to="/staff" name="Staff" />}
+        {currentUser && role === 'Student' && <Navlink to="/student" name="Student" />}
         {currentUser && <Navlink to="/map" name="Map" />}
         {currentUser && (
           <Navlink
@@ -47,7 +47,7 @@ export function Navbar({ setIsAuth }) {
               await logout().then(() => {
                 localStorage.clear();
                 setIsAuth(false);
-                window.location.pathname = "/login";
+                window.location.pathname = "/";
               });
             }}
           />
