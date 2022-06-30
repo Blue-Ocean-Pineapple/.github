@@ -2,7 +2,7 @@ const db = require ('../database/db');
 
 module.exports = {
   getAllTickets: function(req, callback) {
-    console.log('model req getalltickets', req)
+    console.log('model req getalltickets', req.body)
     db.Ticket.find({})
       .then((results) => {
         // console.log('model getalltickets results', results)
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   getAllUsers: function(req, callback) {
-    console.log('model req getAllUsers', req)
+    console.log('model req getAllUsers', req.body)
     db.User.find({})
       .then((results) => {
         console.log('model getAllUsers results', results)
@@ -22,7 +22,7 @@ module.exports = {
   },
 
   assignStudentAndStaff: function(req, callback) {
-    console.log('model req assignStudentAndStaff', req)
+    console.log('model req assignStudentAndStaff', req.body)
     const ticketId = { _id: req._id };
     const staffId = { staffId: req.staffId };
     const studentId = { studentId: req.studentId };
@@ -36,10 +36,19 @@ module.exports = {
   },
 
   updateTicketStatus: function(req, callback) {
-    console.log('model req updateTicketStatus', req)
+    console.log('model req updateTicketStatus', req.complete)
     const ticketId = ({ _id: req._id });
-    const status = ({ clientStatus: req.clientStatus })
-    db.User.findOneAndUpdate(ticketId, status, { new: true, upsert: true })
+    db.User.findOneAndUpdate(ticketId, { clientStatus: 'awaiting', complete: false })
+      .then((results) => {
+        console.log('model updateTicketStatus results', results)
+        callback(null, results)
+      })
+      .catch((err) => {callback(err)})
+  },
+
+  updateReopenTicket: function(req, callback) {
+    console.log('model req updateTicketStatus', req.complete)
+    db.Ticket.findOneAndUpdate({ _id: req._id }, { clientStatus: 'awaiting', complete: false })
       .then((results) => {
         console.log('model updateTicketStatus results', results)
         callback(null, results)

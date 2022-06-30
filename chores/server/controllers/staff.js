@@ -45,6 +45,18 @@ module.exports = {
         });
     },
 
+    updateReopenTicket: function(req, res) {
+      // console.log('reopen cont req', req.body)
+      model.updateReopenTicket(req.body, (err, results) => {
+          console.log('updateTicket data?', results);
+          if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(results);
+          }
+        });
+    },
+
     deactivateStudentOrStaff: function(req, res) {
       console.log('HOWDY', req.body)
         model.deactivateStudentOrStaff(req.body, (err, results) => {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
+import axios from 'axios';
 import {
   Heading,
   Table,
@@ -31,6 +32,9 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   // const [closedTickets, setClosedTickets] = useState([])
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  console.log('hello')
+  console.log('opened', openTickets)
+  console.log('closed', closedTickets)
   const assignTicket = () => {
     console.log('students', students)
     console.log('staff', staff)
@@ -40,6 +44,20 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   }
 
   // const isError = input === ''
+
+  const handleReopenTicket = (e) => {
+    e.preventDefault();
+    // console.log('howdy delete?', e.target.getAttribute("id"));
+    let obj = closedTickets.find(obj => obj._id === e.target.getAttribute("id"));
+    console.log('obj??', obj._id);
+    axios.put('/staff/updateReopenTicket', obj)
+    .then((response) => {
+      console.log('response data:', response);
+    })
+    .catch((err) => {
+      console.log('submit err:', err);
+    })
+  }
 
   return (
     <TableContainer>
@@ -87,6 +105,8 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
           <Th>
             <Button onClick={onOpen}>Assign</Button>
           </Th>
+          </Tr>
+        </Tbody>
           {
             openTickets.map((currentTicket, i) => {
               return (
@@ -124,7 +144,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
               )
             })
           }
-
+      </Table>
 
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
@@ -191,9 +211,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
               </ModalFooter>
             </ModalContent>
           </Modal>
-          </Tr>
-        </Tbody>
-      </Table>
+
 
       <Heading as='h2' size='xl' mt={100} mb={5}>Closed Tickets</Heading>
       <Table variant='striped'>
@@ -204,6 +222,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
             {/* <Th>Completed On</Th> */}
             <Th>Assigned Staff</Th>
             <Th>Assigned Students</Th>
+            <Th>Reopen Ticket</Th>
           </Tr>
         </Thead>
           {/* <Th>3</Th>
@@ -217,9 +236,12 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                 <Tbody key={i}>
                   <Tr variant='striped'>
                     <Th>{currentTicket._id}</Th>
-                    <Th>{currentTicket.taskName}</Th>
+                    <Th>{currentTicket.clientName}</Th>
                     <Th>{currentTicket.staffId}</Th>
                     <Th>{currentTicket.studentId}</Th>
+                    <Th>
+                      <Button id={currentTicket._id} onClick={(e) => handleReopenTicket(e)}>Open</Button>
+                    </Th>
                   </Tr>
                 </Tbody>
               )
@@ -230,3 +252,26 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
     </TableContainer>
   )
 }
+
+
+// db.tickets.insertOne({ uid: "3RzRikHOkAZhsib4tje4USZs9d93", name: "wow", email: "acoolguy@test.com", age: 22, address: "555 cool street", city: "vegas wooo", state: "vegas", phone: "394857283", role: "Staff", organization: "sesameeeee", active: "false"});
+
+// {
+//   "coordinates": {
+//       "lat": 34.041451,
+//       "lng": -118.232719
+//   },
+//   _id: "3RzRikHOkAZhsib4tje4USZs9d93",
+//   clientName: "wow",
+//   taskName: "lawn mow",
+//   description: "mow mow",
+//   address: "500 Mateo St, Los Angeles, CA 90013",
+//   clientStatus: "complete",
+//   creatorId: "4",
+//   reacts: [],
+//   studentId: null,
+//   staffId: null,
+//   complete: true,
+//   createdAt: "2022-06-29T22:46:54.041Z",
+//   __v: 0
+// }

@@ -26,9 +26,9 @@ export default function Staff () {
       .then((res) => {
         console.log('all tickets res?', res)
         res.data.map((ticket) => {
-          if (ticket.complete) {
+          if (ticket.complete === false) {
             open.push(ticket)
-          } else {
+          } else if (ticket.complete === true) {
             closed.push(ticket)
           }
         })
