@@ -32,9 +32,6 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   // const [closedTickets, setClosedTickets] = useState([])
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  console.log('hello')
-  console.log('opened', openTickets)
-  console.log('closed', closedTickets)
   const assignTicket = () => {
     console.log('students', students)
     console.log('staff', staff)
@@ -44,6 +41,20 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   }
 
   // const isError = input === ''
+
+  const handleStatus = (e) => {
+    // e.preventDefault();
+    console.log('howdy status', e);
+    console.log('howdy id?', e.id);
+
+    axios.put('/staff/updateTicketStatus', e)
+      .then((response) => {
+        console.log('tick update response data:', response);
+      })
+      .catch((err) => {
+        console.log('submit err:', err);
+      })
+  }
 
   const handleReopenTicket = (e) => {
     e.preventDefault();
@@ -82,7 +93,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
           <Th>Async Await</Th>
           <Th>John Ong</Th>
           <Th>06/29/2022</Th>
-          <Th>San Jose</Th>
+          <Th>Man Jose</Th>
           <Th>In Progress</Th>
           <Th>
             <FormControl isRequired>
@@ -121,14 +132,15 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                     <Th>
                       <FormControl isRequired>
                         <Select
+                          onChange={(e) => handleStatus(e)}
                           options={[
                             {
                               label: "status",
                               options: [
-                                {value: 'awaiting', label: "awaiting"},
-                                {value: 'approved', label: "approved"},
-                                {value: 'in-progress', label: "in-progress"},
-                                {value: 'complete', label: "complete"}
+                                {value: 'awaiting', label: "awaiting", id: currentTicket._id},
+                                {value: 'approved', label: "approved", id: currentTicket._id},
+                                {value: 'in-progress', label: "in-progress", id: currentTicket._id},
+                                {value: 'complete', label: "complete", id: currentTicket._id}
                               ]
                             }
                           ]}

@@ -36,9 +36,9 @@ module.exports = {
   },
 
   updateTicketStatus: function(req, callback) {
-    console.log('model req updateTicketStatus', req.complete)
-    const ticketId = ({ _id: req._id });
-    db.User.findOneAndUpdate(ticketId, { clientStatus: 'awaiting', complete: false })
+    console.log('model req updateTicketStatus', req)
+    const ticketId = ({ _id: req.id });
+    db.Ticket.findOneAndUpdate(ticketId, { clientStatus: req.value })
       .then((results) => {
         console.log('model updateTicketStatus results', results)
         callback(null, results)
