@@ -21,11 +21,12 @@ export default function StudentTicket({
 }) {
   return (
     <Tr>
-      <Td>{ticket.name}</Td>
-      <Td>Brian Bui</Td>
-      <Td>San Jose</Td>
-      <Td>{ticket.date}</Td>
       <Td>{ticket.creatorId}</Td>
+      <Td>{ticket.taskName}</Td>
+      <Td>{ticket.clientName}</Td>
+      <Td>San Jose</Td>
+      <Td>8:00PM 6/23{ticket.date}</Td>
+      <Td color="green">{ticket.clientStatus.toUpperCase()}</Td>
     </Tr>
   );
 }
