@@ -40,5 +40,14 @@
      "studentId": "2",
      "address": "21 E 7th Pl, Los Angeles, CA 90021",
      "coordinates": {"lat":34.068630,"lng":-118.226631}
+   },
+   {
+    "clientName": "hungry man",
+    "taskName": "buy groceries",
+    "description": "help me buy groceries",
+    "address": "621 S Western Ave, Los Angeles, CA 90005",
+    "clientStatus": "awaiting",
+    "complete": false,
+    "studentId": "2"
    }
 ]
