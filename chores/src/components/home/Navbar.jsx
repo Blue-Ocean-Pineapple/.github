@@ -47,7 +47,7 @@ export function Navbar({ setIsAuth, role }) {
               await logout().then(() => {
                 localStorage.clear();
                 setIsAuth(false);
-                window.location.pathname = "/login";
+                window.location.pathname = "/";
               });
             }}
           />

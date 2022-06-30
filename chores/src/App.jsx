@@ -35,12 +35,12 @@ function App(props) {
             path="/register"
             element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}
           />
-          <Route path="/profile" element={!isAuth ? <Profile role={role} setRole={setRole} roles={roles}/> : <Home />} />
-          <Route path="/admin" element={role === "Admin" ?  <Admin /> : <Home />}/>
-          <Route path="/customer" element={role === "Client" ?  <Customer />  : <Home />}/>
-          <Route path="/staff" element={role === "Staff" ?  <Staff /> : <Home />}/>
-          <Route path="/student" element={role === "Student" ?  <Student /> : <Home /> }/>
-          <Route path="/map" element={ <Map />} />
+          <Route path="/profile" element={ <Profile role={role} setRole={setRole} roles={roles}/> } />
+          <Route path="/admin" element={isAuth && role === 'Admin' ?  <Admin /> : <Login />}/>
+          <Route path="/customer" element={isAuth && role === 'Client' ?  <Customer />  : <Login />}/>
+          <Route path="/staff" element={isAuth && role === "Staff" ?  <Staff /> : <Login />}/>
+          <Route path="/student" element={isAuth && role === "Student" ?  <Student /> : <Login /> }/>
+          <Route path="/map" element={isAuth ? <Map /> : <Login />} />
         </Routes>
       </Router>
       {/* <Admin /> */}
@@ -52,5 +52,6 @@ function App(props) {
 
   );
 }
+
 
 export default App;

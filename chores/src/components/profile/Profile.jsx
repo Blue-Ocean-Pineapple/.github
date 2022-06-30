@@ -82,7 +82,7 @@ export default function Profile({ role, setRole, roles }) {
           {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
-        !isSubmitting && (
+         (currentUser &&
         <chakra.form  onSubmit={handleSubmit} >
           <Stack spacing='6'>
             <FormControl id='name'>

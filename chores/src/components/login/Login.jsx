@@ -18,7 +18,7 @@ import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
 
-export default function Login({setIsAuth}) {
+export default function Login({ setIsAuth }) {
   const navigate = useNavigate();
   const { signInWithGoogle, login, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
