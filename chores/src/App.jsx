@@ -8,7 +8,7 @@ import Customer from "./components/customer/Customer.jsx";
 import Map from "./components/map/Map.jsx";
 import Staff from "./components/staff/Staff.jsx";
 import Student from "./components/student/Student.jsx";
-// import Navbar from './components/home/Navbar.jsx';
+import { Navbar } from './components/home/Navbar';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -16,10 +16,12 @@ import AuthContextProvider from "./contexts/AuthContext";
 
 function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-
+  console.log("is Auth console", isAuth);
   return (
+
     <AuthContextProvider>
-      {/* <Router>
+      <Router>
+      <Navbar setIsAuth={setIsAuth}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/student" element={<Student />} />
@@ -33,10 +35,10 @@ function App(props) {
           />
           <Route path="/profile" element={!isAuth ? <Profile /> : <Home />} />
           <Route path="/admin" element={ <Admin />}/>
-         <Route path="/customer" element={ <Customer />}/>
-         <Route path="/staff" element={ <Staff />}/>
-         <Route path="/student" element={ <Student />}/>
-         <Route path="/map" element={ <Map />} />
+           <Route path="/customer" element={ <Customer />}/>
+          <Route path="/staff" element={ <Staff />}/>
+          <Route path="/student" element={ <Student />}/>
+          <Route path="/map" element={ <Map />} />
         </Routes>
       </Router> */}
       {/* <Admin /> */}
@@ -45,6 +47,7 @@ function App(props) {
     {/* <Map /> */}
     <Staff />
     </AuthContextProvider>
+
   );
 }
 

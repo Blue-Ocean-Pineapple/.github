@@ -11,11 +11,6 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import { useAuth } from "../../contexts/AuthContext.js";
 import Navlink from "./Navlink";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import Admin from "../admin/Admin.jsx";
-// import Customer from '../customer/Customer.jsx';
-// import Map from "../map/Map.jsx";
-// import Staff from '../staff/Staff.jsx';
-// import Student from "../student/Student.jsx";
 
 export function Navbar({ setIsAuth }) {
   const { toggleColorMode } = useColorMode();

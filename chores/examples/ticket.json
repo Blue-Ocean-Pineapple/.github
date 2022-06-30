@@ -23,6 +23,7 @@
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
+    "taskName": "Dog Walk",
     "complete": true,
     "studentId": "1",
     "coordinates": {"lat":34.041451,"lng":-118.232719}
@@ -37,6 +38,7 @@
      "clientStatus": "approved",
      "complete": true,
      "studentId": "2",
+     "address": "21 E 7th Pl, Los Angeles, CA 90021",
      "coordinates": {"lat":34.068630,"lng":-118.226631}
    }
 ]
