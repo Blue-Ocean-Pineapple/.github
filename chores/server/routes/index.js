@@ -17,8 +17,7 @@ const router = express.Router();
 router.post("/api/users/info", users.saveUser);
 router.get("/api/users/:uid", users.getOne);
 router.get("/api/users", users.getAll);
-// router.put('/api/users/:id', users.update);
-// router.delete('/api/users/:id', users.delete);
+
 
 //ClientRoute:
 router.get("/api/clients/tickets", clients.getAll);

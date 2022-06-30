@@ -60,6 +60,7 @@ export default function Profile() {
       console.log('HIT POST USER!', res.data);
       setUpdatedUserInfo(res.data);
       setIsSubmitting(true);
+      navigate('/'+ res.data.email)
     } catch (err) {
       console.log('error while updating user information', err)
     }
@@ -78,7 +79,7 @@ export default function Profile() {
           {/* {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
           {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
           {updatedUserInfo && <pre> Name: {JSON.stringify(updatedUserInfo.name)}</pre>} */}
-          {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>}
+          {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
         currentUser && (
