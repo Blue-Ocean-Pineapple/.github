@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 
 export default function AllStudents ({ students }) {
-
+console.log('howdy')
 
   return (
     <TableContainer>
@@ -23,6 +23,7 @@ export default function AllStudents ({ students }) {
         <Thead className='activestudent'>
           <Tr variant='striped'>
             <Th>Name</Th>
+            <Th>Email</Th>
             <Th>Deactivate</Th>
             <Th isNumeric>ID</Th>
           </Tr>
@@ -30,6 +31,7 @@ export default function AllStudents ({ students }) {
 
         <Tbody>
           <Th>Esther Kuang</Th>
+          <Th>estar@gmail.com</Th>
           <Th>
             <Button>Select</Button>
           </Th>
@@ -37,11 +39,28 @@ export default function AllStudents ({ students }) {
         </Tbody>
         <Tbody>
           <Th>Hansol Ji</Th>
+          <Th>kimchi@gmail.com</Th>
           <Th>
             <Button>Select</Button>
           </Th>
           <Th isNumeric>38495</Th>
         </Tbody>
+        {
+          students.map((person) => {
+            if (person.active) {
+              return (
+                <Tbody>
+                  <Th>{person.name}</Th>
+                  <Th>{person.email}</Th>
+                  <Th>
+                    <Button>Select</Button>
+                  </Th>
+                  <Th isNumeric>{person._id}</Th>
+                </Tbody>
+              )
+            }
+          })
+        }
       </Table>
 
       <Heading as='h2' size='xl' mt={10} mb={5}>Inactive</Heading>
@@ -49,6 +68,7 @@ export default function AllStudents ({ students }) {
         <Thead className='inactivestudent'>
           <Tr variant='striped'>
             <Th>Name</Th>
+            <Th>Email</Th>
             <Th>Activate</Th>
             <Th isNumeric>ID</Th>
           </Tr>
@@ -56,6 +76,7 @@ export default function AllStudents ({ students }) {
 
         <Tbody>
           <Th>Spencer Han</Th>
+          <Th>lesson9@gmail.com</Th>
           <Th>
             <Button>Activate</Button>
           </Th>
@@ -63,12 +84,42 @@ export default function AllStudents ({ students }) {
         </Tbody>
         <Tbody>
           <Th>Fan Zhang</Th>
+          <Th>fanfan@gmail.com</Th>
           <Th>
             <Button>Activate</Button>
           </Th>
           <Th isNumeric>48573</Th>
         </Tbody>
+        {
+          students.map((person) => {
+            if (!person.active) {
+              return (
+                <Tbody>
+                  <Th>{person.name}</Th>
+                  <Th>{person.email}</Th>
+                  <Th>
+                    <Button>Activate</Button>
+                  </Th>
+                  <Th isNumeric>{person._id}</Th>
+                </Tbody>
+              )
+            }
+          })
+        }
       </Table>
     </TableContainer>
   )
 }
+// db.users.insertOne({
+//   uid: "3RzRikHOkAZhsib4tje4USZliswe",
+//   name: "howdy",
+//   email: "testing@test.com",
+//   age: 223,
+//   address: "123344 sesame street",
+//   city: "sesame city",
+//   state: "sesame",
+//   phone: "1234567891",
+//   role: "student",
+//   organization: "sesameeeee",
+//   active: "true"
+// });

@@ -44,11 +44,11 @@ function App(props) {
           <Route path="/map" element={ <Map />} />
         </Routes>
       </Router>
-      {/* <Staff /> */}
       {/* <Admin /> */}
       {/* <Customer />
      <Student />
     {/* <Map /> */}
+    {/* <Staff /> */}
     </AuthContextProvider>
 
   );
