@@ -30,7 +30,12 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   // const [input, setInput] = useState('')
   // const [openTickets, setOpenTickets] = useState([])
   // const [closedTickets, setClosedTickets] = useState([])
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // {value: 'brian', label: "Brian Bui"},
+  const studentOrder = () => {
+    
+  }
 
   const assignTicket = () => {
     console.log('students', students)
