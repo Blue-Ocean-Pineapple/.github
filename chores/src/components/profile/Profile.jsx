@@ -18,7 +18,7 @@ import { Layout } from '../home/Layout';
 import { useAuth } from '../../contexts/AuthContext';
 import axios from "axios";
 
-export default function Profile() {
+export default function Profile({ role, setRole, roles }) {
   const { currentUser } = useAuth();
   // console.log('currentUser in Profile', currentUser);
   const navigate = useNavigate();
@@ -28,14 +28,11 @@ export default function Profile() {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [phone, setPhone] = useState('');
-  const roles = ['Student','Client', 'Staff', 'Admin'];
   const [organization, setOrginization] = useState('');
   const [active, setActive] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setOpen] = useState(false);
-  const [role, setRole] = useState(roles);
   const [updatedUserInfo, setUpdatedUserInfo] = useState({});
-
   const toggleDropdown = () => setOpen(!isOpen);
 
   const handleSubmit = async (e) => {
@@ -59,13 +56,13 @@ export default function Profile() {
       console.log('HIT POST USER!', res.data);
       setUpdatedUserInfo(res.data);
       setIsSubmitting(true);
-      // navigate('/'+ res.data.email)
+      navigate('/'+ res.data.role)
     } catch (err) {
       console.log('error while updating user information', err)
     }
   }
 
-  const handleRolandActive = async (e) => {
+  const handleRolandActive = (e) => {
     e.preventDefault();
     setRole(e.target.value);
     if(e.target.value === 'Client') {
@@ -172,19 +169,6 @@ export default function Profile() {
                 onChange={e =>setOrginization(e.target.value)}
               />
             </FormControl>
-            {/* <FormControl id='Active'>
-              {role === 'Staff' ? setActive(true) : setActive(false)}
-            </FormControl> */}
-            {/* <FormControl id='Active'>
-              <FormLabel>Active Status</FormLabel>
-              <Input
-                name='active'
-                type='active'
-                autoComplete='active'
-                required
-                onChange={e =>setActive(e.target.value)}
-              />
-            </FormControl> */}
             <Button
               type='submit'
               colorScheme='teal'
