@@ -60,11 +60,16 @@ export default function Profile() {
       console.log('HIT POST USER!', res.data);
       setUpdatedUserInfo(res.data);
       setIsSubmitting(true);
-      // navigate('/users/' + res.data.uid)
+      navigate('/'+ res.data.email)
     } catch (err) {
       console.log('error while updating user information', err)
     }
   }
+
+  // const handlepage = async (e) => {
+  //   e.preventDefault();
+  //   navigate('/'+ updatedUserInfo.role)
+  // }
 
   return (
     <Layout>
@@ -74,7 +79,7 @@ export default function Profile() {
           {/* {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
           {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
           {updatedUserInfo && <pre> Name: {JSON.stringify(updatedUserInfo.name)}</pre>} */}
-          {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>}
+          {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
         currentUser && (
@@ -182,6 +187,16 @@ export default function Profile() {
             >
             Update Account
             </Button>
+            {/* <Button
+              type='submit'
+              colorScheme='teal'
+              size='lg'
+              fontSize='md'
+              isLoading={isSubmitting}
+              onSubmit={handlepage}
+            >
+           Go to {updatedUserInfo.role}
+            </Button> */}
           </Stack>
         </chakra.form>
             )

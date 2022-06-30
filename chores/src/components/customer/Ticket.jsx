@@ -97,16 +97,16 @@ function Ticket() {
           {tickets.map((ticket, index) => (
             <Tr>
               <Td>{index+1}</Td>
-              <Td>{ticket.name}</Td>
+              <Td>{ticket.taskName}</Td>
               <Td>{ticket.description}</Td>
-              <Td>{ticket.location}</Td>
+              <Td>{ticket.address}</Td>
               <Td>{ticket.clientStatus}</Td>
               <Td>
                 <Button colorScheme='blue' onClick={
                   () => {
                   let updatedDefinition = prompt('Enter new definition')
                   let updatedLocation = prompt('Enter new location')
-                  handleChange(ticket.description, ticket._id, ticket.location, updatedDefinition, updatedLocation);
+                  handleChange(ticket.description, ticket._id, ticket.address, updatedDefinition, updatedLocation);
                   }
                   }>Modify</Button>
               </Td>
@@ -138,9 +138,9 @@ function Ticket() {
           {completed.map((complete, index) => (
             <Tr>
               <Td>{index+1}</Td>
-              <Td>{complete.name}</Td>
+              <Td>{complete.taskName}</Td>
               <Td>{complete.description}</Td>
-              <Td>{complete.location}</Td>
+              <Td>{complete.address}</Td>
               <Td>{complete.clientStatus}</Td>
             </Tr>
           ))}

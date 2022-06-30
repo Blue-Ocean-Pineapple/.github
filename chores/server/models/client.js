@@ -12,12 +12,12 @@ exports.findByID = (id) => {
   return Ticket.find({_id: id});
 };
 
-exports.createOne = (name, wage, description, location, id, created) => {
-  return Ticket.create({name: name, wage: wage, description: description, location: location, creatorId: id});
+exports.createOne = (name, wage, description, address, coordinates, id, client) => {
+  return Ticket.create({taskName: name, wage: wage, description: description, address: address, coordinates: coordinates, creatorId: id, clientName: client});
 };
 
 exports.update = (description, id, location, updatedDescription, updatedLocation) => {
-  return Ticket.findOneAndUpdate({description: description, _id: id, location: location}, {description: updatedDescription, _id: id, location: updatedLocation})
+  return Ticket.findOneAndUpdate({description: description, _id: id, address: location}, {description: updatedDescription, _id: id, address: updatedLocation})
 }
 
 exports.delete = (id) => {

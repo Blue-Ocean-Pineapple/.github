@@ -3,6 +3,7 @@ import axios from "axios";
 import Geocode from "react-geocode";
 
 export default class TickerForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,32 +16,36 @@ export default class TickerForm extends React.Component {
   }
 
   handleNewPost(nameArg, wageArg, descriptionArg, locationArg) {
-    this.getGeoCode(locationArg);
     this.setState({
       name: nameArg,
       wage: wageArg,
       description: descriptionArg,
       address: locationArg,
-    }, this.handleAddPost);
+    }, this.getGeoCode);
   }
 
-  getGeoCode = (locationArg) => {
-    Geocode.fromAddress(locationArg)
+  getGeoCode = () => {
+    Geocode.setApiKey(process.env.REACT_APP_MAP_API);
+    Geocode.setLocationType("ROOFTOP");
+    Geocode.fromAddress(this.state.address)
     .then((data) => {
+      console.log('geoCord data:',data.results[0].geometry.location);
       this.setState({
-        coordinates: data.results[0].geometry.location})
+        coordinates: data.results[0].geometry.location
+      }, this.handleAddPost)
     })
     .catch((err) => {console.log(err);})
   };
 
   handleAddPost() {
     axios.post('http://localhost:3001/api/clients/create', {
-      name: this.state.name,
+      taskName: this.state.name,
       wage: this.state.wage,
       description: this.state.description,
-      address: this.state.location,
+      address: this.state.address,
       coordinates: this.state.coordinates,
       creatorId: 'tester',
+      clientName: 'tester',
     });
   }
 
@@ -52,7 +57,8 @@ export default class TickerForm extends React.Component {
         </header>
         <form onSubmit={(event) => {
           event.preventDefault();
-          this.handleNewPost(event.target.name.value, event.target.wage.value, event.target.description.value, event.target.location.value);
+          this.handleNewPost(event.target.name.value, event.target.wage.value, event.target.description.value, event.target.location.value)
+          ;
           alert("Form submitted")
         }}>
           <label>
