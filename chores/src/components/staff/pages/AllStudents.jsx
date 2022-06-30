@@ -53,7 +53,7 @@ console.log('howdy')
                   <Th>{person.name}</Th>
                   <Th>{person.email}</Th>
                   <Th>
-                    <Button>Activate</Button>
+                    <Button>Select</Button>
                   </Th>
                   <Th isNumeric>{person._id}</Th>
                 </Tbody>
