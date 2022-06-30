@@ -9,14 +9,17 @@ export default function ClosedStudentTicket({
 }) {
   return (
     <Tr>
-      <Td>{ticket.name}</Td>
-      <Td>Brian Bui</Td>
-      <Td>San Jose</Td>
-      <Td>{ticket.date}</Td>
       <Td>{ticket.creatorId}</Td>
+      <Td>{ticket.taskName}</Td>
+      <Td>{ticket.clientName}</Td>
+      <Td>{ticket.address}</Td>
+      <Td>{ticket.date}</Td>
       <Td>${ticket.wage} / hour</Td>
       <Td textAlign="center">
-        <Button colorScheme="green">
+        <Button
+          _hover={{ backgroundColor: "none", cursor: "default" }}
+          colorScheme="green"
+        >
           <BsCheckLg />
         </Button>
       </Td>
@@ -25,7 +28,7 @@ export default function ClosedStudentTicket({
 }
 
 //  {
-//   "name": "Dog Walk",
+//   "taskName": "Dog Walk",
 //   "wage": 15,
 //   "description": "I want you to walk my dog, he is big and red and named Clifford",
 //   "clientStatus": "complete",
@@ -34,7 +37,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Washing Dishes",
+//   "taskName": "Washing Dishes",
 //   "wage": 20,
 //   "description": "I want you to wash my dishes, they've been piling up!!",
 //   "clientStatus": "approved",
@@ -43,7 +46,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Cat sitting",
+//   "taskName": "Cat sitting",
 //   "wage": 20,
 //   "description": "My cat, Salem, needs to be sat.",
 //   "clientStatus": "approved",
@@ -52,7 +55,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Sweeping the floors",
+//   "taskName": "Sweeping the floors",
 //   "wage": 10,
 //   "description": "Our floor is dirty, you need to sweep it or its just going to get worse!",
 //   "clientStatus": "approved",
@@ -61,7 +64,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Washing my dog",
+//   "taskName": "Washing my dog",
 //   "wage": 50,
 //   "description": "He is a smelly old dog and needs-a-washing.",
 //   "clientStatus": "approved",
@@ -70,7 +73,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Teach me how to dougie",
+//   "taskName": "Teach me how to dougie",
 //   "wage": 100,
 //   "description": "I can't dance, and I want to learn. Someone teach me how to dance!",
 //   "clientStatus": "approved",
@@ -79,7 +82,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Raking the leaves",
+//   "taskName": "Raking the leaves",
 //   "wage": 50,
 //   "description": "Need you to rake the leaves in my yard. I can't even see the drive way floor anymore",
 //   "clientStatus": "approved",
@@ -88,7 +91,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Baby Sitting",
+//   "taskName": "Baby Sitting",
 //   "wage": 25,
 //   "description": "Please I need help baby sitting 9 of my kids",
 //   "clientStatus": "in-progress",
@@ -97,7 +100,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Baby Sitting",
+//   "taskName": "Baby Sitting",
 //   "wage": 25,
 //   "description": "Please I need help baby sitting 20 of my kids",
 //   "clientStatus": "complete",
@@ -106,7 +109,7 @@ export default function ClosedStudentTicket({
 //   "studentId": 5
 //  },
 //  {
-//   "name": "Video Games",
+//   "taskName": "Video Games",
 //   "wage": 25,
 //   "description": "Teach me how to play video games",
 //   "clientStatus": "complete",
