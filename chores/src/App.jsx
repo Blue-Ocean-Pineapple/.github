@@ -9,7 +9,6 @@ import Map from "./components/map/Map.jsx";
 import Staff from "./components/staff/Staff.jsx";
 import Student from "./components/student/Student.jsx";
 import { Navbar } from './components/home/Navbar';
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import AuthContextProvider from "./contexts/AuthContext";

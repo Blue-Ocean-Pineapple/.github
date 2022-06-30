@@ -20,7 +20,6 @@ import axios from "axios";
 
 export default function Profile({ role, setRole, roles }) {
   const { currentUser } = useAuth();
-  // console.log('currentUser in Profile', currentUser);
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -74,16 +73,16 @@ export default function Profile({ role, setRole, roles }) {
 
   return (
     <Layout>
-      <Heading>Profile page</Heading>
+      <Heading>Add Some Information Here</Heading>
       <Container maxW='container.lg' overflowX='auto' py={4}>
         <chakra.pre p={4}>
-          {/* {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
-          {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
+          {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
+          {/* {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
           {updatedUserInfo && <pre> Name: {JSON.stringify(updatedUserInfo.name)}</pre>} */}
-          {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>}
+          {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
-        currentUser && (
+        !isSubmitting && (
         <chakra.form  onSubmit={handleSubmit} >
           <Stack spacing='6'>
             <FormControl id='name'>

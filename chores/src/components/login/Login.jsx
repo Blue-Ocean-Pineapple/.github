@@ -9,7 +9,7 @@ import {
   Stack,
   useToast,
 } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
 import {  useNavigate } from 'react-router-dom'
@@ -25,6 +25,16 @@ export default function Login({setIsAuth}) {
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast();
+
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => {
+      mounted.current = false
+    }
+  }, [])
+
 
   return (
     <Layout>
@@ -62,7 +72,7 @@ export default function Login({setIsAuth}) {
                 })
               })
               .finally(() => {
-                 setIsSubmitting(false)
+                 mounted.current && setIsSubmitting(false)
               })
           }}
         >
