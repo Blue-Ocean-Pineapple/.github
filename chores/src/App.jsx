@@ -40,12 +40,12 @@ function App(props) {
           <Route path="/student" element={ <Student />}/>
           <Route path="/map" element={ <Map />} />
         </Routes>
-      </Router> */}
+      </Router>
       {/* <Admin /> */}
       {/* <Customer />
      <Student />
     {/* <Map /> */}
-    <Staff />
+    {/* <Staff /> */}
     </AuthContextProvider>
 
   );

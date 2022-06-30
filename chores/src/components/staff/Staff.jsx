@@ -18,33 +18,10 @@ import {
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
+  // Route,
   Link as RouteLink,
-  useNavigate,
-  Navigate
+  useNavigate
 } from "react-router-dom";
-
-type NavLinkProps = { text: string };
-const NavLink = ({ text }: NavLinkProps) => (
-  <Link>
-    <Text fontSize="xl">{text}</Text>
-  </Link>
-);
-
-const NavBar = () => (
-  <HStack mt={8} spacing={3} divider={<StackDivider />} as="nav">
-    <RouteLink to="/alltickets">
-      <NavLink text="Tickets" />
-    </RouteLink>
-    <RouteLink to="/allstaff">
-      <NavLink text="Staff" />
-    </RouteLink>
-    <RouteLink to="/allstudents">
-      <NavLink text="Students" />
-    </RouteLink>
-  </HStack>
-);
-
 
 export default function Staff () {
   const [openTickets, setOpenTickets] = useState([]);
@@ -53,7 +30,8 @@ export default function Staff () {
   const [staff, setStaff] = useState([]);
   const [admin, setAdmin] = useState([]);
   const [customer, setCustomer] = useState([]);
-  // const navigate = useNavigate();
+  const [curPage, setCurPage] = useState('alltickets');
+
 
 
   const getAllTickets = () => {
@@ -112,66 +90,38 @@ export default function Staff () {
     getAllUsers();
   }, []);
 
-
+  const renderView=()=>{
+   // eslint-disable-next-line default-case
+   switch (curPage) {
+    case 'alltickets':
+      return (
+        <AllTickets
+          setCurPage={setCurPage}
+          openTickets={openTickets}
+          closedTickets={closedTickets}
+          staff={staff}
+          students={student} />
+        )
+    case 'allstaff':
+      return (
+        <AllStaff
+        setCurPage={setCurPage}
+        staff={staff} />
+      )
+    case 'allstudents':
+      return (
+        <AllStudents
+        setCurPage={setCurPage}
+        students={student} />
+      )
+    }
+  }
   return (
-    <div>
-
-
-      <ChakraProvider>
-        <Router>
-          <NavBar />
-          <Routes >
-            <Route path="/alltickets"
-            element={
-            <AllTickets
-              openTickets={openTickets}
-              closedTickets={closedTickets}
-              staff={staff}
-              students={student} />} />
-            <Route path="/allstaff" element={<AllStaff staff={staff} />} />
-            <Route
-              path="/allstudents"
-              element={<AllStudents students={student} />}
-            />
-          </Routes>
-        </Router>
-      </ChakraProvider>
-
-
-    </div>
-
-
+    <ChakraProvider >
+      <button onClick={() => setCurPage('alltickets')}>Tickets</button>
+      <button onClick={() => setCurPage('allstaff')}>Staff</button>
+      <button onClick={() => setCurPage('allstudents')}>Students</button>
+      {renderView()}
+    </ChakraProvider>
   );
 }
-
-
-// {/* <ButtonGroup spacing={4} mt={4}>
-//   <Button variantColor="teal" variant="ghost" onClick={() => navigate("/alltickets")}>
-//     <Link href="/alltickets" >
-//       {/* <NavLink text="Tickets"  element={
-//       <AllTickets
-//         openTickets={openTickets}
-//         closedTickets={closedTickets}
-//         staff={staff}
-//         students={student} />} /> */}
-
-//       <AllTickets
-//         openTickets={openTickets}
-//         closedTickets={closedTickets}
-//         staff={staff}
-//         students={student} />}
-//   All tickets Button
-//     </Link>
-//   </Button>
-//   <Button variantColor="teal" variant="ghost" onClick={() => navigate("/allstaff")}>
-//     <Link href="/allstaff" >
-//       {/* <NavLink text="Staff" element={<AllStaff staff={staff} />} /> */}
-//     </Link>
-//   </Button>
-//   <Button variantColor="teal" variant="ghost" onClick={() => navigate("/allstudents")}>
-//     <Link href="/allstudents"  >
-//       {/* <NavLink text="Students" element={<AllStaff staff={staff} />} /> */}
-//     </Link>
-//   </Button>
-// </ButtonGroup> */}
-
