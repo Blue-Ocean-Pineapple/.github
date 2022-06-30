@@ -18,9 +18,8 @@ import { Layout } from '../home/Layout';
 import { useAuth } from '../../contexts/AuthContext';
 import axios from "axios";
 
-export default function Profile() {
+export default function Profile({ role, setRole, roles }) {
   const { currentUser } = useAuth();
-  // console.log('currentUser in Profile', currentUser);
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -28,15 +27,11 @@ export default function Profile() {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [phone, setPhone] = useState('');
-  const roles = ['Student','Client', 'Staff', 'Admin'];
-  // const [role, setRole] = useState(roles);
   const [organization, setOrginization] = useState('');
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setOpen] = useState(false);
-  const [role, setRole] = useState(roles);
   const [updatedUserInfo, setUpdatedUserInfo] = useState({});
-
   const toggleDropdown = () => setOpen(!isOpen);
 
   const handleSubmit = async (e) => {
@@ -60,29 +55,34 @@ export default function Profile() {
       console.log('HIT POST USER!', res.data);
       setUpdatedUserInfo(res.data);
       setIsSubmitting(true);
-      navigate('/'+ res.data.email)
+      navigate('/'+ res.data.role)
     } catch (err) {
       console.log('error while updating user information', err)
     }
   }
 
-  // const handlepage = async (e) => {
-  //   e.preventDefault();
-  //   navigate('/'+ updatedUserInfo.role)
-  // }
+  const handleRolandActive = (e) => {
+    e.preventDefault();
+    setRole(e.target.value);
+    if(e.target.value === 'Client') {
+      setActive(true)
+    } else {
+      setActive(false)
+    }
+  }
 
   return (
     <Layout>
-      <Heading>Profile page</Heading>
+      <Heading>Add Some Information Here</Heading>
       <Container maxW='container.lg' overflowX='auto' py={4}>
         <chakra.pre p={4}>
-          {/* {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
-          {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
+          {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>}
+          {/* {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
           {updatedUserInfo && <pre> Name: {JSON.stringify(updatedUserInfo.name)}</pre>} */}
           {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
-        currentUser && (
+         (currentUser &&
         <chakra.form  onSubmit={handleSubmit} >
           <Stack spacing='6'>
             <FormControl id='name'>
@@ -152,7 +152,7 @@ export default function Profile() {
                 {
                   roles.map((role) => {
                     return (
-                      <MenuItem key={role} value={role} onClick={e => setRole(e.target.value)}>{role}</MenuItem>
+                      <MenuItem key={role} value={role} onClick={handleRolandActive}>{role}</MenuItem>
                     )
                   })
                 }
@@ -168,16 +168,6 @@ export default function Profile() {
                 onChange={e =>setOrginization(e.target.value)}
               />
             </FormControl>
-            <FormControl id='Active '>
-              <FormLabel>Active Status</FormLabel>
-              <Input
-                name='active'
-                type='active'
-                autoComplete='active'
-                required
-                onChange={e =>setActive(e.target.value)}
-              />
-            </FormControl>
             <Button
               type='submit'
               colorScheme='teal'
@@ -187,16 +177,6 @@ export default function Profile() {
             >
             Update Account
             </Button>
-            {/* <Button
-              type='submit'
-              colorScheme='teal'
-              size='lg'
-              fontSize='md'
-              isLoading={isSubmitting}
-              onSubmit={handlepage}
-            >
-           Go to {updatedUserInfo.role}
-            </Button> */}
           </Stack>
         </chakra.form>
             )
