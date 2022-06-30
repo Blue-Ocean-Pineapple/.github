@@ -12,12 +12,16 @@ import {
   Grid,
   HStack,
   StackDivider,
+  ButtonGroup,
+  Button
 } from "@chakra-ui/react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link as RouteLink,
+  useNavigate,
+  Navigate
 } from "react-router-dom";
 
 type NavLinkProps = { text: string };
@@ -49,6 +53,8 @@ export default function Staff () {
   const [staff, setStaff] = useState([]);
   const [admin, setAdmin] = useState([]);
   const [customer, setCustomer] = useState([]);
+  // const navigate = useNavigate();
+
 
   const getAllTickets = () => {
     let open = [];
@@ -106,8 +112,11 @@ export default function Staff () {
     getAllUsers();
   }, []);
 
+
   return (
     <div>
+
+
       <ChakraProvider>
         <Router>
           <NavBar />
@@ -127,6 +136,42 @@ export default function Staff () {
           </Routes>
         </Router>
       </ChakraProvider>
+
+
     </div>
+
+
   );
 }
+
+
+// {/* <ButtonGroup spacing={4} mt={4}>
+//   <Button variantColor="teal" variant="ghost" onClick={() => navigate("/alltickets")}>
+//     <Link href="/alltickets" >
+//       {/* <NavLink text="Tickets"  element={
+//       <AllTickets
+//         openTickets={openTickets}
+//         closedTickets={closedTickets}
+//         staff={staff}
+//         students={student} />} /> */}
+
+//       <AllTickets
+//         openTickets={openTickets}
+//         closedTickets={closedTickets}
+//         staff={staff}
+//         students={student} />}
+//   All tickets Button
+//     </Link>
+//   </Button>
+//   <Button variantColor="teal" variant="ghost" onClick={() => navigate("/allstaff")}>
+//     <Link href="/allstaff" >
+//       {/* <NavLink text="Staff" element={<AllStaff staff={staff} />} /> */}
+//     </Link>
+//   </Button>
+//   <Button variantColor="teal" variant="ghost" onClick={() => navigate("/allstudents")}>
+//     <Link href="/allstudents"  >
+//       {/* <NavLink text="Students" element={<AllStaff staff={staff} />} /> */}
+//     </Link>
+//   </Button>
+// </ButtonGroup> */}
+
