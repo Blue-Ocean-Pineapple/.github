@@ -40,7 +40,7 @@ function App(props) {
         </Routes>
       </Router>
       {/* <Staff /> */}
-      {/* <Admin /> */}
+      <Admin />
       {/* <Customer />
     <Student />
     {/* <Map /> */}
