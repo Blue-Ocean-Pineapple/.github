@@ -11,7 +11,8 @@ import {
   TableCaption,
   TableContainer,
   Heading,
-  Button
+  Button,
+  Box
 } from '@chakra-ui/react'
 
 export default function AllStudents ({ students }) {
@@ -45,109 +46,111 @@ export default function AllStudents ({ students }) {
   }
 
   return (
-    <TableContainer>
-      <Heading as='h2' size='xl' mt={10} mb={5}>Active</Heading>
-      <Table variant='striped'>
-        <Thead className='activestudent'>
-          <Tr variant='striped'>
-            <Th>Name</Th>
-            <Th>Email</Th>
-            <Th>Deactivate</Th>
-            <Th isNumeric>ID</Th>
-          </Tr>
-        </Thead>
+    <Box bg="#FF6B6B" mt={10} mx="auto"  border="1px solid" borderColor='#FF6B6B' width="90vw" borderRadius="10">
+      <TableContainer width="80vw" mx="auto">
+        <Heading as='h2' size='xl' mt={10} mb={5}>Active</Heading>
+        <Table variant='striped'>
+          <Thead className='activestudent'>
+            <Tr variant='striped'>
+              <Th>Name</Th>
+              <Th>Email</Th>
+              <Th>Deactivate</Th>
+              <Th isNumeric>ID</Th>
+            </Tr>
+          </Thead>
 
-        <Tbody>
-          <Tr variant='striped'>
-            <Th>Esther Kuang</Th>
-            <Th>estar@gmail.com</Th>
-            <Th>
-              <Button>Select</Button>
-            </Th>
-            <Th isNumeric>22393</Th>
-          </Tr>
-        </Tbody>
-        <Tbody>
-          <Tr variant='striped'>
-            <Th>Hansol Ji</Th>
-            <Th>kimchi@gmail.com</Th>
-            <Th>
-              <Button>Select</Button>
-            </Th>
-            <Th isNumeric>38495</Th>
-          </Tr>
-        </Tbody>
-        {
-          students.map((person, i) => {
-            if (person.active) {
-              return (
-                <Tbody key={i}>
-                  <Tr variant='striped'>
-                    <Th>{person.name}</Th>
-                    <Th>{person.email}</Th>
-                    <Th>
-                      <Button id={person._id} onClick={(e) => handleDeactivateStudent(e)}>Select</Button>
-                    </Th>
-                    <Th isNumeric>{person._id}</Th>
-                  </Tr>
-                </Tbody>
-              )
-            }
-          })
-        }
-      </Table>
+          <Tbody>
+            <Tr variant='striped'>
+              <Th>Esther Kuang</Th>
+              <Th>estar@gmail.com</Th>
+              <Th>
+                <Button _hover={{ bg: "#9CB4CC" }}>Select</Button>
+              </Th>
+              <Th isNumeric>22393</Th>
+            </Tr>
+          </Tbody>
+          <Tbody>
+            <Tr variant='striped'>
+              <Th>Hansol Ji</Th>
+              <Th>kimchi@gmail.com</Th>
+              <Th>
+                <Button _hover={{ bg: "#9CB4CC" }}>Select</Button>
+              </Th>
+              <Th isNumeric>38495</Th>
+            </Tr>
+          </Tbody>
+          {
+            students.map((person, i) => {
+              if (person.active) {
+                return (
+                  <Tbody key={i}>
+                    <Tr variant='striped'>
+                      <Th>{person.name}</Th>
+                      <Th>{person.email}</Th>
+                      <Th>
+                        <Button _hover={{ bg: "#9CB4CC" }} id={person._id} onClick={(e) => handleDeactivateStudent(e)}>Select</Button>
+                      </Th>
+                      <Th isNumeric>{person._id}</Th>
+                    </Tr>
+                  </Tbody>
+                )
+              }
+            })
+          }
+        </Table>
 
-      <Heading as='h2' size='xl' mt={10} mb={5}>Inactive</Heading>
-      <Table variant='striped'>
-        <Thead className='inactivestudent'>
-          <Tr variant='striped'>
-            <Th>Name</Th>
-            <Th>Email</Th>
-            <Th>Activate</Th>
-            <Th isNumeric>ID</Th>
-          </Tr>
-        </Thead>
+        <Heading as='h2' size='xl' mt={10} mb={5}>Inactive</Heading>
+        <Table variant='striped'>
+          <Thead className='inactivestudent'>
+            <Tr variant='striped'>
+              <Th>Name</Th>
+              <Th>Email</Th>
+              <Th>Activate</Th>
+              <Th isNumeric>ID</Th>
+            </Tr>
+          </Thead>
 
-        <Tbody>
-          <Tr variant='striped'>
-            <Th>Spencer Han</Th>
-            <Th>lesson9@gmail.com</Th>
-            <Th>
-              <Button>Activate</Button>
-            </Th>
-            <Th isNumeric>29394</Th>
-          </Tr>
-        </Tbody>
-        <Tbody>
-          <Tr variant='striped'>
-            <Th>Fan Zhang</Th>
-            <Th>fanfan@gmail.com</Th>
-            <Th>
-              <Button>Activate</Button>
-            </Th>
-            <Th isNumeric>48573</Th>
-          </Tr>
-        </Tbody>
-        {
-          students.map((person, i) => {
-            if (!person.active) {
-              return (
-                <Tbody key={i}>
-                  <Tr variant='striped'>
-                    <Th>{person.name}</Th>
-                    <Th>{person.email}</Th>
-                    <Th>
-                      <Button id={person._id} onClick={(e) => handleActivateStudent(e)}>Activate</Button>
-                    </Th>
-                    <Th isNumeric>{person._id}</Th>
-                  </Tr>
-                </Tbody>
-              )
-            }
-          })
-        }
-      </Table>
-    </TableContainer>
+          <Tbody>
+            <Tr variant='striped'>
+              <Th>Spencer Han</Th>
+              <Th>lesson9@gmail.com</Th>
+              <Th>
+                <Button _hover={{ bg: "#9CB4CC" }}>Activate</Button>
+              </Th>
+              <Th isNumeric>29394</Th>
+            </Tr>
+          </Tbody>
+          <Tbody>
+            <Tr variant='striped'>
+              <Th>Fan Zhang</Th>
+              <Th>fanfan@gmail.com</Th>
+              <Th>
+                <Button _hover={{ bg: "#9CB4CC" }}>Activate</Button>
+              </Th>
+              <Th isNumeric>48573</Th>
+            </Tr>
+          </Tbody>
+          {
+            students.map((person, i) => {
+              if (!person.active) {
+                return (
+                  <Tbody key={i}>
+                    <Tr variant='striped'>
+                      <Th>{person.name}</Th>
+                      <Th>{person.email}</Th>
+                      <Th>
+                        <Button _hover={{ bg: "#9CB4CC" }} id={person._id} onClick={(e) => handleActivateStudent(e)}>Activate</Button>
+                      </Th>
+                      <Th isNumeric>{person._id}</Th>
+                    </Tr>
+                  </Tbody>
+                )
+              }
+            })
+          }
+        </Table>
+      </TableContainer>
+    </Box>
   )
 }
 // db.users.insertOne({

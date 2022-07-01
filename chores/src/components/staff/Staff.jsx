@@ -5,7 +5,8 @@ import AllStudents from "./pages/AllStudents";
 import AllTickets from "./pages/AllTickets";
 import {
   ChakraProvider,
-  Button
+  Button,
+  Center
 } from "@chakra-ui/react";
 
 export default function Staff () {
@@ -103,10 +104,10 @@ export default function Staff () {
   }
   return (
     <ChakraProvider >
-      <Button onClick={() => setCurPage('alltickets')}>Tickets</Button>
-      <Button onClick={() => setCurPage('allstaff')}>Staff</Button>
-      <Button onClick={() => setCurPage('allstudents')}>Students</Button>
-      {renderView()}
+        <Button _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('alltickets')}>Tickets</Button>
+        <Button _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstaff')}>Staff</Button>
+        <Button _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstudents')}>Students</Button>
+        {renderView()}
     </ChakraProvider>
   );
 }
