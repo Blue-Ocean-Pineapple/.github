@@ -6,7 +6,9 @@
     "creatorId": "1",
     "clientStatus": "approved",
     "taskName": "Dog Walk",
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test1","test7"]
   },
   {
     "clientName": "momma",
@@ -15,7 +17,9 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Washing Dishes",
-     "coordinates": {"lat":34.041451,"lng":-118.232719}
+     "coordinates": {"lat":34.041451,"lng":-118.232719},
+     "staffId": "test2",
+     "studentId": ["test1","test5"]
    },
    {
     "clientName": "JOE",
@@ -24,7 +28,9 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Clean Garage",
-     "coordinates": {"lat":34.068630,"lng":-118.226631}
+     "coordinates": {"lat":34.068630,"lng":-118.226631},
+     "staffId": "test2",
+     "studentId": ["test6"]
    },
    {
     "clientName": "Reala",
@@ -33,7 +39,9 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Feed dog",
-     "coordinates": {"lat":34.050090,"lng":-118.260330}
+     "coordinates": {"lat":34.050090,"lng":-118.260330},
+     "staffId": "test2",
+     "studentId": ["test5"]
    },
    {
     "clientName": "Mat",
@@ -42,7 +50,9 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Washing Dishes",
-     "coordinates": {"lat":34.050499,"lng":-118.244049}
+     "coordinates": {"lat":34.050499,"lng":-118.244049},
+     "staffId": "test2",
+     "studentId": ["test7","test5"]
    },
    {
     "clientName": "Tree",
@@ -51,7 +61,9 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Test",
-     "coordinates": {"lat":34.063690,"lng":-118.308240}
+     "coordinates": {"lat":34.063690,"lng":-118.308240},
+     "staffId": "test2",
+     "studentId": ["test7"]
    },
    {
     "clientName": "Mojojojo",
@@ -60,7 +72,9 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Test",
-     "coordinates": {"lat":34.033510,"lng":-118.228680}
+     "coordinates": {"lat":34.033510,"lng":-118.228680},
+     "staffId": "test2",
+     "studentId": ["test6","test5"]
    },
    {
     "clientName": "Rocky",
@@ -69,7 +83,9 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Test",
-     "coordinates": {"lat":34.05839157104492,"lng":-118.41632843017578}
+     "coordinates": {"lat":34.05839157104492,"lng":-118.41632843017578},
+     "staffId": "test2",
+     "studentId": ["test1"]
    },
 
   {
@@ -79,24 +95,24 @@
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
-    "taskName": "Dog Walk",
     "complete": true,
-    "studentId": "1",
-    "coordinates": {"lat":34.041451,"lng":-118.232719}
+    "coordinates": {"lat":34.041451,"lng":-118.232719},
+    "staffId": "test2",
+    "studentId": ["test7"]
 
   },
   {
     "clientName": "Mark Johnson",
-    "address": "123 Fake street",
     "taskName": "Lawn mowing",
     "location": "sesame street",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
-     "studentId": "2",
      "address": "21 E 7th Pl, Los Angeles, CA 90021",
-     "coordinates": {"lat":34.068630,"lng":-118.226631}
+     "coordinates": {"lat":34.068630,"lng":-118.226631},
+     "staffId": "test2",
+     "studentId": ["test1"]
    },
    {
     "clientName": "Mark Johnson",
@@ -107,8 +123,9 @@
     "clientStatus": "complete",
     "complete": true,
     "creatorId": 23,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Mark Rehab",
@@ -119,8 +136,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 23,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -131,8 +149,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 90,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -143,8 +162,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 2031,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -155,8 +175,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 3421,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -167,8 +188,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 9402,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -179,8 +201,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 43221,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -191,8 +214,9 @@
     "clientStatus": "in-progress",
     "complete": false,
     "creatorId": 25,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -203,8 +227,9 @@
     "clientStatus": "complete",
     "complete": true,
     "creatorId": 5921,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -215,7 +240,8 @@
     "clientStatus": "complete",
     "complete": true,
     "creatorId": 23912,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    }
 ]
