@@ -102,7 +102,8 @@ export default function Admin(props) {
           flexDirection="row"
           justifyContent="center"
         >
-          <Box className="tableBox" maxW="60vw" margin="20px">
+          {/* maxW="60vw" */}
+          <Box className="tableBox"  w="80vw" margin="20px">
             <Text textAlign="center">Tickets</Text>
             <TableContainer display="block" maxWidth="100%">
               <Table variant="striped">
@@ -118,9 +119,10 @@ export default function Admin(props) {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {admin.map((data) => {
+                  {admin.map((data, key) => {
                     return (
                       <AdminEntry
+                        key={key}
                         clientStatus={data.clientStatus}
                         complete={data.complete}
                         date={data.createdAt}
@@ -148,7 +150,8 @@ export default function Admin(props) {
           flexDirection="row"
           justifyContent="center"
         >
-          <Box className="tableBox" maxW="60vw" margin="20px">
+          {/* maxW="60vw" */}
+          <Box className="tableBox" maxW="80vw" margin="20px">
             <Text textAlign="center">Users</Text>
             <TableContainer display="block" maxWidth="100%">
               <Table variant="striped">

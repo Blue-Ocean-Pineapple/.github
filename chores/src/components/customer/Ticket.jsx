@@ -21,7 +21,6 @@ function Ticket() {
   const onLoad = ()=> {
     axios.get(`http://localhost:3001/api/clients/tickets`)
       .then((data)=> {
-        console.log(data.data)
         setTickets(data.data);
       })
       .catch((error) => {
@@ -30,7 +29,6 @@ function Ticket() {
 
       axios.get(`http://localhost:3001/api/clients/done`)
       .then((data)=> {
-        console.log(data.data)
         setCompleted(data.data);
       })
       .catch((error) => {
@@ -97,7 +95,7 @@ function Ticket() {
             </Thead>
             <Tbody>
             {tickets.map((ticket, index) => (
-              <Tr>
+              <Tr key={index}>
                 <Td>{index+1}</Td>
                 <Td>{ticket.taskName}</Td>
                 <Td>{ticket.description}</Td>

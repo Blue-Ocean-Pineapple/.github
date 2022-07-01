@@ -88,16 +88,18 @@ function App(props) {
           <Route path="/profile" element={ <Profile role={role} setRole={setRole} roles={roles}/> } />
           <Route path="/admin" element={isAuth  ?  <Admin /> : <Login />}/>
           <Route path="/customer" element={isAuth  ?  <Customer />  : <Login />}/>
+          {/* staff can't see staff tab, renders to login instead */}
           <Route path="/staff" element={isAuth ?  <Staff /> : <Login />}/>
           <Route path="/student" element={isAuth ?  <Student /> : <Login /> }/>
+          {/* only staff and admin can see maap */}
           <Route path="/map" element={isAuth ? <Map /> : <Login />} />
         </Routes>
 
+        {/* position ={"fixed"}
+        right={0}
+        bottom={0}
+        left={0} */}
         <Box
-           position ={"fixed"}
-           right={0}
-           bottom={0}
-           left={0}
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
