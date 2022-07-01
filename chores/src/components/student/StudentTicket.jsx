@@ -24,8 +24,7 @@ export default function StudentTicket({
       <Td>{ticket.creatorId}</Td>
       <Td>{ticket.taskName}</Td>
       <Td>{ticket.clientName}</Td>
-      <Td>San Jose</Td>
-      <Td>8:00PM 6/23{ticket.date}</Td>
+      <Td>{ticket.address}</Td>
       <Td color="green">{ticket.clientStatus.toUpperCase()}</Td>
     </Tr>
   );

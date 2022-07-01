@@ -13,7 +13,6 @@ export default function ClosedStudentTicket({
       <Td>{ticket.taskName}</Td>
       <Td>{ticket.clientName}</Td>
       <Td>{ticket.address}</Td>
-      <Td>{ticket.date}</Td>
       <Td>${ticket.wage} / hour</Td>
       <Td textAlign="center">
         <Button

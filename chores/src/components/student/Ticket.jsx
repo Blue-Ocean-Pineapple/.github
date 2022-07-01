@@ -115,7 +115,6 @@ export default function Ticket({
       </Td>
       <Td>{ticket.clientName}</Td>
       <Td>{ticket.address}</Td>
-      <Td>{ticket.date}</Td>
       <Td>${ticket.wage} / hour</Td>
       <Td display="flex" justifyContent="space-around">
         <Button
