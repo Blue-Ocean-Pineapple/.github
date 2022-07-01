@@ -78,4 +78,12 @@ module.exports = {
       })
       .catch((err) => {callback(err)})
   },
+
+  getStudentName: (uid) => {
+    return db.User.find({uid})
+  },
+
+  getStaffName: (uid) => {
+    return db.User.find({uid})
+  }
 }

@@ -1,5 +1,5 @@
 const Post = require("./models/student.js");
-const PostUser = require("./controllers/users.js");
+const PostUser = require("./models/users.js");
 const ticketData = require("../examples/ticket.json");
 const userData = require("../examples/user.json");
 

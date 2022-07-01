@@ -22,7 +22,7 @@ function App(props) {
 
   return (
     <AuthContextProvider>
-      <Router>
+     <Router>
       <Navbar setIsAuth={setIsAuth} role={role}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -43,13 +43,7 @@ function App(props) {
           <Route path="/map" element={isAuth ? <Map /> : <Login />} />
         </Routes>
       </Router>
-      {/* <Staff /> */}
-      {/* <Customer />
-     <Student />
-    {/* <Map /> */}
-    {/* <Staff /> */}
     </AuthContextProvider>
-
   );
 }
 
