@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
-  Td,
-  TableCaption,
   TableContainer,
   Heading,
   Button,
@@ -15,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import axios from 'axios';
 
-export default function AllStaff ({ staff }) {
+export default function AllStaff ({ staff, activate, setActivate }) {
 
   const handleStaff = (e) => {
     e.preventDefault();
@@ -29,7 +26,10 @@ export default function AllStaff ({ staff }) {
     .catch((err) => {
       console.log('submit err:', err);
     })
+    setActivate(!activate);
   }
+
+  useEffect(() => { }, [activate]);
 
   return (
     <Box bg="#8CC0DE" mt={10} mx="auto"  border="1px solid" borderColor='#8CC0DE' width="90vw" borderRadius="10">
@@ -48,14 +48,14 @@ export default function AllStaff ({ staff }) {
             <Tr>
               <Th>Brian Bui</Th>
               <Th>bbBrian@gmail.com</Th>
-              <Th isNumeric>53245</Th>
+              <Th isNumeric>62BF421DD362892067EEI294</Th>
             </Tr>
           </Tbody>
           <Tbody>
             <Tr>
               <Th>Skipper Harris</Th>
               <Th>skippityskoop@gmail.com</Th>
-              <Th isNumeric>45857</Th>
+              <Th isNumeric>62BF421DD362892067E10E94</Th>
             </Tr>
           </Tbody>
           {
@@ -93,7 +93,7 @@ export default function AllStaff ({ staff }) {
               <Th>
                 <Button _hover={{ bg: "#9CB4CC" }}>Activate</Button>
               </Th>
-              <Th isNumeric>39492</Th>
+              <Th isNumeric>62BF421DD362892067E02938</Th>
             </Tr>
           </Tbody>
           <Tbody>
@@ -103,7 +103,7 @@ export default function AllStaff ({ staff }) {
               <Th>
                 <Button _hover={{ bg: "#9CB4CC" }}>Activate</Button>
               </Th>
-              <Th isNumeric>48395</Th>
+              <Th isNumeric>62BF421DD362892067E48585</Th>
             </Tr>
           </Tbody>
 
