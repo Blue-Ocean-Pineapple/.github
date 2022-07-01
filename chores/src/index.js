@@ -11,13 +11,6 @@ const config = {
 
 const theme = extendTheme({
   config,
-  styles: {
-    global: (props) => ({
-      body: {
-        bg: 'white'
-      }
-    })
-  }
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
