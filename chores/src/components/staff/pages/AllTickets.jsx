@@ -21,19 +21,7 @@ import {
   Button,
   useDisclosure,
   FormControl,
-  FormLabel,
-  Container,
-  FormHelperText,
-  FormErrorMessage,
   Box,
-  ChakraProvider,
-  extendTheme,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  Code
 } from '@chakra-ui/react'
 import { Select } from "chakra-react-select";
 
