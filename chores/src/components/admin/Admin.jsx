@@ -48,7 +48,7 @@ export default function Admin(props) {
     <ChakraProvider bg="white">
       <Box bg="white" />
       <Flex justifyContent="center">
-        <Box borderWidth="1px" width="80vw" height="10vh" bg="#1C696F">
+        <Box borderWidth="1px" width="80vw" height="10vh" bg="#FF6B6B">
           <Text textAlign="center" fontSize="4xl">
             Chores
           </Text>
