@@ -174,7 +174,6 @@ export default function Student(props) {
                   <Th>Location</Th>
                   <Th>Time</Th>
                   <Th>ID</Th>
-                  {/* <Th textAlign="center">Completed</Th> */}
                 </Tr>
               </Thead>
             )}
