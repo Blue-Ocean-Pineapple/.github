@@ -79,7 +79,7 @@ export default function Student(props) {
     axios
       .put(`http://localhost:3001/api/student/ticket/voteUp`, {
         studentId: studentId,
-        ticketId: "62bbe88eac7795bb97633380",
+        ticketId: ticketId,
       })
       .then((results) => {
         console.log(results);
@@ -92,7 +92,7 @@ export default function Student(props) {
     axios
       .put(`http://localhost:3001/api/student/ticket/voteDown`, {
         studentId: studentId,
-        ticketId: "62bbe88eac7795bb97633380",
+        ticketId: ticketId,
       })
       .then((results) => {
         console.log(results);
