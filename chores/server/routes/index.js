@@ -18,7 +18,6 @@ router.post("/api/users/info", users.saveUser);
 router.get("/api/users/:uid", users.getOne);
 router.get("/api/users", users.getAll);
 
-
 //ClientRoute:
 router.get("/api/clients/tickets", clients.getAll);
 router.get("/api/clients/done", clients.getCompleted);
@@ -30,37 +29,40 @@ router.delete("/api/clients/delete", clients.delete);
 //StaffRoute:
 router.get("/api/staff/allTickets", staff.getAllTickets);
 router.get("/api/staff/allStudents", staff.getAllUsers);
-router.put("/api/staff/assignStudentAndStaff", staff.assignStudentAndStaff);
-router.put("/api/staff/updateTicketStatus", staff.updateTicketStatus);
+router.get("/api/staff/studentName", staff.getStudentName);
+router.get("/api/staff/staffName", staff.getStaffName);
+router.put("/api/staff/assignStaff", staff.assignStaff);
+router.put("/api/staff/assignStudent", staff.assignStudent);
+router.put("/api/staff/updateStatus", staff.updateStatus);
+router.put("/api/staff/updateReopenTicket", staff.updateReopenTicket);
+router.put("/api/staff/deactivateStudentOrStaff", staff.deactivateStudentOrStaff);
+router.put("/api/staff/addStaffOrStud", staff.addStaffOrStudent);
+// router.put("/api/staff/updateTicketStatus", staff.updateTicketStatus);
+router.put("/api/staff/updateTicketComplete", staff.updateTicketComplete);
 router.delete("/api/staff/deactivateStudent", staff.deactivateStudent);
 router.post("/api/staff/addStaffOrStudent", staff.addStaffOrStudent);
 
-// // StudentRoutes
-// router.get("/api/student/:id/ticket/open", student.getAllOpen);
-// router.get("/api/student/:id/ticket/closed", student.getAllClosed);
-// // router.get("/api/student/:id/ticket/:ticket_id", student.showTicket);
-// router.put("/api/student/:id/ticket/:ticket_id/vote", student.voteTask);
-// router.put("/api/student/ticket/:ticket_id/completed", student.completeTask);
-// all our open ticket query the same
 //StudentRoutes:
 router.get("/api/student/ticket/open", student.getAllOpen);
 router.get("/api/student/:id/ticket/open", student.getAllAssignedOpen);
 router.get("/api/student/:id/ticket/closed", student.getAllClosed);
+
 router.put("/api/student/ticket/voteUp", student.voteUp);
 router.put("/api/student/ticket/voteDown", student.voteDown);
-router.put("/api/student/ticket/completed", student.completeTask);
+router.put("/api/student/ticket/removeVoteUp", student.removeVoteUp);
+router.put("/api/student/ticket/removeVoteDown", student.removeVoteDown);
+router.get("/api/student/:id/ticket/:ticketId/hasVotedUp", student.hasVotedUp);
+router.get("/api/student/:id/ticket/:ticketId/hasVotedDown",student.hasVotedDown);
+router.get("/api/student/:id/ticket/:ticketId/hasVoted", student.hasVoted);
+router.post("/api/student/ticket", student.createTicket);
 // router.post('/api/student/account', student.createOne);
 // router.delete('/api/student/account', student.delete);
 
 //AdminRoute:
-// router.get('/api/admin/tickets', admin.getAllTickets);
-// router.get('/api/admin/accounts', admin.getAllAccounts);
-// router.put('/api/admin/update/:id', admin.updateTicket);
 router.delete("/api/admin/delete/", admin.deleteAccount);
-// router.post('/api/admin/staff/:id', admin.addStaff);
-// router.post('/api/admin/student/:id', admin.addStudent);
 
 //MapRoutes:
 router.get("/api/map/ticket", map.getGeoLoc);
+
 
 module.exports = router;

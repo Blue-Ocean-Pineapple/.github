@@ -1,6 +1,6 @@
 [
   {
-    "uid":"huhihiuhiuhiuhiu",
+    "uid":"test2",
     "name":"Jessica Yu",
     "age": "15",
     "email": "yuelejessica@gmail.com",
@@ -13,7 +13,20 @@
     "active":"true"
   },
   {
-    "uid":"hiuiuhihiuhiuhiuhiu",
+    "uid":"test9",
+    "name":"Peggy Tran",
+    "age": "35",
+    "email": "yuelejessica@gmail.com",
+    "city":"Irvine",
+    "state":"CA",
+    "address": "17444 main street",
+    "phone": "78789555080",
+    "role":"Staff",
+    "organization": "Portola",
+    "active":"false"
+  },
+  {
+    "uid":"test1",
     "name":"John Ong",
      "age": "15",
      "email": "john@gmail.com",
@@ -26,7 +39,7 @@
      "active":"true"
    },
    {
-    "uid":"huhhiuhuhihiii",
+    "uid":"test3",
     "name":"Jake Harmon",
      "age": "18",
      "email": "jake@gmail.com",
@@ -39,7 +52,7 @@
      "active":"true"
    },
    {
-    "uid":"huhhhuihhihihiiuhuhihiii",
+    "uid":"test4",
     "name":"Josh Harmon",
      "age": "38",
      "email": "josh@gmail.com",
@@ -53,7 +66,7 @@
      "active":"false"
    },
    {
-    "uid":"5334123",
+    "uid":"test5",
     "name":"Brian Bui",
      "age": "29",
      "email": "brianbui@gmail.com",
@@ -64,5 +77,32 @@
      "role":"Student",
      "organization": "EVHS",
      "active":"true"
+   },
+   {
+    "uid":"test6",
+    "name":"Macho Man",
+     "age": "29",
+     "email": "machoman@gmail.com",
+     "address": "WOO",
+     "city":"San Jose",
+     "state":"CA",
+     "phone": "4085213215",
+     "role":"Student",
+     "organization": "EVHS",
+     "active":"true"
+   },
+   {
+    "uid":"test7",
+    "name":"Laurent Laurent",
+     "age": "29",
+     "email": "LaurentLaurent@gmail.com",
+     "address": "354654 Street",
+     "city":"San Jose",
+     "state":"CA",
+     "phone": "4085213215",
+     "role":"Student",
+     "organization": "EVHS",
+     "active":"true"
    }
+
 ]

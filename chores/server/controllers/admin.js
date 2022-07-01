@@ -15,6 +15,7 @@ module.exports = {
 
   deleteAccount: (req, res) => {
     let account = req.body.email;
+    console.log(account)
     model
       .deleteAccount(account)
       .then((data) => res.send(data).status(200))

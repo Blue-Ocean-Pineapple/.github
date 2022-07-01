@@ -3,6 +3,7 @@ import axios from "axios";
 import Ticket from "./Ticket.jsx";
 import StudentTicket from "./StudentTicket.jsx";
 import ClosedStudentTicket from "./ClosedStudentTicket.jsx";
+import TicketModal from "./TicketModal.jsx";
 //import { BsHandThumbsUp, BsHandThumbsDown, BsCheckLg } from "react-icons/bs";
 import { useAuth } from "../../contexts/AuthContext";
 import {
@@ -16,6 +17,7 @@ import {
   TableCaption,
   TableContainer,
   Button,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 export default function Student(props) {
@@ -24,6 +26,8 @@ export default function Student(props) {
   //   currentUser: { uid },
   //   currentUser: { email },
   // } = useAuth();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [modalInfo, setModalInfo] = useState({});
   const [studentTicket, setStudentTicket] = useState([]);
   const [allTickets, setAllTickets] = useState([]);
   const [closedTickets, setClosedTickets] = useState([]);
@@ -85,18 +89,6 @@ export default function Student(props) {
       .catch((err) => console.log(err));
   };
 
-  const completeTicket = () => {
-    axios
-      .put(`/api/student/ticket/completed`, {
-        studentId: 5,
-        ticketId: "62bbe88eac7795bb97633380",
-      })
-      .then((results) => {
-        console.log(results);
-      })
-      .catch((err) => console.log(err));
-  };
-
   const handleOpenButton = () => {
     setShowOpenTickets(!showOpenTickets);
   };
@@ -117,6 +109,11 @@ export default function Student(props) {
     }
   }, [showAllTickets]);
 
+  const handleModalTicket = (info) => {
+    onOpen();
+    console.log(info);
+    setModalInfo(info);
+  };
   return (
     <Box maxWidth="70%" m="auto">
       <Box display="flex" justifyContent="space-between">
@@ -161,7 +158,7 @@ export default function Student(props) {
                   <Th>Owner of Ticket</Th>
                   <Th>Location</Th>
                   <Th>Time</Th>
-                  <Th>ID</Th>
+                  <Th>Wage</Th>
                   <Th textAlign="center">Vote</Th>
                 </Tr>
               </Thead>
@@ -169,11 +166,13 @@ export default function Student(props) {
             {showOpenTickets && !showAllTickets && (
               <Thead>
                 <Tr>
+                  <Th>ID</Th>
                   <Th>Task Name</Th>
                   <Th>Owner of Ticket</Th>
                   <Th>Location</Th>
                   <Th>Time</Th>
-                  <Th>ID</Th>
+                  <Th>Status</Th>
+                  {/* <Th textAlign="center">Completed</Th> */}
                 </Tr>
               </Thead>
             )}
@@ -181,11 +180,11 @@ export default function Student(props) {
             {!showAllTickets && !showOpenTickets && (
               <Thead>
                 <Tr>
+                  <Th>ID</Th>
                   <Th>Task Name</Th>
                   <Th>Owner of Ticket</Th>
                   <Th>Location</Th>
                   <Th>Time</Th>
-                  <Th>ID</Th>
                   <Th>Wage</Th>
                   <Th textAlign="center">Completed</Th>
                 </Tr>
@@ -196,17 +195,14 @@ export default function Student(props) {
               {!showAllTickets &&
                 showOpenTickets &&
                 studentTicket.map((ticket, index) => (
-                  <StudentTicket
-                    ticket={ticket}
-                    completeTicket={completeTicket}
-                    index={index}
-                  />
+                  <StudentTicket ticket={ticket} index={index} />
                 ))}
 
               {showAllTickets &&
                 showOpenTickets &&
                 allTickets.map((ticket, index) => (
                   <Ticket
+                    handleModalTicket={handleModalTicket}
                     ticket={ticket}
                     voteDownTicket={voteDownTicket}
                     voteUpTicket={voteUpTicket}
@@ -219,11 +215,16 @@ export default function Student(props) {
                 closedTickets.map((ticket, index) => (
                   <ClosedStudentTicket ticket={ticket} />
                 ))}
-              {console.log(closedTickets)}
             </Tbody>
           </Table>
         </TableContainer>
       </Box>
+      <TicketModal
+        ticket={modalInfo}
+        onOpen={onOpen}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </Box>
   );
 }

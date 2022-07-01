@@ -61,9 +61,13 @@ const TicketSchema = new mongoose.Schema({
     required: true,
   },
   reacts: [String],
-  studentId: {
-    type: String,
-    default: null,
+  studentId: [String],
+  // reacts: [String],
+  voteUp: {
+    type: [String],
+  },
+  voteDown: {
+    type: [String],
   },
   staffId: {
     type: String,

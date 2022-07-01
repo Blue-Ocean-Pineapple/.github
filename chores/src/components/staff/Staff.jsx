@@ -5,23 +5,10 @@ import AllStudents from "./pages/AllStudents";
 import AllTickets from "./pages/AllTickets";
 import {
   ChakraProvider,
-  Flex,
-  Text,
-  Link,
-  Box,
-  Grid,
-  HStack,
-  StackDivider,
-  ButtonGroup,
-  Button
+  Button,
+  Center,
+  Box
 } from "@chakra-ui/react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  // Route,
-  Link as RouteLink,
-  useNavigate
-} from "react-router-dom";
 
 export default function Staff () {
   const [openTickets, setOpenTickets] = useState([]);
@@ -41,9 +28,9 @@ export default function Staff () {
       .then((res) => {
         console.log('all tickets res?', res)
         res.data.map((ticket) => {
-          if (ticket.complete) {
+          if (ticket.complete === false) {
             open.push(ticket)
-          } else {
+          } else if (ticket.complete === true) {
             closed.push(ticket)
           }
         })
@@ -63,7 +50,7 @@ export default function Staff () {
     axios
       .get("/staff/allStudents")
       .then((res) => {
-        console.log("all users res?", res);
+        console.log("all users res?", res.data);
         res.data.map((user) => {
           if (user.role === "Student") {
             students.push(user);
@@ -117,11 +104,11 @@ export default function Staff () {
     }
   }
   return (
-    <ChakraProvider >
-      <button onClick={() => setCurPage('alltickets')}>Tickets</button>
-      <button onClick={() => setCurPage('allstaff')}>Staff</button>
-      <button onClick={() => setCurPage('allstudents')}>Students</button>
-      {renderView()}
-    </ChakraProvider>
+    <Box m={8} p={2}>
+        <Button  m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('alltickets')}>Tickets</Button>
+        <Button m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstaff')}>Staff</Button>
+        <Button m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstudents')}>Students</Button>
+        {renderView()}
+    </Box>
   );
 }

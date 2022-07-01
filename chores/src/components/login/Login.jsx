@@ -9,7 +9,7 @@ import {
   Stack,
   useToast,
 } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
 import {  useNavigate } from 'react-router-dom'
@@ -17,14 +17,35 @@ import { Card } from '../home/Card'
 import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
+import axios from "axios";
 
-export default function Login({setIsAuth}) {
+export default function Login({ setIsAuth }) {
   const navigate = useNavigate();
   const { signInWithGoogle, login, signInWithFacebook } = useAuth();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast();
+
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => {
+      mounted.current = false
+    }
+  }, [])
+
+  const handleLogin = async (e) => {
+    try {
+      const res = await axios.get('http://localhost:3001/api/users/'+ email);
+      console.log('HIT GET USER from User Database', res.data);
+      navigate('/'+ res.data.role.toLowerCase())
+    } catch(err) {
+      console.log('Error while getting user info', err)
+    }
+  }
+
 
   return (
     <Layout>
@@ -50,7 +71,7 @@ export default function Login({setIsAuth}) {
                 console.log('login res', res)
                 localStorage.setItem('isAuth', true)
                 setIsAuth(true)
-                navigate('/profile')
+                // navigate('/profile')
               })
               .catch(error => {
                 console.log(error.message)
@@ -62,7 +83,8 @@ export default function Login({setIsAuth}) {
                 })
               })
               .finally(() => {
-                 setIsSubmitting(false)
+                 mounted.current && setIsSubmitting(false)
+                 handleLogin()
               })
           }}
         >
@@ -92,10 +114,11 @@ export default function Login({setIsAuth}) {
 
             <Button
               type='submit'
-              colorScheme='teal'
+              colorScheme='blue'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
+              onSubmit={handleLogin}
             >
              Log In
             </Button>
@@ -117,9 +140,13 @@ export default function Login({setIsAuth}) {
               .then(user => {
                 console.log('google user', user)
                 localStorage.setItem('isAuth', true)
-                navigate('/profile')
+                // navigate('/profile')
               })
               .catch(e => console.log(e.message))
+              .finally(() => {
+                mounted.current && setIsSubmitting(false)
+                handleLogin()
+             })
           }
         >
           Sign in with Google
@@ -138,6 +165,10 @@ export default function Login({setIsAuth}) {
                 navigate('/profile')
               })
               .catch(e => console.log(e.message))
+              .finally(() => {
+                mounted.current && setIsSubmitting(false)
+                handleLogin()
+             })
           }
         >
           Sign in with Facebook
