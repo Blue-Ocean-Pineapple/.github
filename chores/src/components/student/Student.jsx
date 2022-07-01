@@ -22,10 +22,18 @@ import {
 
 export default function Student(props) {
   // useEffect axios call
-  // const {
-  //   currentUser: { uid },
-  //   currentUser: { email },
-  // } = useAuth();
+  const { currentUser } = useAuth();
+
+  // const handleLogin = async (e) => {
+  //   try {
+  //     const res = await axios.get(’http://localhost:3001/api/users/'+ email);
+  //     console.log(‘HIT GET USER from User Database’, res.data);
+  //     navigate(‘/’+ res.data.role.toLowerCase())
+  //   } catch(err) {
+  //     console.log(‘Error while getting user info’, err)
+  //   }
+  // }
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [modalInfo, setModalInfo] = useState({});
   const [studentTicket, setStudentTicket] = useState([]);
@@ -44,7 +52,6 @@ export default function Student(props) {
       fetchAssignedTickets(),
     ])
       .then((results) => {
-        console.log(results);
         setAllTickets(results[0].data);
         setClosedTickets(results[1].data);
         setStudentTicket(results[2].data);
@@ -57,17 +64,21 @@ export default function Student(props) {
   };
 
   const fetchClosedTickets = () => {
-    return axios.get(`http://localhost:3001/api/student/5/ticket/closed`);
+    return axios.get(
+      `http://localhost:3001/api/student/${studentId}/ticket/closed`
+    );
   };
 
   const fetchAssignedTickets = () => {
-    return axios.get(`http://localhost:3001/api/student/5/ticket/open`);
+    return axios.get(
+      `http://localhost:3001/api/student/${studentId}/ticket/open`
+    );
   };
 
-  const voteUpTicket = () => {
+  const voteUpTicket = (ticketId) => {
     axios
       .put(`http://localhost:3001/api/student/ticket/voteUp`, {
-        studentId: 5,
+        studentId: studentId,
         ticketId: "62bbe88eac7795bb97633380",
       })
       .then((results) => {
@@ -76,11 +87,11 @@ export default function Student(props) {
       .catch((err) => console.log(err));
   };
 
-  const voteDownTicket = () => {
+  const voteDownTicket = (ticketId) => {
     // Will remove their Id from the array
     axios
       .put(`http://localhost:3001/api/student/ticket/voteDown`, {
-        studentId: 5,
+        studentId: studentId,
         ticketId: "62bbe88eac7795bb97633380",
       })
       .then((results) => {
@@ -114,7 +125,8 @@ export default function Student(props) {
     console.log(info);
     setModalInfo(info);
   };
-  return (
+
+  return currentUser ? (
     <Box maxWidth="70%" m="auto">
       <Box display="flex" justifyContent="space-between">
         <Box>
@@ -158,7 +170,7 @@ export default function Student(props) {
                   <Th>Owner of Ticket</Th>
                   <Th>Location</Th>
                   <Th>Wage</Th>
-                  <Th>Created At</Th>
+                  {/* <Th>Created At</Th> */}
                   <Th textAlign="center">Vote</Th>
                 </Tr>
               </Thead>
@@ -205,6 +217,7 @@ export default function Student(props) {
                     voteDownTicket={voteDownTicket}
                     voteUpTicket={voteUpTicket}
                     index={index}
+                    studentId={currentUser.uid}
                   />
                 ))}
 
@@ -224,7 +237,7 @@ export default function Student(props) {
         onClose={onClose}
       />
     </Box>
-  );
+  ) : null;
 }
 
 // <Tr>
