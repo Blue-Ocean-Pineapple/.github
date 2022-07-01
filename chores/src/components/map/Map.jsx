@@ -29,6 +29,7 @@ const Map = () => {
   }, []);
 
 
+
   return isLoading ?
     <CircularProgress
     isIndeterminate color='green.300'

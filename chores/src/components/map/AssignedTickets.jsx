@@ -3,7 +3,12 @@ import { Box, Text, Heading, Divider, Flex } from '@chakra-ui/react';
 
 const AssignedTickets = ({ticket}) => {
   const parsedAddy = ticket.address.split(',').slice(0,2).join(',');
-  console.log('ticket: ', ticket)
+
+  const handleReroute = () => {
+    window.location.assign(`http://maps.google.com?q=${ticket.coordinates.lat},${ticket.coordinates.lng}`);
+  }
+
+
   return(
     <Box
     mb='15px'
@@ -13,6 +18,7 @@ const AssignedTickets = ({ticket}) => {
     p='20px'
     h='35%'
     w='65%'
+    onClick={handleReroute}
     _hover={{ fontWeight: 'semibold' }}>
       <Heading as='h2' size='s'>{ticket.taskName}</Heading>
       <Text fontSize='xs'>Address: {parsedAddy}</Text>
