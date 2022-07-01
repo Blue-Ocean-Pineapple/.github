@@ -114,7 +114,7 @@ export default function Login({ setIsAuth }) {
 
             <Button
               type='submit'
-              colorScheme='teal'
+              colorScheme='blue'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}

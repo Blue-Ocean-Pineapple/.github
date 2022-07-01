@@ -104,7 +104,7 @@ export default function Register({setIsAuth}) {
 
             <Button
               type='submit'
-              colorScheme='teal'
+              colorScheme='blue'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
