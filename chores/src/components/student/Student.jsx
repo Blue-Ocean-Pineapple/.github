@@ -157,8 +157,8 @@ export default function Student(props) {
                   <Th>Task Name</Th>
                   <Th>Owner of Ticket</Th>
                   <Th>Location</Th>
-                  <Th>Time</Th>
                   <Th>Wage</Th>
+                  <Th>Created At</Th>
                   <Th textAlign="center">Vote</Th>
                 </Tr>
               </Thead>
@@ -170,7 +170,6 @@ export default function Student(props) {
                   <Th>Task Name</Th>
                   <Th>Owner of Ticket</Th>
                   <Th>Location</Th>
-                  <Th>Time</Th>
                   <Th>Status</Th>
                   {/* <Th textAlign="center">Completed</Th> */}
                 </Tr>
@@ -184,7 +183,6 @@ export default function Student(props) {
                   <Th>Task Name</Th>
                   <Th>Owner of Ticket</Th>
                   <Th>Location</Th>
-                  <Th>Time</Th>
                   <Th>Wage</Th>
                   <Th textAlign="center">Completed</Th>
                 </Tr>

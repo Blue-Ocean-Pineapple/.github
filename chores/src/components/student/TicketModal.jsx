@@ -10,6 +10,7 @@ import {
   Button,
   StatNumber,
   Stat,
+  Box,
 } from "@chakra-ui/react";
 
 export default function TicketModal({ ticket, isOpen, onClose }) {
@@ -18,22 +19,33 @@ export default function TicketModal({ ticket, isOpen, onClose }) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Ticket: #{ticket._id}</ModalHeader>
+          <ModalHeader>More Info:</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <h2>More Info:</h2>
-            <p>{ticket.taskName}</p>
-            <p>
-              <b>Owner of Ticket:</b> {ticket.clientName}
-            </p>
-            <Stat>
-              <StatNumber color="green">${ticket.wage} / hour</StatNumber>
-            </Stat>
-            <p>Date: {ticket.date}</p>
-            <p>Status: {ticket.clientStatus}</p>
-            <p>Description: {ticket.description}</p>
-          </ModalBody>
+            <Box>Ticket: #{ticket._id}</Box>
+            <Box padding="0.5rem">
+              <Box display="flex" justifyContent="space-around">
+                <Box fontSize="1.2rem">
+                  <b>{ticket.taskName}</b>
+                </Box>
+                <Stat>
+                  <StatNumber textAlign="right" color="green">
+                    ${ticket.wage} / hour
+                  </StatNumber>
+                </Stat>
+              </Box>
+              <Box>
+                <b>Owner of Ticket:</b> {ticket.clientName}
+              </Box>
 
+              <Box>
+                <b>Status:</b> {ticket.clientStatus}
+              </Box>
+              <Box>
+                <b>Description:</b> {ticket.description}
+              </Box>
+            </Box>
+          </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close

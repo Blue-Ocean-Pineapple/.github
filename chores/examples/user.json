@@ -13,6 +13,19 @@
     "active":"true"
   },
   {
+    "uid":"test9",
+    "name":"Peggy Tran",
+    "age": "35",
+    "email": "yuelejessica@gmail.com",
+    "city":"Irvine",
+    "state":"CA",
+    "address": "17444 main street",
+    "phone": "78789555080",
+    "role":"Staff",
+    "organization": "Portola",
+    "active":"false"
+  },
+  {
     "uid":"test1",
     "name":"John Ong",
      "age": "15",

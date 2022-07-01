@@ -23,9 +23,10 @@ module.exports = {
           });
     },
 
-    assignStudentAndStaff: function(req, res) {
-        model.assignStudentAndStaff(req.body, (err, results) => {
-            console.log('updateStudent data?', results);
+    assignStaff: function(req, res) {
+        console.log('assignStaff reqbody', req.body)
+        model.assignStaff(req.body, (err, results) => {
+            console.log('assignStaff data?', results);
             if (err) {
                 res.status(500).send(err);
             } else {
@@ -34,10 +35,46 @@ module.exports = {
           });
     },
 
-    updateTicketStatus: function(req, res) {
-      model.updateTicketStatus(req.body, (err, results) => {
+    assignStudent: function(req, res) {
+        console.log('reqbody', req.body)
+        model.assignStudent(req.body, (err, results) => {
+            console.log('assignStudent data?', results);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+          });
+    },
+
+    updateStatus: function(req, res) {
+      model.updateStatus(req.body, (err, results) => {
           console.log('updateTicket data?', results);
           if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(results);
+          }
+        });
+    },
+
+    updateReopenTicket: function(req, res) {
+      // console.log('reopen cont req', req.body)
+      model.updateReopenTicket(req.body, (err, results) => {
+          console.log('updateTicket data?', results);
+          if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(results);
+          }
+        });
+    },
+
+    deactivateStudentOrStaff: function(req, res) {
+      console.log('HOWDY', req.body)
+        model.deactivateStudentOrStaff(req.body, (err, results) => {
+            console.log('deactivateStudentOrStaff data?', results);
+            if (err) {
               res.status(500).send(err);
           } else {
               res.status(200).send(results);

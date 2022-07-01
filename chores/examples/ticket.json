@@ -5,10 +5,11 @@
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved",
+    "reacts": ["test5", "test6"],
     "taskName": "Dog Walk",
     "coordinates": {"lat":34.048859,"lng":-118.251343},
     "staffId": "test2",
-    "studentId": ["test1","test7"]
+    "studentId": []
   },
   {
     "clientName": "momma",
