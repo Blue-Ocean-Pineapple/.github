@@ -67,18 +67,6 @@ const SocialButton = ({
 
 function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  // console.log("is Auth console", isAuth);
-  const roles = ["Student", "Customer", "Staff", "Admin"];
-  const [role, setRole] = useState(["Student", "Customer", "Staff", "Admin"]);
-  // console.log('role in App :', role);
-
-  return (
-    <AuthContextProvider>
-      <Router>
-        <Navbar setIsAuth={setIsAuth} role={role} />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-=======
   const roles = ['Student','Customer', 'Staff', 'Admin'];
   const [role, setRole] = useState(['Student','Customer', 'Staff', 'Admin']);
   const { logout, currentUser } = useAuth();
