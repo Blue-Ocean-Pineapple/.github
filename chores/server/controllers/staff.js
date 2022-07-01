@@ -115,6 +115,17 @@ module.exports = {
           });
     },
 
+    updateTicketStatus: function(req, res) {
+        model.updateTicketStatus(req.body, (err, results) => {
+            console.log('updateTicket data?', results);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+          });
+      },
+
     getStudentName: (req, res) => {
         model.getStudentName(req.body.studentId)
         .then((data) =>  res.send(data[0].name).status(200))

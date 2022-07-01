@@ -37,7 +37,7 @@ router.put("/api/staff/updateStatus", staff.updateStatus);
 router.put("/api/staff/updateReopenTicket", staff.updateReopenTicket);
 router.put("/api/staff/deactivateStudentOrStaff", staff.deactivateStudentOrStaff);
 router.put("/api/staff/addStaffOrStud", staff.addStaffOrStudent);
-// router.put("/api/staff/updateTicketStatus", staff.updateTicketStatus);
+router.put("/api/staff/updateTicketStatus", staff.updateTicketStatus);
 router.put("/api/staff/updateTicketComplete", staff.updateTicketComplete);
 router.delete("/api/staff/deactivateStudent", staff.deactivateStudent);
 router.post("/api/staff/addStaffOrStudent", staff.addStaffOrStudent);
