@@ -64,5 +64,32 @@
      "role":"Student",
      "organization": "EVHS",
      "active":"true"
+   },
+   {
+    "uid":"test6",
+    "name":"Macho Man",
+     "age": "29",
+     "email": "machoman@gmail.com",
+     "address": "WOO",
+     "city":"San Jose",
+     "state":"CA",
+     "phone": "4085213215",
+     "role":"Student",
+     "organization": "EVHS",
+     "active":"true"
+   },
+   {
+    "uid":"test7",
+    "name":"Laurent Laurent",
+     "age": "29",
+     "email": "LaurentLaurent@gmail.com",
+     "address": "354654 Street",
+     "city":"San Jose",
+     "state":"CA",
+     "phone": "4085213215",
+     "role":"Student",
+     "organization": "EVHS",
+     "active":"true"
    }
+
 ]
