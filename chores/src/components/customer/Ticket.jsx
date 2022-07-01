@@ -81,73 +81,49 @@ function Ticket() {
   return (
     <div>
       {toggle === false ? (
-      <TableContainer>
-        <Table variant='striped'>
-          <Thead>
-            <Tr>
-              <Th>id</Th>
-              <Th>name</Th>
-              <Th>description</Th>
-              <Th>location</Th>
-              <Th>status</Th>
-              <Th>modify</Th>
-              <Th>delete</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-          {tickets.map((ticket, index) => (
-            <Tr>
-              <Td>{index+1}</Td>
-              <Td>{ticket.taskName}</Td>
-              <Td>{ticket.description}</Td>
-              <Td>{ticket.address}</Td>
-              <Td>{ticket.clientStatus}</Td>
-              <Td>
-                <Button colorScheme='blue' onClick={
-                  () => {
-                  let updatedDefinition = prompt('Enter new definition')
-                  let updatedLocation = prompt('Enter new location')
-                  handleChange(ticket.description, ticket._id, ticket.address, updatedDefinition, updatedLocation);
-                  }
-                  }>Modify</Button>
-              </Td>
-              <Td>
-                <Button colorScheme='blue' onClick={() => {
-                  handleDelete(ticket._id);
-                  }}>Delete</Button>
-              </Td>
-            </Tr>
-          ))}
-          </Tbody>
-        </Table>
-      </TableContainer>
-
-      ) :
-      <TableContainer>
-        <Box m={3} ><Button colorScheme='red' onClick={handleToggleFalse}>Show In Progress</Button></Box>
-        <Table variant='striped'>
-          <Thead>
-            <Tr>
-              <Th>id</Th>
-              <Th>name</Th>
-              <Th>description</Th>
-              <Th>location</Th>
-              <Th>status</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-          {completed.map((complete, index) => (
-            <Tr>
-              <Td>{index+1}</Td>
-              <Td>{complete.taskName}</Td>
-              <Td>{complete.description}</Td>
-              <Td>{complete.address}</Td>
-              <Td>{complete.clientStatus}</Td>
-            </Tr>
-          ))}
-          </Tbody>
-        </Table>
-      </TableContainer>
+      <Box bg="#6BCB77" m={5} mx="auto"  border="1px solid" borderColor='#6BCB77' width="90vw" borderRadius="10">
+        <TableContainer>
+          <Table variant='striped'>
+            <Thead>
+              <Tr>
+                <Th>id</Th>
+                <Th>name</Th>
+                <Th>description</Th>
+                <Th>location</Th>
+                <Th>status</Th>
+                <Th>modify</Th>
+                <Th>delete</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+            {tickets.map((ticket, index) => (
+              <Tr>
+                <Td>{index+1}</Td>
+                <Td>{ticket.taskName}</Td>
+                <Td>{ticket.description}</Td>
+                <Td>{ticket.address}</Td>
+                <Td>{ticket.clientStatus}</Td>
+                <Td>
+                  <Button colorScheme='blue' onClick={
+                    () => {
+                    let updatedDefinition = prompt('Enter new definition')
+                    let updatedLocation = prompt('Enter new location')
+                    handleChange(ticket.description, ticket._id, ticket.address, updatedDefinition, updatedLocation);
+                    }
+                    }>Modify</Button>
+                </Td>
+                <Td>
+                  <Button colorScheme='blue' onClick={() => {
+                    handleDelete(ticket._id);
+                    }}>Delete</Button>
+                </Td>
+              </Tr>
+            ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Box>
+      ) : null
       }
       </div>
 

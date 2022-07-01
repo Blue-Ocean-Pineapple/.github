@@ -81,32 +81,33 @@ function CompletedTickets() {
   return (
     <div>
       {toggle === true ? (
-      <TableContainer>
-      {/* <Box m={3} ><Button colorScheme='red' onClick={handleToggleFalse}>Show In Progress</Button></Box> */}
-      <Table variant='striped'>
-        <Thead>
-          <Tr>
-            <Th>id</Th>
-            <Th>name</Th>
-            <Th>description</Th>
-            <Th>location</Th>
-            <Th>status</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-        {completed.map((complete, index) => (
-          <Tr>
-            <Td>{index+1}</Td>
-            <Td>{complete.taskName}</Td>
-            <Td>{complete.description}</Td>
-            <Td>{complete.address}</Td>
-            <Td>{complete.clientStatus}</Td>
-          </Tr>
-        ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
-
+      <Box bg="#6BCB77" mt={10} mx="auto"  border="1px solid" borderColor='#6BCB77' width="90vw" borderRadius="10">
+        <TableContainer>
+        {/* <Box m={3} ><Button colorScheme='red' onClick={handleToggleFalse}>Show In Progress</Button></Box> */}
+          <Table variant='striped'>
+            <Thead>
+              <Tr>
+                <Th>id</Th>
+                <Th>name</Th>
+                <Th>description</Th>
+                <Th>location</Th>
+                <Th>status</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+            {completed.map((complete, index) => (
+              <Tr>
+                <Td>{index+1}</Td>
+                <Td>{complete.taskName}</Td>
+                <Td>{complete.description}</Td>
+                <Td>{complete.address}</Td>
+                <Td>{complete.clientStatus}</Td>
+              </Tr>
+            ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Box>
       ) : null
       }
       </div>
