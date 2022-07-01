@@ -5,9 +5,11 @@ import {
   Flex,
   HStack,
   Center,
+  Box,
 } from '@chakra-ui/react';
 import Ticket from './Ticket.jsx';
 import TicketForm from './TicketForm.jsx';
+import CompletedTickets from './CompletedTickets.jsx';
 import { useAuth } from '../../contexts/AuthContext';
 
 function Customer() {
@@ -29,6 +31,8 @@ function Customer() {
         return <Ticket  />;
       case "New Ticket":
         return <TicketForm onSubmit={changeView("All Posts")} />;
+      case "Completed Tickets":
+        return <CompletedTickets onSubmit={changeView("Completed Tickets")} />;
       default:
         return <Ticket />;
     }
@@ -38,16 +42,13 @@ function Customer() {
     <>
       <header>
         <nav>
-        <HStack spacing='20px'></HStack>
-            <HStack spacing='30px'>
+        <Box m={3} p={2}>
+          <HStack spacing='20px'>
             <Button colorScheme='blue' onClick={changeView("All Tickets")}>Tickets</Button>
-
-            {/* TODO: Enable this when working on the form:*/}
+            <Button colorScheme='blue' onClick={changeView("Completed Tickets")}>Completed Tickets</Button>
             <Button colorScheme='blue' onClick={changeView("New Ticket")}>New Ticket</Button>
-            </HStack>
-            <br></br>
-            {/* TODO: Enable this when working on the Admin view:*/}
-            {/* <li onClick={changeView("Admin")}>⚙️ Admin</li> */}
+          </HStack>
+        </Box> <br></br>
         </nav>
       </header>
       <main>
