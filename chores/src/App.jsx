@@ -86,7 +86,7 @@ function App(props) {
             element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}
           />
           <Route path="/profile" element={ <Profile role={role} setRole={setRole} roles={roles}/> } />
-          <Route path="/admin" element={isAuth  ?  <Admin /> : <Login />}/>
+          <Route path="/admin" element={isAuth ?  <Admin /> : <Login />}/>
           <Route path="/customer" element={isAuth  ?  <Customer />  : <Login />}/>
           {/* staff can't see staff tab, renders to login instead */}
           <Route path="/staff" element={isAuth ?  <Staff /> : <Login />}/>

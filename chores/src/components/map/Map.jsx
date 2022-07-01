@@ -29,18 +29,6 @@ const Map = () => {
   }, []);
 
 
-   // const getName = async (info) => {
-  //   // if its not staff
-  //   if (Array.isArray(info)) {
-  //     info.forEach((studentId) => {
-  //        const data = await axios.get('/api/staff/studentName', { })
-  //      })
-  //   }
-  // }
-
-
-
-
   return isLoading ?
     <CircularProgress
     isIndeterminate color='green.300'
