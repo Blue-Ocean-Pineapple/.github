@@ -12,7 +12,7 @@ function useGetAssignedTickets() {
 
   const fetchData = async () => {
     try {
-      const data = await axios.get(`${process.env.REACT_APP_URL}/api/map/ticket`);
+      const data = await axios.get(`http://localhost:3001//api/map/ticket`);
 
       // go through each ticket in ticket collection
       for (let i = 0 ; i < data.data.length; i++) {
