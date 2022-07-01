@@ -8,7 +8,7 @@ import Customer from "./components/customer/Customer.jsx";
 import Map from "./components/map/Map.jsx";
 import Staff from "./components/staff/Staff.jsx";
 import Student from "./components/student/Student.jsx";
-import { Navbar } from './components/home/Navbar';
+import { Navbar } from "./components/home/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import AuthContextProvider from "./contexts/AuthContext";
@@ -67,6 +67,18 @@ const SocialButton = ({
 
 function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+  // console.log("is Auth console", isAuth);
+  const roles = ["Student", "Customer", "Staff", "Admin"];
+  const [role, setRole] = useState(["Student", "Customer", "Staff", "Admin"]);
+  // console.log('role in App :', role);
+
+  return (
+    <AuthContextProvider>
+      <Router>
+        <Navbar setIsAuth={setIsAuth} role={role} />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+=======
   const roles = ['Student','Customer', 'Staff', 'Admin'];
   const [role, setRole] = useState(['Student','Customer', 'Staff', 'Admin']);
   const { logout, currentUser } = useAuth();
@@ -108,9 +120,7 @@ function App(props) {
         justify={'center'}
         align={'center'}
         padding-bottom={'60px'}
-
         >
-        {/* <Logo /> */}
         <Stack direction={'row'} spacing={6}>
             {!isAuth && <Navlink to="/login" name="Login" />}
             {!isAuth && <Navlink to="/register" name="Register"  />}
@@ -165,8 +175,6 @@ function App(props) {
         </Container>
       </Box>
     </Box>
-
-
       </Router>
     </AuthContextProvider>
   );

@@ -21,6 +21,7 @@ export default function Ticket({
   voteUpTicket,
   completeTicket,
   handleModalTicket,
+  studentId,
 }) {
   // is student Id in react array? true or false, will then make the button blue / gray
   // if student then clicks on it then it will choose to vote up or down
@@ -30,10 +31,9 @@ export default function Ticket({
     // /:id/ticket/:ticketId/
     axios
       .get(
-        `http://localhost:3001/api/student/5/ticket/62bd36816285ab4e052a2381/hasVoted`
+        `http://localhost:3001/api/student/${studentId}/ticket/${ticket._id}/hasVoted`
       )
       .then((data) => {
-        console.log(data.data, "data in useEffect");
         if (data.data !== "") {
           setVote(data.data);
         }
@@ -44,15 +44,13 @@ export default function Ticket({
   const handleVoteUp = () => {
     if (vote === true) {
       setVote(null);
-      //axios remove
       removeUpVote();
     } else {
       setVote(true);
-      // /api/student/ticket/voteUp
       axios
         .put(`http://localhost:3001/api/student/ticket/voteUp`, {
-          studentId: 5,
-          ticketId: "62bd36816285ab4e052a2381",
+          studentId: studentId,
+          ticketId: ticket._id,
         })
         .then((results) => console.log(results))
         .catch((err) => console.log(err));
@@ -72,8 +70,8 @@ export default function Ticket({
       //also needs to check to remove from thumbs up array
       axios
         .put(`http://localhost:3001/api/student/ticket/voteDown`, {
-          studentId: 5,
-          ticketId: "62bd36816285ab4e052a2381",
+          studentId: studentId,
+          ticketId: ticket._id,
         })
         .then((results) => console.log(results, "results in frontend down"))
         .catch((err) => console.log(err));
@@ -84,8 +82,8 @@ export default function Ticket({
   const removeDownVote = () => {
     axios
       .put(`http://localhost:3001/api/student/ticket/removeVoteDown`, {
-        studentId: 5,
-        ticketId: "62bd36816285ab4e052a2381",
+        studentId: studentId,
+        ticketId: ticket._id,
       })
       .then((results) => console.log(results))
       .catch((err) => console.log(err));
@@ -94,8 +92,8 @@ export default function Ticket({
   const removeUpVote = () => {
     axios
       .put(`http://localhost:3001/api/student/ticket/removeVoteUp`, {
-        studentId: 5,
-        ticketId: "62bd36816285ab4e052a2381",
+        studentId: studentId,
+        ticketId: ticket._id,
       })
       .then((results) => console.log(results, "Up vote has been removed"))
       .catch((err) => console.log(err));
@@ -133,4 +131,3 @@ export default function Ticket({
     </Tr>
   );
 }
-//onClick={completeTicket}

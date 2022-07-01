@@ -1,12 +1,8 @@
 import React from "react";
 import { Tr, Td, Button } from "@chakra-ui/react";
-import { BsHandThumbsUp, BsHandThumbsDown, BsCheckLg } from "react-icons/bs";
+import { BsCheckLg } from "react-icons/bs";
 
-export default function ClosedStudentTicket({
-  ticket,
-  voteDownTicket,
-  voteUpTicket,
-}) {
+export default function ClosedStudentTicket({ ticket }) {
   return (
     <Tr>
       <Td>{ticket.creatorId}</Td>

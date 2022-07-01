@@ -37,7 +37,6 @@ module.exports = {
       studentId: req.body.studentId,
       ticketId: req.body.ticketId,
     };
-    console.log(info);
     model
       .voteUp(info)
       .then((data) => res.send(data).status(200))
@@ -48,7 +47,6 @@ module.exports = {
       studentId: req.body.studentId,
       ticketId: req.body.ticketId,
     };
-    console.log(info);
     model
       .removeVoteUp(info)
       .then((data) => res.send(data.data).status(200))
@@ -60,7 +58,6 @@ module.exports = {
       studentId: req.body.studentId,
       ticketId: req.body.ticketId,
     };
-    console.log(info);
     model
       .voteDown(info)
       .then((data) => res.send(data.data).status(200))
@@ -71,7 +68,6 @@ module.exports = {
       studentId: req.body.studentId,
       ticketId: req.body.ticketId,
     };
-    console.log(info);
     model
       .removeVoteDown(info)
       .then((data) => res.send(data.data).status(200))
@@ -83,11 +79,9 @@ module.exports = {
       studentId: req.params.id,
       ticketId: req.params.ticketId,
     };
-    console.log("we are in controller has voted up", info);
     model
       .hasVotedUp(info)
       .then((data) => {
-        console.log(data, "this is the data returning to user");
         res.send(data).status(200);
       })
       .catch((err) => res.send(err).status(404));
@@ -101,7 +95,6 @@ module.exports = {
     model
       .hasVotedDown(info)
       .then((data) => {
-        console.log(data);
         res.send(data).status(200);
       })
       .catch((err) => res.send(err).status(404));
@@ -152,11 +145,9 @@ module.exports = {
       studentId,
       coordinates,
     };
-    console.log(info, "info in controller");
     model
       .createTicket(info)
       .then((data) => {
-        console.log(data, "here is the data");
         res.send(data).status(200);
       })
       .catch((err) => res.send(err).status(404));
