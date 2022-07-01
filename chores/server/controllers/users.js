@@ -16,10 +16,10 @@ module.exports = {
     }
   },
   getOne: async (req, res) => {
-    var id = req.params.uid;
-    console.log("id for get user info controller", id);
+    var uid = req.params.uid;
+    console.log("id for get user info controller", uid);
     try {
-      const user = await User.findOne({ uid: id });
+      const user = await User.findOne({ email: uid });
       console.log("user looking up", user);
       res.status(200).json(user);
     } catch (err) {
