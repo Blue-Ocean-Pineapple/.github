@@ -28,7 +28,6 @@ export default function Login({ setIsAuth }) {
   const toast = useToast();
 
   const mounted = useRef(false)
-
   useEffect(() => {
     mounted.current = true
     return () => {
@@ -45,7 +44,6 @@ export default function Login({ setIsAuth }) {
       console.log('Error while getting user info', err)
     }
   }
-
 
   return (
     <Layout>
@@ -71,7 +69,6 @@ export default function Login({ setIsAuth }) {
                 console.log('login res', res)
                 localStorage.setItem('isAuth', true)
                 setIsAuth(true)
-                // navigate('/profile')
               })
               .catch(error => {
                 console.log(error.message)
@@ -114,7 +111,7 @@ export default function Login({ setIsAuth }) {
 
             <Button
               type='submit'
-              colorScheme='teal'
+              colorScheme='blue'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}

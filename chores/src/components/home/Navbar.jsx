@@ -31,14 +31,14 @@ export function Navbar({ setIsAuth, role }) {
       >
         <Navlink to="/" name="Home" size="lg" backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}}/>
         <Spacer />
-        {!currentUser && <Navlink to="/login" name="Login" />}
-        {!currentUser && <Navlink to="/register" name="Register" />}
-        {currentUser && <Navlink to="/profile" name="Profile" />}
-        {currentUser && role === 'Admin' && <Navlink to="/admin" name="Admin" />}
-        {currentUser && role === 'Customer' &&  <Navlink to="/customer" name="Customer" />}
-        {currentUser && role === 'Staff' && <Navlink to="/staff" name="Staff" />}
-        {currentUser && role === 'Student' && <Navlink to="/student" name="Student" />}
-        {currentUser && <Navlink to="/map" name="Map" />}
+        {!currentUser && <Navlink to="/login" name="Login"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}}/>}
+        {!currentUser && <Navlink to="/register" name="Register"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}}/>}
+        {currentUser && <Navlink to="/profile" name="Profile"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}} />}
+        {currentUser && role === 'Admin' && <Navlink to="/admin" name="Admin"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}}/>}
+        {currentUser && role === 'Customer' &&  <Navlink to="/customer" name="Customer"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}}/>}
+        {currentUser && role === 'Staff' && <Navlink to="/staff" name="Staff"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}} />}
+        {currentUser && role === 'Student' && <Navlink to="/student" name="Student"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}}/>}
+        {currentUser && <Navlink to="/map" name="Map"  backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}} />}
         {currentUser && (
           <Navlink
             to="/logout"
@@ -60,6 +60,10 @@ export function Navbar({ setIsAuth, role }) {
           aria-label="toggle-dark-mode"
         />
       </HStack>
+
+      
     </Box>
+
+
   );
 }

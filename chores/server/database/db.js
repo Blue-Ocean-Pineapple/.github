@@ -60,7 +60,6 @@ const TicketSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  reacts: [String],
   studentId: [String],
   // reacts: [String],
   voteUp: {
@@ -103,9 +102,6 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  // password: {
-  //   type: String
-  // },
   address: {
     type: String,
     required: true,
@@ -158,4 +154,3 @@ const Ticket = mongoose.model("tickets", TicketSchema);
 module.exports.User = User;
 module.exports.Ticket = Ticket;
 // module.exports.Category = Category;
-

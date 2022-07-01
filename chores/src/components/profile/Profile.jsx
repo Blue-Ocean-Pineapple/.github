@@ -76,9 +76,6 @@ export default function Profile({ role , setRole, roles }) {
       <Heading>Add Some Information Here</Heading>
       <Container maxW='container.lg' overflowX='auto' py={4}>
         <chakra.pre p={4}>
-          {/* {currentUser && <pre> Email: {JSON.stringify(currentUser.email)}</pre>} */}
-          {/* {currentUser && <pre> uid: {JSON.stringify(currentUser.uid)}</pre>}
-          {updatedUserInfo && <pre> Name: {JSON.stringify(updatedUserInfo.name)}</pre>} */}
           {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
@@ -147,7 +144,7 @@ export default function Profile({ role , setRole, roles }) {
               />
             </FormControl>
             <Menu>
-              <MenuButton as={Button} colorScheme='teal' onClick={toggleDropdown}>Role</MenuButton>
+              <MenuButton as={Button} colorScheme='blue' onClick={toggleDropdown}>Role</MenuButton>
               <MenuList>
                 {
                   roles.map((role) => {
@@ -170,7 +167,7 @@ export default function Profile({ role , setRole, roles }) {
             </FormControl>
             <Button
               type='submit'
-              colorScheme='teal'
+              colorScheme='blue'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}

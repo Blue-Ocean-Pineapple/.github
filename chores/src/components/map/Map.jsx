@@ -1,7 +1,7 @@
 import { React, useState, useCallback } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import useGetAssignedTickets from '../customHooks/useGetAssignedTickets.jsx';
-import { CircularProgress, Flex, Text } from '@chakra-ui/react'
+import { CircularProgress, Flex } from '@chakra-ui/react'
 import AssignedTickets from './AssignedTickets.jsx'
 
 
@@ -27,6 +27,18 @@ const Map = () => {
   const onUnmount = useCallback((map) => {
     setMap(null)
   }, []);
+
+
+   // const getName = async (info) => {
+  //   // if its not staff
+  //   if (Array.isArray(info)) {
+  //     info.forEach((studentId) => {
+  //        const data = await axios.get('/api/staff/studentName', { })
+  //      })
+  //   }
+  // }
+
+
 
 
   return isLoading ?
