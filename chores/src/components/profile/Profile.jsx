@@ -76,7 +76,6 @@ export default function Profile({ role , setRole, roles }) {
       <Heading>Add Some Information Here</Heading>
       <Container maxW='container.lg' overflowX='auto' py={4}>
         <chakra.pre p={4}>
-
           {/* {updatedUserInfo && <pre> Profile: {JSON.stringify(updatedUserInfo, null, 2) }</pre>} */}
         </chakra.pre>
         {
