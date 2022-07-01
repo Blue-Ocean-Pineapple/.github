@@ -33,8 +33,9 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // {value: 'brian', label: "Brian Bui"},
+  // vote up and down will use uid
   const studentOrder = () => {
-    
+
   }
 
   const assignTicket = () => {
