@@ -81,7 +81,8 @@ function Ticket() {
     <div>
       {toggle === false ? (
       <TableContainer>
-        <Table variant='simple'>
+        <Button colorScheme='blue' onClick={handleToggleTrue}>Show Completed</Button>
+        <Table variant='striped'>
           <Thead>
             <Tr>
               <Th>id</Th>
@@ -119,12 +120,12 @@ function Ticket() {
           ))}
           </Tbody>
         </Table>
-        <Button colorScheme='blue' onClick={handleToggleTrue}>Show Completed</Button>
       </TableContainer>
 
       ) :
       <TableContainer>
-        <Table variant='simple'>
+        <Button colorScheme='red' onClick={handleToggleFalse}>Show In Progress</Button>
+        <Table variant='striped'>
           <Thead>
             <Tr>
               <Th>id</Th>
@@ -146,7 +147,6 @@ function Ticket() {
           ))}
           </Tbody>
         </Table>
-        <Button colorScheme='blue' onClick={handleToggleFalse}>Show In Progress</Button>
       </TableContainer>
       }
       </div>

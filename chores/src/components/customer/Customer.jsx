@@ -1,11 +1,14 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import {
   Button,
+  Spacer,
+  Flex,
+  HStack,
+  Center,
 } from '@chakra-ui/react';
 import Ticket from './Ticket.jsx';
 import TicketForm from './TicketForm.jsx';
-
-
+import { useAuth } from '../../contexts/AuthContext';
 
 function Customer() {
   const [view, setView] = useState({ name: "All Tickets", viewProps: {} });
@@ -16,6 +19,9 @@ function Customer() {
       setView({ name, viewProps: { ...someProps, ...moreProps } });
     };
   };
+
+  const { currentUser } = useAuth();
+  console.log(currentUser)
 
   const renderView = () => {
     switch (view.name) {
@@ -32,17 +38,16 @@ function Customer() {
     <>
       <header>
         <nav>
-          <h1 onClick={changeView("All Tickets")}>Chores</h1>
-          <ul>
+        <HStack spacing='20px'></HStack>
+            <HStack spacing='30px'>
             <Button colorScheme='blue' onClick={changeView("All Tickets")}>Tickets</Button>
-
 
             {/* TODO: Enable this when working on the form:*/}
             <Button colorScheme='blue' onClick={changeView("New Ticket")}>New Ticket</Button>
-
+            </HStack>
+            <br></br>
             {/* TODO: Enable this when working on the Admin view:*/}
             {/* <li onClick={changeView("Admin")}>⚙️ Admin</li> */}
-          </ul>
         </nav>
       </header>
       <main>
