@@ -17,6 +17,7 @@ import { Card } from '../home/Card'
 import DividerWithText from '../home/DividerWithText.jsx';
 import { Layout } from '../home/Layout'
 import { useAuth } from '../../contexts/AuthContext';
+import axios from "axios";
 
 export default function Login({ setIsAuth }) {
   const navigate = useNavigate();
@@ -34,6 +35,16 @@ export default function Login({ setIsAuth }) {
       mounted.current = false
     }
   }, [])
+
+  const handleLogin = async (e) => {
+    try {
+      const res = await axios.get('http://localhost:3001/api/users/'+ email);
+      console.log('HIT GET USER from User Database', res.data);
+      navigate('/'+ res.data.role.toLowerCase())
+    } catch(err) {
+      console.log('Error while getting user info', err)
+    }
+  }
 
 
   return (
@@ -60,7 +71,7 @@ export default function Login({ setIsAuth }) {
                 console.log('login res', res)
                 localStorage.setItem('isAuth', true)
                 setIsAuth(true)
-                navigate('/profile')
+                // navigate('/profile')
               })
               .catch(error => {
                 console.log(error.message)
@@ -73,6 +84,7 @@ export default function Login({ setIsAuth }) {
               })
               .finally(() => {
                  mounted.current && setIsSubmitting(false)
+                 handleLogin()
               })
           }}
         >
@@ -106,6 +118,7 @@ export default function Login({ setIsAuth }) {
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
+              onSubmit={handleLogin}
             >
              Log In
             </Button>
@@ -127,9 +140,13 @@ export default function Login({ setIsAuth }) {
               .then(user => {
                 console.log('google user', user)
                 localStorage.setItem('isAuth', true)
-                navigate('/profile')
+                // navigate('/profile')
               })
               .catch(e => console.log(e.message))
+              .finally(() => {
+                mounted.current && setIsSubmitting(false)
+                handleLogin()
+             })
           }
         >
           Sign in with Google
@@ -148,6 +165,10 @@ export default function Login({ setIsAuth }) {
                 navigate('/profile')
               })
               .catch(e => console.log(e.message))
+              .finally(() => {
+                mounted.current && setIsSubmitting(false)
+                handleLogin()
+             })
           }
         >
           Sign in with Facebook

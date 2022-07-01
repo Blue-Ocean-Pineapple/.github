@@ -1,11 +1,16 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import {
   Button,
+  Spacer,
+  Flex,
+  HStack,
+  Center,
+  Box,
 } from '@chakra-ui/react';
 import Ticket from './Ticket.jsx';
 import TicketForm from './TicketForm.jsx';
-
-
+import CompletedTickets from './CompletedTickets.jsx';
+import { useAuth } from '../../contexts/AuthContext';
 
 function Customer() {
   const [view, setView] = useState({ name: "All Tickets", viewProps: {} });
@@ -17,12 +22,17 @@ function Customer() {
     };
   };
 
+  const { currentUser } = useAuth();
+  console.log(currentUser)
+
   const renderView = () => {
     switch (view.name) {
       case "All Tickets":
         return <Ticket  />;
       case "New Ticket":
         return <TicketForm onSubmit={changeView("All Posts")} />;
+      case "Completed Tickets":
+        return <CompletedTickets onSubmit={changeView("Completed Tickets")} />;
       default:
         return <Ticket />;
     }
@@ -32,17 +42,13 @@ function Customer() {
     <>
       <header>
         <nav>
-          <h1 onClick={changeView("All Tickets")}>Chores</h1>
-          <ul>
+        <Box m={3} p={2}>
+          <HStack spacing='20px'>
             <Button colorScheme='blue' onClick={changeView("All Tickets")}>Tickets</Button>
-
-
-            {/* TODO: Enable this when working on the form:*/}
+            <Button colorScheme='blue' onClick={changeView("Completed Tickets")}>Completed Tickets</Button>
             <Button colorScheme='blue' onClick={changeView("New Ticket")}>New Ticket</Button>
-
-            {/* TODO: Enable this when working on the Admin view:*/}
-            {/* <li onClick={changeView("Admin")}>⚙️ Admin</li> */}
-          </ul>
+          </HStack>
+        </Box> <br></br>
         </nav>
       </header>
       <main>

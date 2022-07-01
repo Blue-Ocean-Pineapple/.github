@@ -37,9 +37,19 @@ module.exports = {
 
   updateTicketStatus: function(req, callback) {
     console.log('model req updateTicketStatus', req)
-    const ticketId = ({ _id: req._id });
-    const status = ({ clientStatus: req.clientStatus })
-    db.User.findOneAndUpdate(ticketId, status, { new: true, upsert: true })
+    const ticketId = ({ _id: req._id, clientStatus: req.clientStatus });
+    db.Ticket.findOneAndUpdate(ticketId, {_id: req._id, clientStatus: 'complete' })
+      .then((results) => {
+        console.log('model updateTicketStatus results', results)
+        callback(null, results)
+      })
+      .catch((err) => {callback(err)})
+  },
+
+  updateTicketComplete: function(req, callback) {
+    console.log('model req updateTicketComplete', req)
+    const ticketId = ({ _id: req._id, complete: req.complete });
+    db.Ticket.findOneAndUpdate(ticketId, {_id: req._id, complete: true })
       .then((results) => {
         console.log('model updateTicketStatus results', results)
         callback(null, results)
