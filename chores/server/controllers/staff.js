@@ -23,9 +23,22 @@ module.exports = {
           });
     },
 
-    assignStudentAndStaff: function(req, res) {
-        model.assignStudentAndStaff(req.body, (err, results) => {
-            console.log('updateStudent data?', results);
+    assignStaff: function(req, res) {
+        console.log('assignStaff reqbody', req.body)
+        model.assignStaff(req.body, (err, results) => {
+            console.log('assignStaff data?', results);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+          });
+    },
+
+    assignStudent: function(req, res) {
+        console.log('reqbody', req.body)
+        model.assignStudent(req.body, (err, results) => {
+            console.log('assignStudent data?', results);
             if (err) {
                 res.status(500).send(err);
             } else {

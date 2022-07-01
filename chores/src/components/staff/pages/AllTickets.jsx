@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
 import axios from 'axios';
+import AssignStaffForm from './AssignStaffForm';
+import AssignStudentForm from './AssignStudentForm';
 import {
   Heading,
   Table,
@@ -25,9 +27,17 @@ import {
   FormErrorMessage,
   Box,
   ChakraProvider,
-  extendTheme
+  extendTheme,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  Code
 } from '@chakra-ui/react'
 import { Select } from "chakra-react-select";
+
+
 // import Multiselect from 'multiselect-react-dropdown';
 
 
@@ -38,6 +48,8 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   const [studentOrder, setStudentOrder] = useState([])
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [studentVal, setStudentVal] = useState([]);
+  const [selected, setSelected] = useState([]);
+
 
 /**
  *this.state = {
@@ -61,7 +73,8 @@ displayValue="name" // Property name to display in the dropdown options
     console.log('person', students);
     students.map((person) => {
       // order.i = person.uid
-      order.push({value: person.uid, label: person.name})
+      order.push({value: person.uid, _id: person._id, staffId: person.value, label: person.name})
+      // order.push(<div id={students._id} >{students.name}</div>)
     })
     setStudentOrder(order);
     console.log('HELLO', studentOrder);
@@ -71,7 +84,7 @@ displayValue="name" // Property name to display in the dropdown options
     let order = [];
     staff.map((person) => {
       // console.log('person', person)
-      order.push({value: person.uid, label: person.name})
+      order.push({value: person.uid, id: person._id, label: person.name})
     })
     setStaffOrder(order);
   }
@@ -83,7 +96,7 @@ displayValue="name" // Property name to display in the dropdown options
 
   const assignTicket = (e) => {
 
-    console.log('EEEEE', e.target.value)
+    console.log('EEEEE')
     // console.log('students', students)
     // console.log('staff', staff)
     // console.log('opentickets', openTickets);
@@ -154,7 +167,8 @@ displayValue="name" // Property name to display in the dropdown options
               <Th>Favorited By</Th>
               <Th>Status</Th>
               <Th>Change Status</Th>
-              <Th>Assign</Th>
+              <Th>Assign Staff</Th>
+              <Th>Assign Student</Th>
             </Tr>
           </Thead>
 
@@ -190,6 +204,9 @@ displayValue="name" // Property name to display in the dropdown options
             <Th>
               <Button _hover={{ bg: "#9CB4CC" }} onClick={onOpen}>Assign</Button>
             </Th>
+            <Th>
+              <Button _hover={{ bg: "#9CB4CC" }} onClick={onOpen}>Assign</Button>
+            </Th>
             </Tr>
           </Tbody>
             {
@@ -202,8 +219,8 @@ displayValue="name" // Property name to display in the dropdown options
                       <Th>{currentTicket.clientName}</Th>
                       <Th>{Moment(currentTicket.createdAt).format('MM-DD-YYYY')}</Th>
                       <Th>{currentTicket.address}</Th>
-                      <Th>{currentTicket.studentId}</Th>
                       <Th>{currentTicket.staffId}</Th>
+                      <Th>{currentTicket.studentId}</Th>
                       <Th>{currentTicket.reacts}</Th>
                       <Th>{currentTicket.clientStatus}</Th>
                       <Th>
@@ -226,7 +243,41 @@ displayValue="name" // Property name to display in the dropdown options
                         </FormControl>
                       </Th>
                       <Th>
-                        <Button _hover={{ bg: "#9CB4CC" }} onClick={onOpen} id={currentTicket._id} >Assign</Button>
+                        {/* <Button _hover={{ bg: "#9CB4CC" }} onClick={onOpen} id={currentTicket._id} >Assign</Button> */}
+                        {/* <Button onClick={onOpen}>Open Drawer</Button>
+                        <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
+                          <DrawerOverlay />
+                          <DrawerContent>
+                            <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader>
+                            <DrawerBody> */}
+                              {/* <FormControl p={4}>
+                                <FormLabel>
+                                  howdy
+                                </FormLabel>
+                                <Select
+                                  isMulti
+                                  options={studentOrder}
+                                  placeholder="Select some colors..."
+                                  closeMenuOnSelect={false}
+                                  hasStickyGroupHeaders
+                                  // onChange={assignTicket}
+                                />
+                              </FormControl> */}
+
+                              {/* <select multiple={true} onChange={(e)=> {assignTicket(e.target.selectedOptions)}}>
+                                {
+                                  students.map((person, i) => {
+                                    // order.i = person.uid
+                                    return (
+                                    <option key={i} value={person._id} >{person.name}</option>
+                                    )
+                                  })
+                                }
+                                </select> */}
+                        <AssignStaffForm ticket={currentTicket} staffOrder={staffOrder} />
+                        </Th>
+                        <Th>
+                        <AssignStudentForm ticket={currentTicket} studentOrder={studentOrder} />
                       </Th>
                     </Tr>
                 </Tbody>
@@ -235,7 +286,7 @@ displayValue="name" // Property name to display in the dropdown options
             }
         </Table>
 
-            <Modal isOpen={isOpen} onClose={onClose}>
+            {/* <Modal isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
               <ModalContent>
                 <ModalHeader>Assign:</ModalHeader>
@@ -256,13 +307,6 @@ displayValue="name" // Property name to display in the dropdown options
                         ]}
                         placeholder="Select student"
                       />
-                      {/* {!isError ? (
-                        <FormHelperText>
-                          Select staff.
-                        </FormHelperText>
-                      ) : (
-                        <FormErrorMessage>Staff is required.</FormErrorMessage>
-                      )} */}
                     </FormControl>
 
                     <FormControl mb={4} isRequired>
@@ -283,13 +327,13 @@ displayValue="name" // Property name to display in the dropdown options
 
                       >
                       </Select>
-                        {/* <MultiSelect
+                        <MultiSelect
                           options={options}
                           value={value}
                           label='Choose or create an item'
                           onChange={onChange}
                           create
-                        /> */}
+                        />
                     </FormControl>
                   </Container>
                 </ModalBody>
@@ -301,7 +345,7 @@ displayValue="name" // Property name to display in the dropdown options
                   <Button _hover={{ bg: "#9CB4CC" }} colorScheme='blue' onClick={updateTicketCall}>Submit</Button>
                 </ModalFooter>
               </ModalContent>
-            </Modal>
+            </Modal> */}
 
 
 

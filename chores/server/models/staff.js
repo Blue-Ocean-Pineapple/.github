@@ -15,24 +15,34 @@ module.exports = {
     console.log('model req getAllUsers', req.body)
     db.User.find({})
       .then((results) => {
-        console.log('model getAllUsers results', results)
+        // console.log('model getAllUsers results', results)
         callback(null, results)
       })
       .catch((err) => {callback(err)})
   },
 
-  assignStudentAndStaff: function(req, callback) {
-    console.log('model req assignStudentAndStaff', req.body)
-    const ticketId = { _id: req._id };
-    const staffId = { staffId: req.staffId };
-    const studentId = { studentId: req.studentId };
-    const status = { clientStatus: 'in-progress'}
-    db.User.findOneAndUpdate(ticketId, {staffId, studentId, status}, { new: true, upsert: true })
+  assignStaff: function(req, callback) {
+    console.log('model req assignStaff', req[0]);
+    console.log('model req assignStaff', req[1]);
+    db.Ticket.findOneAndUpdate(req[1], req[0], {upsert: true})
       .then((results) => {
-        console.log('model getalltickets results', results)
+        console.log('model assignStaff results', results)
         callback(null, results)
       })
       .catch((err) => {callback(err)})
+
+  },
+
+  assignStudent: function(req, callback) {
+    console.log('model req assignStaff', req[0]);
+    console.log('model req assignStaff', req[1]);
+    db.Ticket.findOneAndUpdate(req[1], req[0], {upsert: true})
+    .then((results) => {
+      console.log('model assignStudent results', results)
+      callback(null, results)
+    })
+    .catch((err) => {callback(err)})
+
   },
 
   updateStatus: function(req, callback) {
