@@ -21,30 +21,30 @@ function App(props) {
   console.log('role in App :', role);
 
   return (
-    <AuthContextProvider>
-      <Router>
-      <Navbar setIsAuth={setIsAuth} role={role}/>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/student" element={<Student />} />
-          <Route
-            path="/login"
-            element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}
-          />
-          <Route
-            path="/register"
-            element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}
-          />
-          <Route path="/profile" element={ <Profile role={role} setRole={setRole} roles={roles}/> } />
-          <Route path="/admin" element={isAuth && role === 'Admin' ?  <Admin /> : <Login />}/>
-          <Route path="/customer" element={isAuth && role === 'Client' ?  <Customer />  : <Login />}/>
-          <Route path="/staff" element={isAuth && role === "Staff" ?  <Staff /> : <Login />}/>
-          <Route path="/student" element={isAuth && role === "Student" ?  <Student /> : <Login /> }/>
-          <Route path="/map" element={isAuth ? <Map /> : <Login />} />
-        </Routes>
-      </Router>
-    </AuthContextProvider>
-
+    // <AuthContextProvider>
+    //   <Router>
+    //   <Navbar setIsAuth={setIsAuth} role={role}/>
+    //     <Routes>
+    //       <Route exact path="/" element={<Home />} />
+    //       <Route exact path="/student" element={<Student />} />
+    //       <Route
+    //         path="/login"
+    //         element={!isAuth ? <Login setIsAuth={setIsAuth} /> : <Home />}
+    //       />
+    //       <Route
+    //         path="/register"
+    //         element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}
+    //       />
+    //       <Route path="/profile" element={ <Profile role={role} setRole={setRole} roles={roles}/> } />
+    //       <Route path="/admin" element={isAuth && role === 'Admin' ?  <Admin /> : <Login />}/>
+    //       <Route path="/customer" element={isAuth && role === 'Client' ?  <Customer />  : <Login />}/>
+    //       <Route path="/staff" element={isAuth && role === "Staff" ?  <Staff /> : <Login />}/>
+    //       <Route path="/student" element={isAuth && role === "Student" ?  <Student /> : <Login /> }/>
+    //       <Route path="/map" element={isAuth ? <Map /> : <Login />} />
+    //     </Routes>
+    //   </Router>
+    // </AuthContextProvider>
+    <Staff />
   );
 }
 

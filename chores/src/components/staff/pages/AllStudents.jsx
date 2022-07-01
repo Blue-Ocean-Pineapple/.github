@@ -36,7 +36,7 @@ export default function AllStudents ({ students }) {
     // console.log('howdy delete?', e.target.getAttribute("id"));
     let obj = students.find(obj => obj._id === e.target.getAttribute("id"));
     // console.log('obj??', obj);
-    axios.put('/staff/deactivateStudentOrStaff', obj)
+    axios.put('/staff/addStaffOrStudent', obj)
     .then((response) => {
       console.log('response data:', response);
     })

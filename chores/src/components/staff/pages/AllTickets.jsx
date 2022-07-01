@@ -74,7 +74,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
     console.log('howdy status', e);
     console.log('howdy id?', e.id);
 
-    axios.put('/staff/updateTicketStatus', e)
+    axios.put('/staff/updateStatus', e)
       .then((response) => {
         console.log('tick update response data:', response);
       })

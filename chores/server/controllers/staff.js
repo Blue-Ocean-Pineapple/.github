@@ -13,7 +13,7 @@ module.exports = {
     },
 
     getAllUsers: function(req, res) {
-      console.log('getAllUsers data?', req);
+      // console.log('getAllUsers data?', req);
         model.getAllUsers(req, (err, results) => {
             if (err) {
                 res.status(500).send(err);
@@ -34,8 +34,8 @@ module.exports = {
           });
     },
 
-    updateTicketStatus: function(req, res) {
-      model.updateTicketStatus(req.body, (err, results) => {
+    updateStatus: function(req, res) {
+      model.updateStatus(req.body, (err, results) => {
           console.log('updateTicket data?', results);
           if (err) {
               res.status(500).send(err);
