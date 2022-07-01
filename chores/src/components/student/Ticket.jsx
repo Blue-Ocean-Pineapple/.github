@@ -131,4 +131,3 @@ export default function Ticket({
     </Tr>
   );
 }
-//onClick={completeTicket}
