@@ -46,7 +46,7 @@ export default function AllStudents ({ students }) {
   }
 
   return (
-    <Box bg="#FF6B6B" mt={10} mx="auto"  border="1px solid" borderColor='#FF6B6B' width="90vw" borderRadius="10">
+    <Box bg="#8CC0DE" mt={10} mx="auto"  border="1px solid" borderColor='#8CC0DE' width="90vw" borderRadius="10">
       <TableContainer width="80vw" mx="auto">
         <Heading as='h2' size='xl' mt={10} mb={5}>Active</Heading>
         <Table variant='striped'>

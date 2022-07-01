@@ -29,15 +29,35 @@ import { Select } from "chakra-react-select";
 
 export default function AllTickets ({ openTickets, closedTickets, students, staff }) {
   // const [input, setInput] = useState('')
-  // const [openTickets, setOpenTickets] = useState([])
-  // const [closedTickets, setClosedTickets] = useState([])
+  const [staffOrder, setStaffOrder] = useState([])
+  const [studentOrder, setStudentOrder] = useState([])
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // {value: 'brian', label: "Brian Bui"},
   // vote up and down will use uid
-  const studentOrder = () => {
-
+  // how to get lists of ticket upvotes :'(
+  const studentFormat = () => {
+    let order = [];
+    students.map((person) => {
+      // console.log('person', person)
+      order.push({value: person.uid, label: person.name})
+    })
+    setStudentOrder(order);
   }
+
+  const staffFormat = () => {
+    let order = [];
+    staff.map((person) => {
+      // console.log('person', person)
+      order.push({value: person.uid, label: person.name})
+    })
+    setStaffOrder(order);
+  }
+
+  useEffect(() => {
+    studentFormat();
+    staffFormat();
+  })
 
   const assignTicket = () => {
     console.log('students', students)
@@ -78,10 +98,10 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   }
 
   return (
-    <Box bg="#FF6B6B" mt={10} mx="auto"  border="1px solid" borderColor='#FF6B6B' width="90vw" borderRadius="10">
+    <Box bg="#8CC0DE" mt={10} mx="auto"  border="1px solid" borderColor='#8CC0DE' width="90vw" borderRadius="10">
       <TableContainer width="80vw" mx="auto">
         <Heading as='h2' size='xl' mt={10} mb={10}>Open Tickets</Heading>
-        <Table variant='striped'>
+        <Table variant='striped' >
           <Thead className='opentickets'>
             <Tr variant='striped'>
               <Th>Ticket ID</Th>
@@ -102,7 +122,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
             <Th>John Ong</Th>
             <Th>06/29/2022</Th>
             <Th>Man Jose</Th>
-            <Th>In Progress</Th>
+            <Th>In-Progress</Th>
             <Th>
               <FormControl isRequired>
                 <Select
@@ -182,10 +202,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                         options={[
                           {
                             label: "Staff",
-                            options: [
-                              {value: 'brian', label: "Brian Bui"},
-                              {value: 'skip', label: "Skipper Harris"}
-                            ]
+                            options: studentOrder
                           }
                         ]}
                         placeholder="Select student"
@@ -209,10 +226,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                         options={[
                           {
                             label: "Students",
-                            options: [
-                              {value: 'estar', label: "Esther Kuang"},
-                              {value: 'kimchi', label: "Hansol Ji"}
-                            ]
+                            options: staffOrder
                           },
                         ]}
                         placeholder="Select student"
