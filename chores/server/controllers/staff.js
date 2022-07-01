@@ -127,12 +127,12 @@ module.exports = {
       },
 
     getStudentName: (req, res) => {
-        model.getStudentName(req.body.studentId)
+        model.getStudentName(req.query.studentId)
         .then((data) =>  res.send(data[0].name).status(200))
         .catch((err) => res.send(err).status(404))
     },
     getStaffName: (req, res) => {
-        model.getStaffName(req.body.staffId)
+        model.getStaffName(req.query.staffId)
         .then((data) => res.send(data[0].name).status(200))
         .catch((err) => res.send(err).status(404))
     }
