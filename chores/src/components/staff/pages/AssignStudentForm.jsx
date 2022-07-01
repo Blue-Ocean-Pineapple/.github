@@ -5,11 +5,10 @@ import {
   Button
 } from '@chakra-ui/react';
 
-export default function AssignStudentForm ({ ticket, studentOrder }) {
+export default function AssignStudentForm ({ ticket, studentOrder, isChange, setChange }) {
   const [selected, setSelected] = useState([]);
-  const [isSubmit, setSubmit] = useState(false)
 
-  useEffect(() => { }, [isSubmit])
+  useEffect(() => { }, [isChange])
 
 
   const handleSubmit = () => {
@@ -20,7 +19,6 @@ export default function AssignStudentForm ({ ticket, studentOrder }) {
     let items = {studentId: list};
     let values = [items, {_id: ticket._id}];
 
-    console.log('VALUES', values)
     axios.put('/staff/assignStaff', values)
       .then((response) => {
         console.log('response data:', response);
@@ -28,7 +26,7 @@ export default function AssignStudentForm ({ ticket, studentOrder }) {
       .catch((err) => {
         console.log('submit err:', err);
       })
-    setSubmit(!isSubmit);
+      setChange(!isChange);
     }
 
     return (
