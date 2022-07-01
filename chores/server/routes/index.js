@@ -29,8 +29,8 @@ router.delete("/api/clients/delete", clients.delete);
 //StaffRoute:
 router.get("/api/staff/allTickets", staff.getAllTickets);
 router.get("/api/staff/allStudents", staff.getAllUsers);
-router.get("/api/staff/studentNames", staff.getStudentName);
-router.get("/api/staff/staffNames", staff.getStaffName);
+router.get("/api/staff/studentName", staff.getStudentName);
+router.get("/api/staff/staffName", staff.getStaffName);
 router.put("/api/staff/assignStudentAndStaff", staff.assignStudentAndStaff);
 router.put("/api/staff/updateTicketStatus", staff.updateTicketStatus);
 router.delete("/api/staff/deactivateStudent", staff.deactivateStudent);
