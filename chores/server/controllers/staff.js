@@ -13,7 +13,7 @@ module.exports = {
     },
 
     getAllUsers: function(req, res) {
-      console.log('getAllUsers data?', req);
+    //   console.log('getAllUsers data?', req);
         model.getAllUsers(req, (err, results) => {
             if (err) {
                 res.status(500).send(err);
@@ -23,9 +23,10 @@ module.exports = {
           });
     },
 
-    assignStudentAndStaff: function(req, res) {
-        model.assignStudentAndStaff(req.body, (err, results) => {
-            console.log('updateStudent data?', results);
+    assignStaff: function(req, res) {
+        console.log('assignStaff reqbody', req.body)
+        model.assignStaff(req.body, (err, results) => {
+            console.log('assignStaff data?', results);
             if (err) {
                 res.status(500).send(err);
             } else {
@@ -34,8 +35,20 @@ module.exports = {
           });
     },
 
-    updateTicketStatus: function(req, res) {
-      model.updateTicketStatus(req.body, (err, results) => {
+    assignStudent: function(req, res) {
+        console.log('reqbody', req.body)
+        model.assignStudent(req.body, (err, results) => {
+            console.log('assignStudent data?', results);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+          });
+    },
+
+    updateStatus: function(req, res) {
+      model.updateStatus(req.body, (err, results) => {
           console.log('updateTicket data?', results);
           if (err) {
               res.status(500).send(err);
@@ -44,6 +57,41 @@ module.exports = {
           }
         });
     },
+
+    updateReopenTicket: function(req, res) {
+      // console.log('reopen cont req', req.body)
+      model.updateReopenTicket(req.body, (err, results) => {
+          console.log('updateTicket data?', results);
+          if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(results);
+          }
+        });
+    },
+
+    deactivateStudentOrStaff: function(req, res) {
+      console.log('HOWDY', req.body)
+        model.deactivateStudentOrStaff(req.body, (err, results) => {
+            console.log('deactivateStudentOrStaff data?', results);
+            if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(results);
+          }
+        });
+    },
+
+    updateTicketComplete: function(req, res) {
+        model.updateTicketComplete(req.body, (err, results) => {
+            console.log('updateTicket data?', results);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+          });
+      },
 
     deactivateStudent: function(req, res) {
         model.deactivateStudent(req.body, (err, results) => {
@@ -66,6 +114,17 @@ module.exports = {
             }
           });
     },
+
+    getStudentName: (req, res) => {
+        model.getStudentName(req.body.studentId)
+        .then((data) =>  res.send(data[0].name).status(200))
+        .catch((err) => res.send(err).status(404))
+    },
+    getStaffName: (req, res) => {
+        model.getStaffName(req.body.staffId)
+        .then((data) => res.send(data[0].name).status(200))
+        .catch((err) => res.send(err).status(404))
+    }
 //deactivate,
 //update, and add student are the same post request?
 }

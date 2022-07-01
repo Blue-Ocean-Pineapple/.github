@@ -9,7 +9,7 @@ import {
   Stack,
   useToast,
 } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom'
@@ -28,6 +28,16 @@ export default function Register({setIsAuth}) {
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast();
+
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => {
+      mounted.current = false
+    }
+  }, []);
+
   return (
     <Layout>
       <Heading textAlign='center' my={12}>
@@ -50,6 +60,8 @@ export default function Register({setIsAuth}) {
             register(email, password)
               .then(res => {
                 console.log('register res', res)
+                localStorage.setItem('isAuth', true)
+                setIsAuth(true)
                 navigate('/profile')
               })
               .catch(error => {
@@ -62,7 +74,7 @@ export default function Register({setIsAuth}) {
                 })
               })
               .finally(() => {
-                 setIsSubmitting(false)
+                 mounted.current && setIsSubmitting(false)
               })
           }}
         >
@@ -92,7 +104,7 @@ export default function Register({setIsAuth}) {
 
             <Button
               type='submit'
-              colorScheme='teal'
+              colorScheme='blue'
               size='lg'
               fontSize='md'
               isLoading={isSubmitting}
@@ -116,6 +128,9 @@ export default function Register({setIsAuth}) {
             signInWithGoogle()
               .then(user => {
                 console.log(user)
+                localStorage.setItem('isAuth', true)
+                setIsAuth(true)
+                navigate('/profile')
               })
               .catch(e => console.log(e.message))
           }
@@ -132,6 +147,9 @@ export default function Register({setIsAuth}) {
             signInWithFacebook()
               .then(user => {
                 console.log(user)
+                localStorage.setItem('isAuth', true)
+                setIsAuth(true)
+                navigate('/profile')
               })
               .catch(e => console.log(e.message))
           }
