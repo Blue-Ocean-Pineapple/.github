@@ -22,7 +22,7 @@ function App(props) {
 
   return (
     <AuthContextProvider>
-      <Router>
+     <Router>
       <Navbar setIsAuth={setIsAuth} role={role}/>
         <Routes>
           <Route exact path="/" element={<Home />} />

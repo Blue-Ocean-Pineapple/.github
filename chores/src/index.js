@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
 
 const config = {
   initialColorMode: "light",
@@ -10,13 +11,20 @@ const config = {
 
 const theme = extendTheme({
   config,
+  styles: {
+    global: (props) => ({
+      body: {
+        bg: 'white'
+      }
+    })
+  }
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <App />
+      <App backgroundColor='#FEF9EF' />
     </ChakraProvider>
 );
 

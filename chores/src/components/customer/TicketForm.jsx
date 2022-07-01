@@ -1,6 +1,17 @@
 import React from "react";
 import axios from "axios";
 import Geocode from "react-geocode";
+import {
+  FormControl,
+  Text,
+  Center,
+  FormLabel,
+  Input,
+  Container,
+  Box,
+  FormErrorMessage,
+  FormHelperText,
+} from '@chakra-ui/react'
 
 export default class TickerForm extends React.Component {
 
@@ -51,66 +62,70 @@ export default class TickerForm extends React.Component {
 
   render() {
     return (
-      <section>
-        <header>
-          <h2>New Ticket</h2>
-        </header>
+      <Container>
+      <header>
+      <Center bg='none' h='50px'>
+      <Text fontWeight='medium' fontSize='30px'>Ticket Form</Text>
+      </Center>
+      </header> <br></br>
+        <Box boxShadow='dark-lg' p='6' rounded='md' bg='none'>
         <form onSubmit={(event) => {
           event.preventDefault();
           this.handleNewPost(event.target.name.value, event.target.wage.value, event.target.description.value, event.target.location.value)
           ;
           alert("Form submitted")
         }}>
-          <label>
-            Name:
-            <input
+          <FormLabel>
+            Task Name:
+            <Input
               type="text"
               name="name"
-              placeholder="Ticket name"
+              placeholder="Watering plants"
               required
               autocomplete="off"
             />
-          </label> <br></br>
+          </FormLabel> <br></br>
 
-          <label>
-            Wage: $
-            <input
+          <FormLabel>
+            Wage:
+            <Input
               type="text"
               name="wage"
               placeholder="$$$"
               required
               autocomplete="off"
             />
-          </label> <br></br>
+          </FormLabel> <br></br>
 
-          <label>
+          <FormLabel>
             Description:
-            <input
+            <Input
               type="text"
               name="description"
               placeholder="Enter additional information here"
               required
               autocomplete="off"
             />
-          </label> <br></br>
+          </FormLabel> <br></br>
 
-          <label>
-            Location:
-            <input
+          <FormLabel>
+            Address:
+            <Input
               type="text"
               name="location"
-              placeholder="Address Of Chore"
+              placeholder="### Sesame Street, City, State #####"
               required
               autocomplete="off"
             />
-          </label> <br></br>
+          </FormLabel> <br></br>
 
 
-          <input type="submit" value="Submit Ticket" />
+          <Input type="submit" value="Submit Ticket" />
 
           <hr />
         </form>
-      </section>
+        </Box>
+      </Container>
     );
   }
 }

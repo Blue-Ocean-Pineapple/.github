@@ -23,8 +23,7 @@ export default function Admin(props) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/staff/allTickets")
+    axios.get("http://localhost:3001/api/staff/allTickets")
       .then((response) => {
         console.log("working");
         let adminData = response.data;
@@ -35,9 +34,9 @@ export default function Admin(props) {
   }, []);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/staff/allStudents")
+    axios.get("http://localhost:3001/api/staff/allStudents")
       .then((response) => {
+        //
         console.log("working");
         let userData = response.data;
         console.log(userData);
@@ -50,7 +49,7 @@ export default function Admin(props) {
     <ChakraProvider bg="white">
       <Box bg="white" />
       <Flex justifyContent="center">
-        <Box borderWidth="1px" width="80vw" height="10vh" bg="#1C696F">
+        <Box borderWidth="1px" width="80vw" height="10vh" bg="#FF6B6B">
           <Text textAlign="center" fontSize="4xl">
             Chores
           </Text>
@@ -62,7 +61,7 @@ export default function Admin(props) {
           flexDirection="row"
           justifyContent="center"
         >
-          <Box
+          {/* <Box
             className="testBox"
             borderWidth="1px"
             width="0vw"
@@ -71,7 +70,7 @@ export default function Admin(props) {
             bg="#74C1C4"
           >
             {/* <Text margin='10px' textDecoration='underline'>Type of Chore</Text> */}
-          </Box>
+          {/* </Box> */}
           <Box className="tableBox" maxW="60vw" margin="20px">
             <Text textAlign="center">Tickets</Text>
             <TableContainer display="block" maxWidth="100%">
@@ -80,11 +79,11 @@ export default function Admin(props) {
                 <Thead>
                   <Tr>
                     <Th>Task Name</Th>
-                    <Th>Student ID</Th>
                     <Th>Status</Th>
                     <Th>Date</Th>
                     <Th>Completed</Th>
                     <Th>Approve</Th>
+                    <Th>Mark Completed</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
@@ -94,12 +93,12 @@ export default function Admin(props) {
                         clientStatus={data.clientStatus}
                         complete={data.complete}
                         date={data.createdAt}
-                        id={data.creatorId}
+                        creatorId={data.creatorId}
                         description={data.description}
                         reacts={data.reacts}
                         staffId={data.staffId}
                         studentId={data.studentId}
-                        key={data._id}
+                        id={data._id}
                       />
                     );
                   })}
@@ -140,6 +139,7 @@ export default function Admin(props) {
                         organization={data.organization}
                         id={data._id}
                         role={data.role}
+                        email={data.email}
                       />
                     );
                   })}
