@@ -18,7 +18,6 @@ const AssignedTickets = ({ticket}) => {
       <Divider orientation='horizontal' pt='3px' />
       <Flex flexDir='row' justifyContent='flex-start'>
         <Heading as='h3' size='xs' pt='5px' pr='5px'>Students:</Heading>
-        {}
       </Flex>
       <Heading as='h3' size='xs' pt='5px'>Staff:</Heading>
     </Box>

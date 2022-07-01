@@ -13,7 +13,9 @@ function useGetAssignedTickets() {
     axios.get(`${process.env.REACT_APP_URL}/api/map/ticket`)
     .then((data) => {
       let res = data.data;
-      console.log(res);
+      res.forEach((ticket) => {
+
+      })
       setData(res)
     })
     .catch((err) => setError(err))

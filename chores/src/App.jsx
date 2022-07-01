@@ -22,7 +22,7 @@ function App(props) {
 
   return (
     <AuthContextProvider>
-      <Router>
+      {/* <Router>
       <Navbar setIsAuth={setIsAuth} role={role}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -42,20 +42,16 @@ function App(props) {
           <Route path="/student" element={isAuth && role === "Student" ?  <Student /> : <Login /> }/>
           <Route path="/map" element={isAuth ? <Map /> : <Login />} />
         </Routes>
-      </Router>
-      {/* <Admin /> */}
-      {/* <Customer />
-     <Student />
-    {/* <Map /> */}
-    {/* <Staff /> */}
+      </Router> */}
+      {/* <Admin />
+      <Customer />
+      <Student /> */}
+      <Map />
+      {/* <Staff /> */}
     </AuthContextProvider>
 
   );
 }
 
-<<<<<<< HEAD
-export default App;
-=======
 
 export default App;
->>>>>>> main
