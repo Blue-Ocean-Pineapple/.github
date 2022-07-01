@@ -60,7 +60,7 @@
     "description": "test",
      "creatorId": "2",
      "clientStatus": "approved",
-     "taskName": "Test",
+     "taskName": "Pick up grandma",
      "coordinates": {"lat":34.063690,"lng":-118.308240},
      "staffId": "test2",
      "studentId": ["test7"]
@@ -71,7 +71,7 @@
     "description": "test",
      "creatorId": "2",
      "clientStatus": "approved",
-     "taskName": "Test",
+     "taskName": "Walk around the park",
      "coordinates": {"lat":34.033510,"lng":-118.228680},
      "staffId": "test2",
      "studentId": ["test6","test5"]
@@ -82,7 +82,7 @@
     "description": "test",
      "creatorId": "2",
      "clientStatus": "approved",
-     "taskName": "Test",
+     "taskName": "Clean up the beach",
      "coordinates": {"lat":34.05839157104492,"lng":-118.41632843017578},
      "staffId": "test2",
      "studentId": ["test1"]

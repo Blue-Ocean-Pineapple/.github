@@ -1,7 +1,7 @@
 import { React, useState, useCallback } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import useGetAssignedTickets from '../customHooks/useGetAssignedTickets.jsx';
-import { CircularProgress, Flex, Text } from '@chakra-ui/react'
+import { CircularProgress, Flex } from '@chakra-ui/react'
 import AssignedTickets from './AssignedTickets.jsx'
 
 

@@ -3,6 +3,7 @@ import { Box, Text, Heading, Divider, Flex } from '@chakra-ui/react';
 
 const AssignedTickets = ({ticket}) => {
   const parsedAddy = ticket.address.split(',').slice(0,2).join(',');
+  console.log('ticket: ', ticket)
   return(
     <Box
     mb='15px'
@@ -18,8 +19,12 @@ const AssignedTickets = ({ticket}) => {
       <Divider orientation='horizontal' pt='3px' />
       <Flex flexDir='row' justifyContent='flex-start'>
         <Heading as='h3' size='xs' pt='5px' pr='5px'>Students:</Heading>
+        <Text fontSize='xs' pt='5px'>{ticket.studentNames.join(', ')}</Text>
       </Flex>
-      <Heading as='h3' size='xs' pt='5px'>Staff:</Heading>
+      <Flex flexDir='row' justifyContent='flex-start'>
+        <Heading as='h3' size='xs' pt='5px' pr='5px'>Staff:</Heading>
+        <Text fontSize='xs' pt='5px'>{ticket.staffName}</Text>
+      </Flex>
     </Box>
   )
 }
