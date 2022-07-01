@@ -12,19 +12,19 @@ function useGetAssignedTickets() {
 
   const fetchData = async () => {
     try {
-      const data = await axios.get(`http://localhost:3001//api/map/ticket`);
+      const data = await axios.get(`http://localhost:3001/api/map/ticket`);
 
       // go through each ticket in ticket collection
       for (let i = 0 ; i < data.data.length; i++) {
 
-        const data2 = await axios.get(`${process.env.REACT_APP_URL}/api/staff/staffName`,{params:{staffId: data.data[i].staffId}});
+        const data2 = await axios.get(`http://localhost:3001/api/staff/staffName`,{params:{staffId: data.data[i].staffId}});
         data.data[i].staffName=data2.data;
 
         data.data[i].studentNames =[];
 
         // go through each studentId in the ticket
         for (let j = 0; j < data.data[i].studentId.length; j++) {
-          const data3 = await axios.get(`${process.env.REACT_APP_URL}/api/staff/studentName`,{params:{studentId: data.data[i].studentId[j]}})
+          const data3 = await axios.get(`http://localhost:3001/api/staff/studentName`,{params:{studentId: data.data[i].studentId[j]}})
           data.data[i].studentNames.push(data3.data);
         }
       }
