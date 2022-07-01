@@ -5,16 +5,19 @@ import { ChakraProvider, Box, Tr, Td, Button } from "@chakra-ui/react";
 
 export default function AdminEntry(props) {
   const [approval, setApproval] = useState("awaiting");
-  const [tickets, setTickets] = useState([]);
+  const [comp, setComp] = useState('No');
   const [index, setIndex] = useState(1);
+  const [done, setDone] = useState(false);
 
-  const bool = () => {
+  const toggle = () => {
     if (props.complete) {
-      return "Yes";
+      //setDone(false)
+      setComp('No')
     } else {
-      return "No";
+      //setDone(true)
+      setComp('Yes')
     }
-  };
+  }
 
   let btnIndex = 1;
 
@@ -22,8 +25,7 @@ export default function AdminEntry(props) {
 
   const status = (e) => {
     console.log(e.target.value);
-    axios
-      .put(`http://localhost:3001/api/staff/updateTicketStatus`, {
+    axios.put(`http://localhost:3001/api/staff/updateTicketStatus`, {
         clientStatus: e.target.value,
       })
       .then((response) => {
@@ -34,19 +36,36 @@ export default function AdminEntry(props) {
       .catch((err) => console.log(err));
   };
 
+  const completion = () => {
+   // console.log(e.target.value);
+   console.log('hello')
+    axios.put(`http://localhost:3001/api/staff/updateTicketComplete`, {
+       _id: props.id, complete: false,
+      })
+      .then((response) => {
+        setComp('Yes')
+       // toggle()
+        console.log("hi");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <ChakraProvider>
       <Tr>
         <Td>{props.description}</Td>
-        <Td>{props.studentId}</Td>
         <Td>{approval}</Td>
         <Td>{moment(props.date).format("MMM Do, YYYY")}</Td>
-        <Td>{bool()}</Td>
+        <Td>{comp}</Td>
         <Td>
           <Button value={buttonStatus[index]} onClick={(e) => status(e)}>
             {buttonStatus[index]}
           </Button>
         </Td>
+        <Td>
+          <Button onClick ={() => completion()}>
+            Complete
+          </Button></Td>
       </Tr>
     </ChakraProvider>
   );
