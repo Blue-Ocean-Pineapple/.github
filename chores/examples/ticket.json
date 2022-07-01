@@ -19,6 +19,7 @@
    },
   {
     "clientName": "your",
+    "taskName": "Dog walking",
     "address": "2121 E 7th Pl, Los Angeles, CA 90021",
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
@@ -30,7 +31,8 @@
 
   },
   {
-    "clientName": "love me",
+    "clientName": "Mark Johnson",
+    "address": "123 Fake street",
     "taskName": "Lawn mowing",
     "location": "sesame street",
     "description": "Mow the lawn",
@@ -40,5 +42,125 @@
      "studentId": "2",
      "address": "21 E 7th Pl, Los Angeles, CA 90021",
      "coordinates": {"lat":34.068630,"lng":-118.226631}
+   },
+   {
+    "clientName": "Mark Johnson",
+    "taskName": "Dog Walk",
+    "address": "3214 Faker Street",
+    "wage": 15,
+    "description": "I want you to walk my dog, he is big and red and named Clifford",
+    "clientStatus": "complete",
+    "complete": true,
+    "creatorId": 23,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Mark Rehab",
+    "taskName": "Washing Dishes",
+    "address": "San Francisco",
+    "wage": 20,
+    "description": "I want you to wash my dishes, they've been piling up!!",
+    "clientStatus": "approved",
+    "complete": false,
+    "creatorId": 23,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Cat sitting",
+    "address": "500 Mateo St, Los Angeles, CA 90013",
+    "wage": 20,
+    "description": "My cat, Salem, needs to be sat.",
+    "clientStatus": "approved",
+    "complete": false,
+    "creatorId": 90,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Sweeping the floors",
+    "address": "2345 San Jose",
+    "wage": 10,
+    "description": "Our floor is dirty, you need to sweep it or its just going to get worse!",
+    "clientStatus": "approved",
+    "complete": false,
+    "creatorId": 2031,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Washing my dog",
+    "address": "123 Fake Street",
+    "wage": 50,
+    "description": "He is a smelly old dog and needs-a-washing.",
+    "clientStatus": "approved",
+    "complete": false,
+    "creatorId": 3421,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Teach me how to dougie",
+    "address": "123 Fake street",
+    "wage": 100,
+    "description": "I can't dance, and I want to learn. Someone teach me how to dance!",
+    "clientStatus": "approved",
+    "complete": false,
+    "creatorId": 9402,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Raking the leaves",
+    "address": "2121 E 7th Pl, Los Angeles, CA 90021",
+    "wage": 50,
+    "description": "Need you to rake the leaves in my yard. I can't even see the drive way floor anymore",
+    "clientStatus": "approved",
+    "complete": false,
+    "creatorId": 43221,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Baby Sitting",
+    "address": "231 Bubble Street",
+    "wage": 25,
+    "description": "Please I need help baby sitting 9 of my kids",
+    "clientStatus": "in-progress",
+    "complete": false,
+    "creatorId": 25,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Baby Sitting",
+    "address": "55 Fake Street",
+    "wage": 25,
+    "description": "Please I need help baby sitting 20 of my kids",
+    "clientStatus": "complete",
+    "complete": true,
+    "creatorId": 5921,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
+   },
+   {
+    "clientName": "Markie Thomas",
+    "taskName": "Video Games",
+    "wage": 25,
+    "address": "55 Fake Street",
+    "description": "Teach me how to play video games",
+    "clientStatus": "complete",
+    "complete": true,
+    "creatorId": 23912,
+    "studentId": 5,
+    "coordinates": {"lat":34.048859,"lng":-118.251343}
    }
 ]

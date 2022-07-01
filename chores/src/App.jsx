@@ -9,7 +9,6 @@ import Map from "./components/map/Map.jsx";
 import Staff from "./components/staff/Staff.jsx";
 import Student from "./components/student/Student.jsx";
 import { Navbar } from './components/home/Navbar';
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import AuthContextProvider from "./contexts/AuthContext";
@@ -17,11 +16,14 @@ import AuthContextProvider from "./contexts/AuthContext";
 function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   console.log("is Auth console", isAuth);
-  return (
+  const roles = ['Student','Client', 'Staff', 'Admin'];
+  const [role, setRole] = useState(['Student','Client', 'Staff', 'Admin']);
+  console.log('role in App :', role);
 
+  return (
     <AuthContextProvider>
       <Router>
-      <Navbar setIsAuth={setIsAuth}/>
+      <Navbar setIsAuth={setIsAuth} role={role}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/student" element={<Student />} />
@@ -33,21 +35,23 @@ function App(props) {
             path="/register"
             element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}
           />
-          <Route path="/profile" element={!isAuth ? <Profile /> : <Home />} />
-          <Route path="/admin" element={ <Admin />}/>
-           <Route path="/customer" element={ <Customer />}/>
-          <Route path="/staff" element={ <Staff />}/>
-          <Route path="/student" element={ <Student />}/>
-          <Route path="/map" element={ <Map />} />
+          <Route path="/profile" element={ <Profile role={role} setRole={setRole} roles={roles}/> } />
+          <Route path="/admin" element={isAuth && role === 'Admin' ?  <Admin /> : <Login />}/>
+          <Route path="/customer" element={isAuth && role === 'Client' ?  <Customer />  : <Login />}/>
+          <Route path="/staff" element={isAuth && role === "Staff" ?  <Staff /> : <Login />}/>
+          <Route path="/student" element={isAuth && role === "Student" ?  <Student /> : <Login /> }/>
+          <Route path="/map" element={isAuth ? <Map /> : <Login />} />
         </Routes>
       </Router>
       {/* <Staff /> */}
       {/* <Customer />
      <Student />
     {/* <Map /> */}
+    {/* <Staff /> */}
     </AuthContextProvider>
 
   );
 }
+
 
 export default App;
