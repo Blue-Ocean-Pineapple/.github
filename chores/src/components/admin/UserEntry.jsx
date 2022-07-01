@@ -11,10 +11,12 @@ import {
 
 export default function UserEntry(props) {
 
-  const remove = () => {
-    axios.delete(`http://localhost:3001/api/staff/updateTicketStatus`, )
+  const remove = (user) => {
+    let test = {email: user}
+    console.log(test)
+    axios.delete(`http://localhost:3001/api/admin/delete/`, {data: {email: user}})
     .then((response) => {
-
+      console.log('deleted')
     })
     .catch((err) => console.log(err))
   }
@@ -25,7 +27,7 @@ export default function UserEntry(props) {
           <Td>{props.firstName} {props.lastName}</Td>
           <Td>{props.organization}</Td>
           <Td>{props.role}</Td>
-          <Td><Button>Delete User</Button></Td>
+          <Td><Button onClick={() => remove(props.email)}>Delete User</Button></Td>
 
         </Tr>
   </ChakraProvider>
