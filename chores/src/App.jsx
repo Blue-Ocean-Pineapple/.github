@@ -43,11 +43,6 @@ function App(props) {
           <Route path="/map" element={isAuth ? <Map /> : <Login />} />
         </Routes>
       </Router>
-      {/* <Staff /> */}
-      {/* <Customer />
-     <Student />
-    {/* <Map /> */}
-    {/* <Staff /> */}
     </AuthContextProvider>
 
   );
