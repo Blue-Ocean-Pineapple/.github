@@ -26,12 +26,13 @@ import {
 import { ReactElement } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ReactNode } from 'react';
-
+import Navlink from "./Navlink";
 interface FeatureProps {
   text: string;
   iconBg: string;
   icon?: ReactElement;
-}
+};
+
 
 // const Logo = (props: any) => {
 //   return (
@@ -59,39 +60,39 @@ interface FeatureProps {
 
 //
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children: ReactNode;
-  label: string;
-  href: string;
-}) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}>
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  );
-};
+// const SocialButton = ({
+//   children,
+//   label,
+//   href,
+// }: {
+//   children: ReactNode;
+//   label: string;
+//   href: string;
+// }) => {
+//   return (
+//     <chakra.button
+//       bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+//       rounded={'full'}
+//       w={8}
+//       h={8}
+//       cursor={'pointer'}
+//       as={'a'}
+//       href={href}
+//       display={'inline-flex'}
+//       alignItems={'center'}
+//       justifyContent={'center'}
+//       transition={'background 0.3s ease'}
+//       _hover={{
+//         bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+//       }}>
+//       <VisuallyHidden>{label}</VisuallyHidden>
+//       {children}
+//     </chakra.button>
+//   );
+// };
 
-export default function Homepage({setIsAuth}) {
-  const { currentUser } = useAuth();
+export default function Homepage({setIsAuth, role}) {
+  const { logout, currentUser } = useAuth();
   return (
     // <Layout setIsAuth={setIsAuth}>
     //   <Heading>Home page</Heading>
@@ -190,7 +191,7 @@ motivated and focused.</Heading>
 </SimpleGrid>
 
 <br></br><br></br>
-<Box
+ {/* <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
@@ -200,13 +201,31 @@ motivated and focused.</Heading>
         spacing={4}
         justify={'center'}
         align={'center'}>
-        {/* <Logo /> */}
-        <Stack direction={'row'} spacing={6}>
-          <Link href={'http://localhost:3000/'}>Home</Link>
-          <Link href={'http://localhost:3000/map'}>Map</Link>
-          <Link href={'http://localhost:3000/login'}>Login</Link>
-          <Link href={'http://localhost:3000/register'}>Register</Link>
-          <Link href={'http://localhost:3000/profile'}>Profile</Link>
+
+         <Stack direction={'row'} spacing={6}>
+
+             {!currentUser && <Navlink to="/login" name="Login" />}
+            {!currentUser && <Navlink to="/register" name="Register"  />}
+            {currentUser && <Navlink to="/profile" name="Profile"  />}
+            {currentUser && role === 'Admin' && <Navlink to="/admin" name="Admin" />}
+            {currentUser && role === 'Customer' &&  <Navlink to="/customer" name="Customer" />}
+            {currentUser && role === 'Staff' && <Navlink to="/staff" name="Staff"  />}
+            {currentUser && role === 'Student' && <Navlink to="/student" name="Student" />}
+            {currentUser && <Navlink to="/map" name="Map"  />}
+            {currentUser && (
+              <Navlink
+                to="/logout"
+                name="Logout"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  await logout().then(() => {
+                    localStorage.clear();
+                    setIsAuth(false);
+                    window.location.pathname = "/";
+                  });
+                }}
+              />
+            )}
 
         </Stack>
       </Container>
@@ -237,7 +256,7 @@ motivated and focused.</Heading>
           </Stack>
         </Container>
       </Box>
-    </Box>
+     </Box> */}
     </Container>
 
 

@@ -10,7 +10,8 @@ function useGetAssignedTickets() {
   Geocode.setLocationType("ROOFTOP");
 
   const fetchData = () => {
-    axios.get(`${process.env.REACT_APP_URL}/api/map/ticket`)
+    // axios.get(`${process.env.REACT_APP_URL}/api/map/ticket`)
+    axios.get(`http://localhost:3001/api/map/ticket`)
     .then((data) => {
       let res = data.data;
       res.forEach((ticket) => {
