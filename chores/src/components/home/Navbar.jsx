@@ -61,7 +61,7 @@ export function Navbar({ setIsAuth, role }) {
         />
       </HStack>
 
-      
+
     </Box>
 
 
