@@ -36,6 +36,7 @@ export default function Admin(props) {
   useEffect(() => {
     axios.get("http://localhost:3001/api/staff/allStudents")
       .then((response) => {
+        //
         console.log("working");
         let userData = response.data;
         console.log(userData);
