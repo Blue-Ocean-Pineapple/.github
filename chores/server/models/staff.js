@@ -46,6 +46,28 @@ module.exports = {
       .catch((err) => {callback(err)})
   },
 
+  updateTicketStatus: function(req, callback) {
+    console.log('model req updateTicketStatus', req)
+    const ticketId = ({ _id: req._id, clientStatus: req.clientStatus });
+    db.Ticket.findOneAndUpdate(ticketId, {_id: req._id, clientStatus: 'complete' })
+      .then((results) => {
+        console.log('model updateTicketStatus results', results)
+        callback(null, results)
+      })
+      .catch((err) => {callback(err)})
+  },
+
+  updateTicketComplete: function(req, callback) {
+    console.log('model req updateTicketComplete', req)
+    const ticketId = ({ _id: req._id, complete: req.complete });
+    db.Ticket.findOneAndUpdate(ticketId, {_id: req._id, complete: true })
+      .then((results) => {
+        console.log('model updateStatus results', results)
+        callback(null, results)
+      })
+      .catch((err) => {callback(err)})
+  },
+
   updateReopenTicket: function(req, callback) {
     console.log('model req updateReopenTicket', req.complete)
     db.Ticket.findOneAndUpdate({ _id: req._id }, { clientStatus: 'awaiting', complete: false })
@@ -75,4 +97,12 @@ module.exports = {
       })
       .catch((err) => {callback(err)})
   },
+
+  getStudentName: (uid) => {
+    return db.User.find({uid})
+  },
+
+  getStaffName: (uid) => {
+    return db.User.find({uid})
+  }
 }

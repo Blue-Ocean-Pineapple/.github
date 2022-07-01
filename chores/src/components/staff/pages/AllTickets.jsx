@@ -23,26 +23,48 @@ import {
   Container,
   FormHelperText,
   FormErrorMessage,
-  Box
+  Box,
+  ChakraProvider,
+  extendTheme
 } from '@chakra-ui/react'
 import { Select } from "chakra-react-select";
+// import Multiselect from 'multiselect-react-dropdown';
+
+
 
 export default function AllTickets ({ openTickets, closedTickets, students, staff }) {
   // const [input, setInput] = useState('')
   const [staffOrder, setStaffOrder] = useState([])
   const [studentOrder, setStudentOrder] = useState([])
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [studentVal, setStudentVal] = useState([]);
 
+/**
+ *this.state = {
+    options: [{name: 'Option 1️, id: 1},{name: 'Option 2️', id: 2}]
+};
+
+<Multiselect
+options={this.state.options} // Options to display in the dropdown
+selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+onSelect={this.onSelect} // Function will trigger on select event
+onRemove={this.onRemove} // Function will trigger on remove event
+displayValue="name" // Property name to display in the dropdown options
+/>
+
+ */
   // {value: 'brian', label: "Brian Bui"},
   // vote up and down will use uid
   // how to get lists of ticket upvotes :'(
   const studentFormat = () => {
     let order = [];
+    console.log('person', students);
     students.map((person) => {
-      // console.log('person', person)
+      // order.i = person.uid
       order.push({value: person.uid, label: person.name})
     })
     setStudentOrder(order);
+    console.log('HELLO', studentOrder);
   }
 
   const staffFormat = () => {
@@ -57,13 +79,22 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
   useEffect(() => {
     studentFormat();
     staffFormat();
-  })
+  }, [students, staff])
 
-  const assignTicket = () => {
-    console.log('students', students)
-    console.log('staff', staff)
-    console.log('opentickets', openTickets);
-    console.log('closedtickets', closedTickets);
+  const assignTicket = (e) => {
+
+    console.log('EEEEE', e.target.value)
+    // console.log('students', students)
+    // console.log('staff', staff)
+    // console.log('opentickets', openTickets);
+    // console.log('closedtickets', closedTickets);
+
+    onClose();
+  }
+
+  const updateTicketCall = () => {
+    console.log('studentorder', studentOrder);
+
     onClose();
   }
 
@@ -97,8 +128,17 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
     })
   }
 
+
   return (
+
     <Box bg="#8CC0DE" mt={10} mx="auto"  border="1px solid" borderColor='#8CC0DE' width="90vw" borderRadius="10">
+                  {/* <MultiSelect
+              options={studentOrder}
+              value={value}
+              label='Choose or create an item'
+              onChange={onChange}
+              create
+            /> */}
       <TableContainer width="80vw" mx="auto">
         <Heading as='h2' size='xl' mt={10} mb={10}>Open Tickets</Heading>
         <Table variant='striped' >
@@ -109,6 +149,9 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
               <Th>Customer</Th>
               <Th>Created At</Th>
               <Th>Location</Th>
+              <Th>Assigned Staff</Th>
+              <Th>Assigned Students</Th>
+              <Th>Favorited By</Th>
               <Th>Status</Th>
               <Th>Change Status</Th>
               <Th>Assign</Th>
@@ -122,6 +165,9 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
             <Th>John Ong</Th>
             <Th>06/29/2022</Th>
             <Th>Man Jose</Th>
+            <Th>jessica</Th>
+            <Th>hansol</Th>
+            <Th>hansol</Th>
             <Th>In-Progress</Th>
             <Th>
               <FormControl isRequired>
@@ -156,6 +202,9 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                       <Th>{currentTicket.clientName}</Th>
                       <Th>{Moment(currentTicket.createdAt).format('MM-DD-YYYY')}</Th>
                       <Th>{currentTicket.address}</Th>
+                      <Th>{currentTicket.studentId}</Th>
+                      <Th>{currentTicket.staffId}</Th>
+                      <Th>{currentTicket.reacts}</Th>
                       <Th>{currentTicket.clientStatus}</Th>
                       <Th>
                         <FormControl isRequired>
@@ -177,7 +226,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                         </FormControl>
                       </Th>
                       <Th>
-                        <Button _hover={{ bg: "#9CB4CC" }} onClick={onOpen}>Assign</Button>
+                        <Button _hover={{ bg: "#9CB4CC" }} onClick={onOpen} id={currentTicket._id} >Assign</Button>
                       </Th>
                     </Tr>
                 </Tbody>
@@ -202,7 +251,7 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                         options={[
                           {
                             label: "Staff",
-                            options: studentOrder
+                            options: staffOrder
                           }
                         ]}
                         placeholder="Select student"
@@ -226,13 +275,21 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                         options={[
                           {
                             label: "Students",
-                            options: staffOrder
+                            options: studentOrder
                           },
                         ]}
                         placeholder="Select student"
                         closeMenuOnSelect={false}
+
                       >
                       </Select>
+                        {/* <MultiSelect
+                          options={options}
+                          value={value}
+                          label='Choose or create an item'
+                          onChange={onChange}
+                          create
+                        /> */}
                     </FormControl>
                   </Container>
                 </ModalBody>
@@ -241,10 +298,11 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
                   <Button _hover={{ bg: "#9CB4CC" }} variant='ghost' mr={3} onClick={onClose}>
                     Cancel
                   </Button>
-                  <Button _hover={{ bg: "#9CB4CC" }} colorScheme='blue' onClick={assignTicket}>Submit</Button>
+                  <Button _hover={{ bg: "#9CB4CC" }} colorScheme='blue' onClick={updateTicketCall}>Submit</Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>
+
 
 
         <Heading as='h2' size='xl' mt={100} mb={5}>Closed Tickets</Heading>
@@ -253,17 +311,11 @@ export default function AllTickets ({ openTickets, closedTickets, students, staf
             <Tr variant='striped'>
               <Th>Ticket ID</Th>
               <Th>Customer</Th>
-              {/* <Th>Completed On</Th> */}
               <Th>Assigned Staff</Th>
               <Th>Assigned Students</Th>
               <Th>Reopen Ticket</Th>
             </Tr>
           </Thead>
-            {/* <Th>3</Th>
-            <Th>Peggy Potatoes</Th>
-            <Th>06/24/2022</Th>
-            <Th>Barry Cheung</Th>
-            <Th>Jessica Yu, Leia Harlow</Th> */}
             {
               closedTickets.map((currentTicket, i) => {
                 return (

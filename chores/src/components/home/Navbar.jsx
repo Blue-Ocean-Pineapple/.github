@@ -21,6 +21,7 @@ export function Navbar({ setIsAuth, role }) {
       borderBottomColor={useColorModeValue("gray.100", "gray.700")}
       mb={4}
       py={4}
+      backgroundColor='#4D96FF'
     >
       <HStack
         justifyContent="flex-end"
@@ -28,13 +29,13 @@ export function Navbar({ setIsAuth, role }) {
         mx="auto"
         spacing={4}
       >
-        <Navlink to="/" name="Home" size="lg" />
+        <Navlink to="/" name="Home" size="lg" backgroundColor='white' color='grey'  _hover={{bg:"#D3D3D3"}}/>
         <Spacer />
         {!currentUser && <Navlink to="/login" name="Login" />}
         {!currentUser && <Navlink to="/register" name="Register" />}
         {currentUser && <Navlink to="/profile" name="Profile" />}
         {currentUser && role === 'Admin' && <Navlink to="/admin" name="Admin" />}
-        {currentUser && role === 'Client' &&  <Navlink to="/customer" name="Customer" />}
+        {currentUser && role === 'Customer' &&  <Navlink to="/customer" name="Customer" />}
         {currentUser && role === 'Staff' && <Navlink to="/staff" name="Staff" />}
         {currentUser && role === 'Student' && <Navlink to="/student" name="Student" />}
         {currentUser && <Navlink to="/map" name="Map" />}

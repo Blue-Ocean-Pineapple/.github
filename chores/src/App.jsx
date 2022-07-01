@@ -15,10 +15,10 @@ import AuthContextProvider from "./contexts/AuthContext";
 
 function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  console.log("is Auth console", isAuth);
-  const roles = ['Student','Client', 'Staff', 'Admin'];
-  const [role, setRole] = useState(['Student','Client', 'Staff', 'Admin']);
-  console.log('role in App :', role);
+  // console.log("is Auth console", isAuth);
+  const roles = ['Student','Customer', 'Staff', 'Admin'];
+  const [role, setRole] = useState(['Student','Customer', 'Staff', 'Admin']);
+  // console.log('role in App :', role);
 
   return (
     // <AuthContextProvider>
@@ -47,6 +47,4 @@ function App(props) {
     <Staff />
   );
 }
-
-
 export default App;

@@ -22,7 +22,7 @@ export default function AllStaff ({ staff }) {
     // console.log('howdy delete?', e.target.getAttribute("id"));
     let obj = staff.find(obj => obj._id === e.target.getAttribute("id"));
     // console.log('obj??', obj);
-    axios.put('/staff/addStaffOrStudent', obj)
+    axios.put('/staff/addStaffOrStud', obj)
     .then((response) => {
       console.log('response data:', response);
     })

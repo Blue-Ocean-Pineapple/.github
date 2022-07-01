@@ -5,8 +5,11 @@
    "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "approved",
+    "reacts": ["test5", "test6"],
     "taskName": "Dog Walk",
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": []
   },
   {
     "clientName": "momma",
@@ -15,8 +18,77 @@
      "creatorId": "2",
      "clientStatus": "approved",
      "taskName": "Washing Dishes",
-     "coordinates": {"lat":34.041451,"lng":-118.232719}
+     "coordinates": {"lat":34.041451,"lng":-118.232719},
+     "staffId": "test2",
+     "studentId": ["test1","test5"]
    },
+   {
+    "clientName": "JOE",
+    "address": "1725 Naud St, Los Angeles, CA 90012",
+    "description": "Clean the garage",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Clean Garage",
+     "coordinates": {"lat":34.068630,"lng":-118.226631},
+     "staffId": "test2",
+     "studentId": ["test6"]
+   },
+   {
+    "clientName": "Reala",
+    "address": "900 Wilshire Blvd fl 71, Los Angeles, CA 90017",
+    "description": "Feed dog three scoops of kibble",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Feed dog",
+     "coordinates": {"lat":34.050090,"lng":-118.260330},
+     "staffId": "test2",
+     "studentId": ["test5"]
+   },
+   {
+    "clientName": "Mat",
+    "address": "114 E 2nd St, Los Angeles, CA 90012",
+    "description": "Wash dishes",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Washing Dishes",
+     "coordinates": {"lat":34.050499,"lng":-118.244049},
+     "staffId": "test2",
+     "studentId": ["test7","test5"]
+   },
+   {
+    "clientName": "Tree",
+    "address": "3901 W 6th St, Los Angeles, CA 90020",
+    "description": "test",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Test",
+     "coordinates": {"lat":34.063690,"lng":-118.308240},
+     "staffId": "test2",
+     "studentId": ["test7"]
+   },
+   {
+    "clientName": "Mojojojo",
+    "address": "2132 E 7th Pl, Los Angeles, CA 90021",
+    "description": "test",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Test",
+     "coordinates": {"lat":34.033510,"lng":-118.228680},
+     "staffId": "test2",
+     "studentId": ["test6","test5"]
+   },
+   {
+    "clientName": "Rocky",
+    "address": "10100 Constellation Blvd, Los Angeles, CA, United States",
+    "description": "test",
+     "creatorId": "2",
+     "clientStatus": "approved",
+     "taskName": "Test",
+     "coordinates": {"lat":34.05839157104492,"lng":-118.41632843017578},
+     "staffId": "test2",
+     "studentId": ["test1"]
+   },
+
   {
     "clientName": "your",
     "taskName": "Dog walking",
@@ -24,24 +96,24 @@
     "description": "Walk dog around neighborhood",
     "creatorId": "1",
     "clientStatus": "complete",
-    "taskName": "Dog Walk",
     "complete": true,
-    "studentId": "1",
-    "coordinates": {"lat":34.041451,"lng":-118.232719}
+    "coordinates": {"lat":34.041451,"lng":-118.232719},
+    "staffId": "test2",
+    "studentId": ["test7"]
 
   },
   {
     "clientName": "Mark Johnson",
-    "address": "123 Fake street",
     "taskName": "Lawn mowing",
     "location": "sesame street",
     "description": "Mow the lawn",
      "creatorId": "1",
      "clientStatus": "approved",
      "complete": true,
-     "studentId": "2",
      "address": "21 E 7th Pl, Los Angeles, CA 90021",
-     "coordinates": {"lat":34.068630,"lng":-118.226631}
+     "coordinates": {"lat":34.068630,"lng":-118.226631},
+     "staffId": "test2",
+     "studentId": ["test1"]
    },
    {
     "clientName": "Mark Johnson",
@@ -52,8 +124,9 @@
     "clientStatus": "complete",
     "complete": true,
     "creatorId": 23,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Mark Rehab",
@@ -64,8 +137,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 23,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -76,8 +150,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 90,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -88,8 +163,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 2031,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -100,8 +176,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 3421,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -112,8 +189,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 9402,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -124,8 +202,9 @@
     "clientStatus": "approved",
     "complete": false,
     "creatorId": 43221,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -136,8 +215,9 @@
     "clientStatus": "in-progress",
     "complete": false,
     "creatorId": 25,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -148,8 +228,9 @@
     "clientStatus": "complete",
     "complete": true,
     "creatorId": 5921,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    },
    {
     "clientName": "Markie Thomas",
@@ -160,7 +241,8 @@
     "clientStatus": "complete",
     "complete": true,
     "creatorId": 23912,
-    "studentId": 5,
-    "coordinates": {"lat":34.048859,"lng":-118.251343}
+    "coordinates": {"lat":34.048859,"lng":-118.251343},
+    "staffId": "test2",
+    "studentId": ["test5"]
    }
 ]

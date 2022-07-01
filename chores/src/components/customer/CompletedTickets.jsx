@@ -12,8 +12,8 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-function Ticket() {
-  const [toggle, setToggle] = useState(false);
+function CompletedTickets() {
+  const [toggle, setToggle] = useState(true);
   const [tickets, setTickets] = useState([]);
   const [completed, setCompleted] = useState([]);
   const [showForm, toggleForm] = useState(false);
@@ -80,9 +80,10 @@ function Ticket() {
 
   return (
     <div>
-      {toggle === false ? (
-      <Box bg="#6BCB77" m={5} mx="auto"  border="1px solid" borderColor='#6BCB77' width="90vw" borderRadius="10">
+      {toggle === true ? (
+      <Box bg="#6BCB77" mt={10} mx="auto"  border="1px solid" borderColor='#6BCB77' width="90vw" borderRadius="10">
         <TableContainer>
+        {/* <Box m={3} ><Button colorScheme='red' onClick={handleToggleFalse}>Show In Progress</Button></Box> */}
           <Table variant='striped'>
             <Thead>
               <Tr>
@@ -91,32 +92,16 @@ function Ticket() {
                 <Th>description</Th>
                 <Th>location</Th>
                 <Th>status</Th>
-                <Th>modify</Th>
-                <Th>delete</Th>
               </Tr>
             </Thead>
             <Tbody>
-            {tickets.map((ticket, index) => (
+            {completed.map((complete, index) => (
               <Tr>
                 <Td>{index+1}</Td>
-                <Td>{ticket.taskName}</Td>
-                <Td>{ticket.description}</Td>
-                <Td>{ticket.address}</Td>
-                <Td>{ticket.clientStatus}</Td>
-                <Td>
-                  <Button colorScheme='blue' onClick={
-                    () => {
-                    let updatedDefinition = prompt('Enter new definition')
-                    let updatedLocation = prompt('Enter new location')
-                    handleChange(ticket.description, ticket._id, ticket.address, updatedDefinition, updatedLocation);
-                    }
-                    }>Modify</Button>
-                </Td>
-                <Td>
-                  <Button colorScheme='blue' onClick={() => {
-                    handleDelete(ticket._id);
-                    }}>Delete</Button>
-                </Td>
+                <Td>{complete.taskName}</Td>
+                <Td>{complete.description}</Td>
+                <Td>{complete.address}</Td>
+                <Td>{complete.clientStatus}</Td>
               </Tr>
             ))}
             </Tbody>
@@ -130,4 +115,4 @@ function Ticket() {
   );
 }
 
-export default Ticket;
+export default CompletedTickets;

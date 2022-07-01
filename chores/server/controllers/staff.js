@@ -13,7 +13,7 @@ module.exports = {
     },
 
     getAllUsers: function(req, res) {
-      // console.log('getAllUsers data?', req);
+    //   console.log('getAllUsers data?', req);
         model.getAllUsers(req, (err, results) => {
             if (err) {
                 res.status(500).send(err);
@@ -62,6 +62,28 @@ module.exports = {
         model.deactivateStudentOrStaff(req.body, (err, results) => {
             console.log('deactivateStudentOrStaff data?', results);
             if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(results);
+          }
+        });
+    },
+
+    updateTicketComplete: function(req, res) {
+        model.updateTicketComplete(req.body, (err, results) => {
+            console.log('updateTicket data?', results);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+          });
+      },
+
+    deactivateStudent: function(req, res) {
+        model.deactivateStudent(req.body, (err, results) => {
+            console.log('deactivateStudent data?', results);
+            if (err) {
                 res.status(500).send(err);
             } else {
                 res.status(200).send(results);
@@ -79,6 +101,17 @@ module.exports = {
             }
           });
     },
+
+    getStudentName: (req, res) => {
+        model.getStudentName(req.body.studentId)
+        .then((data) =>  res.send(data[0].name).status(200))
+        .catch((err) => res.send(err).status(404))
+    },
+    getStaffName: (req, res) => {
+        model.getStaffName(req.body.staffId)
+        .then((data) => res.send(data[0].name).status(200))
+        .catch((err) => res.send(err).status(404))
+    }
 //deactivate,
 //update, and add student are the same post request?
 }
