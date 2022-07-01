@@ -14,11 +14,7 @@ import { Tr, Td } from "@chakra-ui/react";
 // wage: 100
 // __v: 0
 // _id: "62bc7959527af4f7b97dac46"
-export default function StudentTicket({
-  ticket,
-  voteDownTicket,
-  voteUpTicket,
-}) {
+export default function StudentTicket({ ticket }) {
   return (
     <Tr>
       <Td>{ticket.creatorId}</Td>
