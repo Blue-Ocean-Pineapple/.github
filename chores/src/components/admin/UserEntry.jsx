@@ -19,6 +19,7 @@ export default function UserEntry(props) {
     axios.delete(`http://localhost:3001/api/admin/delete/`, {data: {email: user}})
     .then((response) => {
       console.log('deleted')
+      window.location.reload(false);
     })
     .catch((err) => console.log(err))
   }
