@@ -9,6 +9,7 @@ import {
   Td,
   TableContainer,
   Button,
+  Box,
 } from '@chakra-ui/react';
 
 function Ticket() {
@@ -81,7 +82,6 @@ function Ticket() {
     <div>
       {toggle === false ? (
       <TableContainer>
-        <Button colorScheme='blue' onClick={handleToggleTrue}>Show Completed</Button>
         <Table variant='striped'>
           <Thead>
             <Tr>
@@ -124,7 +124,7 @@ function Ticket() {
 
       ) :
       <TableContainer>
-        <Button colorScheme='red' onClick={handleToggleFalse}>Show In Progress</Button>
+        <Box m={3} ><Button colorScheme='red' onClick={handleToggleFalse}>Show In Progress</Button></Box>
         <Table variant='striped'>
           <Thead>
             <Tr>
