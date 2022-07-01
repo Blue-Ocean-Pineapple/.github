@@ -11,6 +11,8 @@ import {
 
 export default function UserEntry(props) {
 
+  const [act, setAct] = useState('Inactive');
+
   const remove = (user) => {
     let test = {email: user}
     console.log(test)
@@ -21,12 +23,18 @@ export default function UserEntry(props) {
     .catch((err) => console.log(err))
   }
 
+  const activate = () => {
+      setAct('Active')
+
+  }
+
   return (
   <ChakraProvider>
           <Tr>
           <Td>{props.firstName} {props.lastName}</Td>
           <Td>{props.organization}</Td>
           <Td>{props.role}</Td>
+          <Td><Button onClick={() => activate()}>{act}</Button></Td>
           <Td><Button onClick={() => remove(props.email)}>Delete User</Button></Td>
 
         </Tr>

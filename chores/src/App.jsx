@@ -15,14 +15,14 @@ import AuthContextProvider from "./contexts/AuthContext";
 
 function App(props) {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  console.log("is Auth console", isAuth);
-  const roles = ['Student','Client', 'Staff', 'Admin'];
-  const [role, setRole] = useState(['Student','Client', 'Staff', 'Admin']);
-  console.log('role in App :', role);
+  // console.log("is Auth console", isAuth);
+  const roles = ['Student','Customer', 'Staff', 'Admin'];
+  const [role, setRole] = useState(['Student','Customer', 'Staff', 'Admin']);
+  // console.log('role in App :', role);
 
   return (
     <AuthContextProvider>
-      <Router>
+     <Router>
       <Navbar setIsAuth={setIsAuth} role={role}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -36,17 +36,14 @@ function App(props) {
             element={!isAuth ? <Register setIsAuth={setIsAuth} /> : <Home />}
           />
           <Route path="/profile" element={ <Profile role={role} setRole={setRole} roles={roles}/> } />
-          <Route path="/admin" element={isAuth && role === 'Admin' ?  <Admin /> : <Login />}/>
-          <Route path="/customer" element={isAuth && role === 'Client' ?  <Customer />  : <Login />}/>
-          <Route path="/staff" element={isAuth && role === "Staff" ?  <Staff /> : <Login />}/>
-          <Route path="/student" element={isAuth && role === "Student" ?  <Student /> : <Login /> }/>
+          <Route path="/admin" element={isAuth ?  <Admin /> : <Login />}/>
+          <Route path="/customer" element={isAuth ?  <Customer />  : <Login />}/>
+          <Route path="/staff" element={isAuth ?  <Staff /> : <Login />}/>
+          <Route path="/student" element={isAuth ?  <Student /> : <Login /> }/>
           <Route path="/map" element={isAuth ? <Map /> : <Login />} />
         </Routes>
       </Router>
     </AuthContextProvider>
-
   );
 }
-
-
 export default App;

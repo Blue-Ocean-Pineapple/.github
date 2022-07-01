@@ -35,7 +35,7 @@ export function Navbar({ setIsAuth, role }) {
         {!currentUser && <Navlink to="/register" name="Register" />}
         {currentUser && <Navlink to="/profile" name="Profile" />}
         {currentUser && role === 'Admin' && <Navlink to="/admin" name="Admin" />}
-        {currentUser && role === 'Client' &&  <Navlink to="/customer" name="Customer" />}
+        {currentUser && role === 'Customer' &&  <Navlink to="/customer" name="Customer" />}
         {currentUser && role === 'Staff' && <Navlink to="/staff" name="Staff" />}
         {currentUser && role === 'Student' && <Navlink to="/student" name="Student" />}
         {currentUser && <Navlink to="/map" name="Map" />}
@@ -60,6 +60,10 @@ export function Navbar({ setIsAuth, role }) {
           aria-label="toggle-dark-mode"
         />
       </HStack>
+
+      
     </Box>
+
+
   );
 }

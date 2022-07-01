@@ -11,13 +11,10 @@ const config = {
 
 const theme = extendTheme({
   config,
-  styles: {
-    global: (props) => ({
-      body: {
-        bg: 'white'
-      }
-    })
-  }
+  fonts: {
+    heading: `'Open Sans', sans-serif`,
+    body: `'Open Sans', sans-serif`
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

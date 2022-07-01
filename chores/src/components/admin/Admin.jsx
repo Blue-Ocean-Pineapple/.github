@@ -16,7 +16,17 @@ import {
   TableContainer,
   Flex,
   Text,
+  Stack,
+  StackDivider,
+  Icon,
+  useColorModeValue,
+  chakra,
+  Link,
+  VisuallyHidden,
+  Container
 } from "@chakra-ui/react";
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { ReactNode } from 'react';
 
 export default function Admin(props) {
   const [admin, setAdmin] = useState([]);
@@ -45,12 +55,43 @@ export default function Admin(props) {
       .catch((err) => console.log("error", err));
   }, []);
 
+  const SocialButton = ({
+    children,
+    label,
+    href,
+  }: {
+    children: ReactNode;
+    label: string;
+    href: string;
+  }) => {
+    return (
+      <chakra.button
+        bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+        rounded={'full'}
+        w={8}
+        h={8}
+        cursor={'pointer'}
+        as={'a'}
+        href={href}
+        display={'inline-flex'}
+        alignItems={'center'}
+        justifyContent={'center'}
+        transition={'background 0.3s ease'}
+        _hover={{
+          bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+        }}>
+        <VisuallyHidden>{label}</VisuallyHidden>
+        {children}
+      </chakra.button>
+    );
+  };
+
   return (
     <ChakraProvider bg="white">
       <Box bg="white" />
       <Flex justifyContent="center">
-        <Box borderWidth="1px" width="80vw" height="10vh" bg="#FF6B6B">
-          <Text textAlign="center" fontSize="4xl">
+        <Box borderWidth="1px" width="80vw" height="10vh" bg="#6BCB77">
+          <Text textAlign="center" fontSize="4xl" fontFamily=" 'Open Sans', sans-serif">
             Chores
           </Text>
         </Box>
@@ -61,16 +102,6 @@ export default function Admin(props) {
           flexDirection="row"
           justifyContent="center"
         >
-          {/* <Box
-            className="testBox"
-            borderWidth="1px"
-            width="0vw"
-            height="100px"
-            margin="20px"
-            bg="#74C1C4"
-          >
-            {/* <Text margin='10px' textDecoration='underline'>Type of Chore</Text> */}
-          {/* </Box> */}
           <Box className="tableBox" maxW="60vw" margin="20px">
             <Text textAlign="center">Tickets</Text>
             <TableContainer display="block" maxWidth="100%">
@@ -127,7 +158,7 @@ export default function Admin(props) {
                     <Th>User Name</Th>
                     <Th>Organization</Th>
                     <Th>Role</Th>
-                    <Th>Date</Th>
+                    <Th>Active</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
@@ -140,6 +171,7 @@ export default function Admin(props) {
                         id={data._id}
                         role={data.role}
                         email={data.email}
+                        active={data.active}
                       />
                     );
                   })}
@@ -149,6 +181,56 @@ export default function Admin(props) {
           </Box>
         </Flex>
       </Box>
+
+      <Box
+      bg={useColorModeValue('gray.50', 'gray.900')}
+      color={useColorModeValue('gray.700', 'gray.200')}>
+      <Container
+        as={Stack}
+        maxW={'6xl'}
+        py={4}
+        spacing={4}
+        justify={'center'}
+        align={'center'}>
+        {/* <Logo /> */}
+        <Stack direction={'row'} spacing={6}>
+          <Link href={'http://localhost:3000/'}>Home</Link>
+          <Link href={'http://localhost:3000/map'}>Map</Link>
+          <Link href={'http://localhost:3000/login'}>Login</Link>
+          <Link href={'http://localhost:3000/register'}>Register</Link>
+          <Link href={'http://localhost:3000/profile'}>Profile</Link>
+
+        </Stack>
+      </Container>
+
+      <Box
+        borderTopWidth={1}
+        borderStyle={'solid'}
+        borderColor={useColorModeValue('gray.200', 'gray.700')}>
+        <Container
+          as={Stack}
+          maxW={'6xl'}
+          py={4}
+          direction={{ base: 'column', md: 'row' }}
+          spacing={4}
+          justify={{ base: 'center', md: 'space-between' }}
+          align={{ base: 'center', md: 'center' }}>
+          <Text>© Pineapple Lovers</Text>
+          <Stack direction={'row'} spacing={6}>
+            <SocialButton label={'Twitter'} href={'#'}>
+              <FaTwitter />
+            </SocialButton>
+            <SocialButton label={'YouTube'} href={'#'}>
+              <FaYoutube />
+            </SocialButton>
+            <SocialButton label={'Instagram'} href={'#'}>
+              <FaInstagram />
+            </SocialButton>
+          </Stack>
+        </Container>
+      </Box>
+    </Box>
+
     </ChakraProvider>
   );
 }
