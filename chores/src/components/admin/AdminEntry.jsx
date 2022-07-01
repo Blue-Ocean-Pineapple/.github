@@ -24,6 +24,7 @@ export default function AdminEntry(props) {
   let buttonStatus = ["awaiting", "approved", "in-progress", "complete"];
 
   const status = (e) => {
+    console.log('hi')
     console.log(e.target.value);
     axios.put(`http://localhost:3001/api/staff/updateTicketStatus`, {
         clientStatus: e.target.value,

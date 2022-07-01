@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import AllStaff from "./pages/AllStaff";
 import AllStudents from "./pages/AllStudents";
 import AllTickets from "./pages/AllTickets";
 import {
-  ChakraProvider,
   Button,
-  Center,
   Box
 } from "@chakra-ui/react";
+
+export const changeContext = createContext();
 
 export default function Staff () {
   const [openTickets, setOpenTickets] = useState([]);
@@ -18,8 +18,9 @@ export default function Staff () {
   const [admin, setAdmin] = useState([]);
   const [customer, setCustomer] = useState([]);
   const [curPage, setCurPage] = useState('alltickets');
-
-
+  const [isChange, setIsChange] = useState(false);
+  const [currStatus, setCurrStatus] = useState('');
+  const [activate, setActivate] = useState(false);
 
   const getAllTickets = () => {
     let open = [];
@@ -50,7 +51,6 @@ export default function Staff () {
     axios
       .get("/staff/allStudents")
       .then((res) => {
-        console.log("all users res?", res.data);
         res.data.map((user) => {
           if (user.role === "Student") {
             students.push(user);
@@ -62,6 +62,7 @@ export default function Staff () {
             customers.push(user);
           }
         });
+
         setStudent(students);
         setStaff(staffs);
         setAdmin(admins);
@@ -75,7 +76,7 @@ export default function Staff () {
   useEffect(() => {
     getAllTickets();
     getAllUsers();
-  }, []);
+  }, [isChange, currStatus, activate]);
 
   const renderView=()=>{
    // eslint-disable-next-line default-case
@@ -87,13 +88,19 @@ export default function Staff () {
           openTickets={openTickets}
           closedTickets={closedTickets}
           staff={staff}
-          students={student} />
+          students={student}
+          isChange={isChange}
+          setChange={setIsChange}
+          currStatus={currStatus}
+          setStatus={setCurrStatus} />
         )
     case 'allstaff':
       return (
         <AllStaff
         setCurPage={setCurPage}
-        staff={staff} />
+        staff={staff}
+        activate={activate}
+        setActivate={setActivate}/>
       )
     case 'allstudents':
       return (
@@ -105,9 +112,9 @@ export default function Staff () {
   }
   return (
     <Box m={8} p={2}>
-        <Button  m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('alltickets')}>Tickets</Button>
-        <Button m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstaff')}>Staff</Button>
-        <Button m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstudents')}>Students</Button>
+        <Button  m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('alltickets')} >Tickets</Button>
+        <Button m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstaff')} >Staff</Button>
+        <Button m={3} p={2} _hover={{ bg: "#FFD93D" }} onClick={() => setCurPage('allstudents')} >Students</Button>
         {renderView()}
     </Box>
   );

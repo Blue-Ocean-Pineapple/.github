@@ -60,6 +60,10 @@ export function Navbar({ setIsAuth, role }) {
           aria-label="toggle-dark-mode"
         />
       </HStack>
+
+      
     </Box>
+
+
   );
 }
