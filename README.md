@@ -81,14 +81,20 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
  -->
 ## Contact
 
-Barry Cheung | | barryleecheung@gmail.com
+* Software Engineer: Barry Cheung
+[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/barrylcheung/)](https://www.linkedin.com/in/barrylcheung/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/bleecheung)](https://github.com/bleecheung)
 
-Brian Bui | | brianbui012@gmail.com
+* Software Engineer: Brian Bui 
+[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/bribui/)](https://www.linkedin.com/in/bribui/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/brianbui012)](https://github.com/brianbui012)
 
-Esther Kuang | | eghkuang@gmail.com
+* Software Engineer + Product Manager: Esther Kuang  
+[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/estherkuang/)](https://www.linkedin.com/in/estherkuang/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/eghkuang)](https://github.com/eghkuang)
 
-Jessica Yu | https://www.linkedin.com/in/jessicaleyu/ | yulejessica@gmail.com
+* Software Engineer : Jessica Yu 
+[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/elliot-landon/)](https://www.linkedin.com/in/elliot-landon/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/ElliotLandon)](https://github.com/ElliotLandon)
 
-Leia Harlow | | leia.harlow@gmail.com
+* Software Engineer : Leia Harlow 
+[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/leia-harlow/)](https://www.linkedin.com/in/leia-harlow/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/leiaHarlow)](https://github.com/leiaHarlow)
 
-Peggy Tran | | peggypotatoes@gmail.com
+* Software Engineer : Peggy Tran 
+[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/peggytran/)](https://www.linkedin.com/in/peggytran/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/pegaatron)](https://github.com/pegaatron)
