@@ -71,14 +71,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 ![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white)
 
-<!-- ## Table of Contents
 
-- [Description](#description)
-- [Installation](#start)
-- [Usage](#usage)
-- [Acknowledgments](#acknowledgments)
-- [Contact](#contact)
- -->
 ## Contact
 
 * Software Engineer: Barry Cheung
