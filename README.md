@@ -42,7 +42,23 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Components
 
+
+### Register + Sign in + Profile + Logout
+User can sign in and up a new account via email/Password or Google or Facebook.User can add additional information on profile page. User will only be directed to their role path depending on their particular role. 
+User can log out their account via logout. 
+
+### Customer
+
+
+### Staff
+
+
+### Admin
+
+
+### Student
 ## Technologies used
 
 ### **Set-up and Workflow**
