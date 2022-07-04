@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./App.jsx";
 import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
 // import {  MultiSelectTheme } from 'chakra-multiselect'
 import { mode } from "@chakra-ui/theme-tools";
