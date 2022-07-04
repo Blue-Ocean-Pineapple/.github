@@ -1,9 +1,4 @@
 # Chores
-## Introduction
-Chores is an on demand housework application for teenagers. 
-Think Uber, but for getting your dishes done, or your lawn mowed! Help contribute to a childs future education!
-We give kids a safe and productive envirionment to stay focused in. Our goal is to promote child wellness while helping students stay busy!
-
 
 ## Getting Started
 MAKE SURE TO cd into chores folder(with no capitalized c)
