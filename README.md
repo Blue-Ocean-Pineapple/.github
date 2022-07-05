@@ -100,7 +100,7 @@ User can log out their account via logout.
 [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/estherkuang/)](https://www.linkedin.com/in/estherkuang/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/eghkuang)](https://github.com/eghkuang)
 
 * Software Engineer : Jessica Yu 
-[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/elliot-landon/)](https://www.linkedin.com/in/elliot-landon/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/ElliotLandon)](https://github.com/ElliotLandon)
+[![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/jessicaleyu/)](https://www.linkedin.com/in/jessicaleyu/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/yulejessica)](https://github.com/yulejessica)
 
 * Software Engineer : Leia Harlow 
 [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/leia-harlow/)](https://www.linkedin.com/in/leia-harlow/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/leiaHarlow)](https://github.com/leiaHarlow)
