@@ -110,7 +110,7 @@ Student profiles require approval from a staff member before they can be used.
 * Software Engineer: Brian Bui 
 [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/bribui/)](https://www.linkedin.com/in/bribui/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/brianbui012)](https://github.com/brianbui012)
 
-* Software Engineer + Product Manager: Esther Kuang  
+* Software Engineer : Esther Kuang  
 [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/estherkuang/)](https://www.linkedin.com/in/estherkuang/) &emsp; [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/eghkuang)](https://github.com/eghkuang)
 
 * Software Engineer : Jessica Yu 
