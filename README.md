@@ -50,15 +50,29 @@ User can sign in and up a new account via email/Password or Google or Facebook.U
 User can log out their account via logout. 
 
 ### Customer
-
+We need a secure app, where customers can login and submit a ticket for the type of work they need done.
+Once their ticket is submitted they should get a confirmation that it was submitted, and see a screen with all of their open tickets along with their status (e.g. awaiting approval, approved, in-progress).
+They should also have a button that shows all of their completed tickets.
+Anyone can create a customer account.
 
 ### Staff
+Staff has a more administrative role, and will have the most tools.
+Staff will approve submitted tickets from customers, and assign student(s) and at least 1 staff member to each ticket to move it into “in-progress” status. They will also be in charge of moving the status to complete.
+Staff will also be able to invite or approve student profiles, and also deactivate any existing student profile.
+Staff profiles should require an invite or approval from other staff members, or from an admin.
 
 
 ### Admin
+An admin role would consist of core staff members (managers).
+The admin should be able to delete any of the other account types, modify open tickets, and invite/approve staff/student accounts.
 
 
 ### Student
+The students should be able to login and see approved tickets and be able to vote (a heart, star, or thumbs up icon) on the tickets they would like to volunteer for.
+They should also be able to see tickets that a staff member has assigned them to.
+Students should also be able to see the history of tickets they completed.
+Student profiles require approval from a staff member before they can be used.
+
 ## Technologies used
 
 ### **Set-up and Workflow**
